@@ -548,7 +548,7 @@ input.arabic
 {
     width: 20px;
 height: 20px;
-margin-top: -290px;
+margin-top: -250px;
 margin-left: 765px;
 border-radius: 3px;
 background-color: #621dce;
@@ -567,12 +567,88 @@ input.spanish
 {
     width: 20px;
 height: 20px;
-margin-top: -290px;
+margin-top: -250px;
 margin-left: 765px;
 border-radius: 3px;
 background-color: #621dce;
 }
 p.spanish
+{
+    font-size: 16px;
+margin-left: 800px;
+margin-top: -25px;
+line-height: 23px;
+color: #8a8a8a;
+font-weight: 300;
+font-family: "Poppins";;
+}
+input.english
+{
+    width: 20px;
+height: 20px;
+margin-top: -250px;
+margin-left: 765px;
+border-radius: 3px;
+background-color: #621dce;
+}
+p.english
+{
+    font-size: 16px;
+margin-left: 800px;
+margin-top: -25px;
+line-height: 23px;
+color: #8a8a8a;
+font-weight: 300;
+font-family: "Poppins";;
+}
+input.french
+{
+    width: 20px;
+height: 20px;
+margin-top: -250px;
+margin-left: 765px;
+border-radius: 3px;
+background-color: #621dce;
+}
+p.french
+{
+    font-size: 16px;
+margin-left: 800px;
+margin-top: -25px;
+line-height: 23px;
+color: #8a8a8a;
+font-weight: 300;
+font-family: "Poppins";;
+}
+input.rusion
+{
+    width: 20px;
+height: 20px;
+margin-top: -250px;
+margin-left: 765px;
+border-radius: 3px;
+background-color: #621dce;
+}
+p.rusion
+{
+    font-size: 16px;
+margin-left: 800px;
+margin-top: -25px;
+line-height: 23px;
+color: #8a8a8a;
+font-weight: 300;
+font-family: "Poppins";;
+}
+input.hebrew
+{
+    width: 20px;
+height: 20px;
+margin-top: -250px;
+margin-left: 765px;
+border-radius: 3px;
+background-color: #621dce;
+}
+p.hebrew
 {
     font-size: 16px;
 margin-left: 800px;

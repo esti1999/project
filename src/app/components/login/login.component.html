@@ -1,101 +1,73 @@
+<div class="header-img"></div>
 
-<html>
-<head>
-<style>
+<div class="section first-section">
+    <h2 class="title">מידע אישי למתנדב</h2>
+    <div class="row prograph">
+        <div class="col-6">
+            <h6>מידע אישי</h6>
+            <input class="form-control" placeholder="שם פרטי"/>
+            <input class="form-control" placeholder="מספר זהות"/>
+            <input class="form-control" placeholder="כתובת אימייל"/>
+            <input class="form-control" placeholder="מספר טלפון"/>
 
-</style>
-</head>
-<body>
-    <!-- סגול בהיר רקע דף -->
-    <div class="div1">
-    <div>
-        <!-- מלבן כתום לוגו -->
-        <nav class="nav1" dir="rtl" > 
-            <p class="we1">Logo</p>
-            <!-- כפתורי ניתוב -->
-            <button class="b1" dir="rtl" >logout</button>
-            <button class="b2" dir="rtl" >Asisted</button>
-            <button class="b3" dir="rtl" >Volunteer</button>
-            <button class="b4" dir="rtl" >Volunteering</button>
-        </nav>
+        </div>
+        <div class="col-6 second-col">
+            <input class="form-control" placeholder="שם משפחה"/>
+            <input type="date" class="form-control" placeholder="תאריך לידה"/>
+            <input class="form-control" placeholder="טלפון נוסף"/>
 
+            <select class="form-select form-control" aria-label="Default select example">
+                <option selected>בחר מין</option>
+                <option value="2">זכר</option>
+                <option value="3">נקבה</option>
+              </select>
+        </div>
     </div>
-    <!-- תמונה -->
-    <div class="div2"><img src="pic2.jpg"  width="1759" height="509"></div> 
-   <!-- פס כתום דק -->
-    <div class="div3"> 
-        <!-- מלבן לבן עליון -->
-        <div class="div4">
-            <!-- כותרת -->
-            <div class="vinfo"><p class="info1">volunteer personal information</p></div><br>
-            <!-- תת כותרת -->
-            <div class="titel"></div>
-            <div class="titel1">
-                <p class="personal_info">Personal Inpormation:</p>
-                <input  placeholder="First Name" class="first_name">
-                <input placeholder="Phon Number" class="phon_number">
-                <input placeholder="Last Name" class="last_name">
-                <input placeholder="ID Number" class="id_number">
-                <input placeholder="Email Address" class="email_address">
-                <input placeholder="Mobail Number" class="mobail_number">
-                <input placeholder="DD/MM/YYY" class="date">
-                <select name="gender">
-                    <option>זכר</option>
-                    <option>נקבה</option>
-                </select>
-            </div>
-           
-                <p class="address">Address:</p>
-                <input placeholder="Apartment Number" class="apartment"> 
-                <input placeholder="Street" class="street">   
-                <input placeholder="Floor" class="floor">
-                <input placeholder="House Number" class="house">
-                <input placeholder="City" class="city">
-                <input placeholder="Postal Code" class="postal">
-           
-           
-                <p class="celphone_type">Celphone Type:</p>
-                <input type="radio" class="radio_sms">
-                <p class="sms">SMS</p>
-                <input type="radio" class="radio_whatapp">
-                <p class="whatapp">WhatApp</p>
-                <input type="radio" class="radio_kosher">
-                <p class="kosher">Kosher</p>
 
+    <div class="row prograph">
+        <div class="col-6">
+            <h6>כתובת</h6>
+            <input class="form-control" placeholder="מספר דירה"/>
+            <input class="form-control" placeholder="רחוב"/>
+            <input class="form-control" placeholder="קומה"/>
 
-                <p class="shabat">Shabat Kiper:</p>
-                <input type="radio" class="radio_yes">
-                <p class="yes">Yes</p>
-                <input type="radio" class="radio_no">
-                <p class="no">No</p>
+        </div>
+        <div class="col-6 second-col">
+            <input class="form-control" placeholder="מספר בית"/>
+            <input class="form-control" placeholder="עיר"/>
+            <input class="form-control" placeholder="מיקוד"/>
+        </div>
+    </div>
+    <div class="row prograph">
 
+        <div class="col">
 
-                <p class="languages">Languages:</p>
-                <input type="checkbox" class="arabic">
-                <p class="arabic">Arabic</p>
-                <input type="checkbox" class="spanish">
-                <p class="spanish">Spanish</p>
-                <input type="checkbox" class="english">
-                <p class="english">English</p>
-                <input type="checkbox" class="french">
-                <p class="french">French</p>
-                <input type="checkbox" class="rusion">
-                <p class="rusion">Rusion</p>
-                <input type="checkbox" class="hebrew">
-                <p class="hebrew">Hebrew</p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="rd_1" name="rd" class="custom-control-input" value="Yes">
+                <label class="custom-control-label green" for="rd_1">Yes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="rd_2" name="rd" class="custom-control-input" value="No">
+                <label class="custom-control-label red" for="rd_2">No</label>
+              </div>
 
-            
-            
+            <label>סוג טלפון</label>
+            <label>SMS</label>
+            <input type="radio" name="phone-type"/>
+            <label>WhatApp</label>
+            <input type="radio" name="phone-type"/>
+            <label>כשר</label>
+            <input type="radio" name="phone-type"/>
         </div>
 
     </div>
-    <!-- מלבן לבן אמצעי -->
-    <div class="div5"></div>
-    <!-- מלבן לבן תחתון -->
-    <div class="div6"></div>
-    <!-- עיגול סגול -->
-    <div class="bord"  ></div>
+    
 </div>
-</body>
 
-</html>
+<div class="section">
+
+</div>
+
+<div class="section">
+
+</div>

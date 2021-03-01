@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    direction: rtl!important;
+    text-align: right;
+}
+:root{
+    overflow-x: hidden;
+}
+/* *::-webkit-scrollbar {
+    width: 0em;
+} */

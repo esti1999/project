@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 //import components
 import { LoginComponent } from './components/login/login.component';
 import { AssistedComponent } from './assisted/assisted.component';
+import { VolunteerComponent } from './components/volunteer/volunteer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AssistedComponent
+    AssistedComponent,
+    VolunteerComponent
   ],
   imports: [
     BrowserModule,

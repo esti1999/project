@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { AssistedComponent } from './assisted/assisted.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
+import { VolunteeringDomainComponent } from './components/volunteering-domain/volunteering-domain.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AssistedComponent,
-    VolunteerComponent
+    VolunteerComponent,
+    VolunteeringDomainComponent
   ],
   imports: [
     BrowserModule,

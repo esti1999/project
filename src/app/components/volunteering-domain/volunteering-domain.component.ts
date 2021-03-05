@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
+import { VolunteeringDomain } from '../../classes/volunteering-domain'
 
 @Component({
   selector: 'app-volunteering-domain',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolunteeringDomainComponent implements OnInit {
 
-  constructor() { }
+  newVolunteeringDomain: VolunteeringDomain = new VolunteeringDomain();
+  constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
   }

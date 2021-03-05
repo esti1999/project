@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { Volunteer } from '../../classes/volunteer';
 
 @Component({
   selector: 'app-volunteer',
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./volunteer.component.css']
 })
 export class VolunteerComponent implements OnInit {
-
+  newVolunteer: Volunteer = new Volunteer();
   constructor(private apiService:ApiService) { }
 
   ngOnInit(){

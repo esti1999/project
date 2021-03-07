@@ -11,7 +11,10 @@ import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { VolunteeringDomainComponent } from './components/volunteering-domain/volunteering-domain.component';
 
 // import services
+import { ApiService } from './services/api.service';
 import { AssistedService } from './services/assisted.service';
+import { VolunteerService } from './services/volunteer.service';
+import { VolunteeringDomainService } from './services/volunteering-domain.service';
 
 
 @NgModule({
@@ -27,7 +30,7 @@ import { AssistedService } from './services/assisted.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [AssistedService],
+  providers: [ApiService, AssistedService, VolunteerService, VolunteeringDomainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

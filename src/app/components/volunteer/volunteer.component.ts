@@ -8,7 +8,7 @@ import { Volunteer } from '../../classes/volunteer';
   styleUrls: ['./volunteer.component.css']
 })
 export class VolunteerComponent implements OnInit {
-  newVolunteer: Volunteer = new Volunteer();
+  // newVolunteer: Volunteer = new Volunteer();
   constructor(private apiService:ApiService) { }
 
   ngOnInit(){
@@ -18,5 +18,5 @@ export class VolunteerComponent implements OnInit {
       console.log("my data",data)
     });
   }
-
+ 
 }

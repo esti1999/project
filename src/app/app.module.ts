@@ -10,6 +10,10 @@ import { AssistedComponent } from './components/assisted/assisted.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { VolunteeringDomainComponent } from './components/volunteering-domain/volunteering-domain.component';
 
+// import services
+import { AssistedService } from './services/assisted.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,7 @@ import { VolunteeringDomainComponent } from './components/volunteering-domain/vo
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AssistedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

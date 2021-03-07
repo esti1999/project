@@ -12,8 +12,8 @@ export class AssistedService {
   url:string = "http://localhost:59782/api/assisted"
   constructor(private http: HttpClient) { }
 
-  add(a:Assisted):Observable<Array<Assisted>>{
-    return this.http.put<Array<Assisted>>(this.url+"/add", a)
+  add():Observable<Array<Assisted>>{
+    return this.http.put<Array<Assisted>>(this.url+"/add", this.Assisted)
   }
   
 }

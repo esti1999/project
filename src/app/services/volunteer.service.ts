@@ -8,11 +8,11 @@ import { Volunteer } from '../classes/volunteer';
 })
 export class VolunteerService {
    listVolunteer:Array<Volunteer> = new Array<Volunteer>()
-   volunteer:Volunteer = new Volunteer();
+   Volunteer:Volunteer = new Volunteer();
    url:string = "http://localhost:59782/api/volunteer"
    constructor(private http:HttpClient) { }
 
-   add(v:Volunteer):Observable<Array<Volunteer>>{
-     return this.http.put<Array<Volunteer>>(this.url+"/add", v)
+   add():Observable<Array<Volunteer>>{
+     return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
    }
 }

@@ -6,9 +6,10 @@
         <div class="col-6">
             <h6>תחומים</h6>
             <select class="form-select form-control" aria-label="Default select example">
-                <option selected>רב</option>
+                <!-- <option selected>רב</option>
                 <option value="2">שלום בית</option>
-                <option value="3">מורה הוראה</option>
+                <option value="3">מורה הוראה</option> -->
+                <option *ngFor="let item of list">{{item.description}}</option>
             </select>
             <select class="form-select form-control" aria-label="Default select example">
                 <option selected>עורך דין</option>

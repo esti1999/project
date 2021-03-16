@@ -13,7 +13,7 @@ export class AssistedService {
   constructor(private http: HttpClient) { }
 
   add():Observable<Array<Assisted>>{
-    return this.http.put<Array<Assisted>>(this.url+"/add", this.Assisted)
+    return this.http.post<Array<Assisted>>(this.url+"/addAssisted", this.Assisted)
   }
   
 }

@@ -19,7 +19,7 @@ export class AssistedComponent implements OnInit {
     // });
   }
   add(){
-    this.Assisted.add().subscribe(data=>{this.Assisted.listAssisted = data;
+    this.Assisted.add().subscribe(data=>{this.Assisted.listAssisted = data
     alert("הרשמתך בוצעה בהצלחה")})
     this.Assisted.Assisted = new Assisted();
   }

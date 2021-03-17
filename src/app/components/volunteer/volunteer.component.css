@@ -1,14 +1,14 @@
 .header-img
 {
-    height: 40vh;
-    width: 100vw;
+    height: 100vh;
+    width: 100%;
     background-image: url('../../../assets/images/2.png');
     margin-bottom: 100vh;
 }
 .section{
     border-radius: 10px;
     padding: 90px;
-    margin:80px 180px;
+    margin: 80px 180px;
     background-color: white;
     border-top: 5px solid #e65d13;
 }
@@ -36,11 +36,11 @@
     color: #fff;
     border-color: #7B1FA2;
     vertical-align: top;
-  }
+ }
   
-  .custom-control-input:checked~.custom-control-label.purple::before {
+.custom-control-input:checked~.custom-control-label.purple::before {
     background-color: #7B1FA2;
-  }
+}
 .inline-title{
     display: inline-block;
 }
@@ -53,10 +53,10 @@
 }
 .custom1
 {
-width: 150px;
-height: 30px;
-border-radius: 15px;
-background-color: #f5eeff;
-text-align: center;
-margin: 10px; 
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #f5eeff;
+    text-align: center;
+    margin-right: 25px;
 }

@@ -1,7 +1,7 @@
 .header-img
 {
     height: 40vh;
-    width: 100vw;
+    width: 100%;
     background-image: url('../../../assets/images/2.png');
     margin-bottom: 100vh;
 }
@@ -14,7 +14,7 @@
 }
 .first-section{
     border-top: 5px solid white!important;
-    position: absolute;
+    /* position: ; */
     top: 25vh;
     width: -webkit-fill-available;
 }

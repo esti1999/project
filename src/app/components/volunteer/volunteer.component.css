@@ -35,6 +35,7 @@
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
     border-color: #7B1FA2;
+    vertical-align: top;
   }
   
   .custom-control-input:checked~.custom-control-label.purple::before {
@@ -49,4 +50,13 @@
 }
 .button-wapper{
     text-align: left;
+}
+.custom1
+{
+width: 150px;
+height: 30px;
+border-radius: 15px;
+background-color: #f5eeff;
+text-align: center;
+margin: 10px; 
 }

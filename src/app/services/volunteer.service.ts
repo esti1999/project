@@ -2,17 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Volunteer } from '../classes/volunteer';
+import { Language } from '../classes/language';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VolunteerService {
-   listVolunteer:Array<Volunteer> = new Array<Volunteer>()
-   Volunteer:Volunteer = new Volunteer();
-   url:string = "http://localhost:59782/api/volunteer"
+
+  url:string = "http://localhost:59782/api/volunteer"
    constructor(private http:HttpClient) { }
 
-   add():Observable<Array<Volunteer>>{
-     return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
-   }
+  addValunteer(volunteer:Volunteer):Observable<boolean>{
+    return this.http.post<boolean>(this.url+"/addVolunteer", volunteer)
+  }
+
+  getLanguages():Observable<Array<Language>>{
+    return this.http.get<Array<Language>>(this.getLanguages+"/GetLanguages")
+  }
+
 }

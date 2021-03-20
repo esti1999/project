@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Language } from 'src/app/classes/language';
 import { ApiService } from 'src/app/services/api.service';
 import { VolunteerService } from 'src/app/services/volunteer.service';
 import { Volunteer } from '../../classes/volunteer';
@@ -9,20 +10,23 @@ import { Volunteer } from '../../classes/volunteer';
   styleUrls: ['./volunteer.component.css']
 })
 export class VolunteerComponent implements OnInit {
-  // newVolunteer: Volunteer = new Volunteer();
-  constructor(private Volunteer:VolunteerService) { }
+
+  volunteer: Volunteer;
+  languages:Array<Language>
+
+  constructor(private volunteerService:VolunteerService) { }
 
   ngOnInit(){
-    // this.apiService.login()
-    // .subscribe(data=>{
-    //   debugger;
-    //   console.log("my data",data)
-    // });
+    this.volunteerService.getLanguages().subscribe(data=>{
+      this.languages=data
+    })
   }
-  add(){
-    this.Volunteer.add().subscribe(data=>{this.Volunteer.listVolunteer = data
-    alert("הרשמתך בוצעה בהצלחה")})
-    this.Volunteer.Volunteer = new Volunteer();
+
+  addValunteer(){
+    this.volunteerService.addValunteer(this.volunteer).subscribe(data=>{
+      alert("הרשמתך בוצעה בהצלחה")
+    })
+    this.volunteer = new Volunteer();
   }
  
 }

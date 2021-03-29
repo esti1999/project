@@ -37,7 +37,7 @@
                 <option selected>בחר מין</option>
                 <option value="2">זכר</option>
                 <option value="3">נקבה</option>
-              </select>
+            </select>
         </div>
     </div>
 
@@ -112,6 +112,7 @@
             
         </div>
     </div>
+
    
     <div class="button-wapper">
         <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "addValunteer()"> רישום</button>
@@ -119,97 +120,138 @@
     
 </div>
 
- <div class="section">
+<div class="section">
     <h2 class="title"> מידע נוסף למתנדב </h2>
-    <div class="row prograph">
-        <h5> רכב/רישיון נהיגה</h5>
-        <div class="col">
 
-            <h6 class="inline-title"> רשיון נהיגה :</h6>
+        <div>
+        <!-- <h5>שירות</h5> -->
+        <div>
+            <div class="row prograph">
+                <!-- <h5> רכב/רישיון נהיגה</h5> -->
+                <div class="col">
+        
+                    <h6 class="inline-title"> רשיון נהיגה :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="license1" name="license" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="license1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="license2" name="license" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="license2">לא</label>
+                    </div>
+                    <div class="col-6">
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>סוג רשיון</option>
+                        <option value="1">ר.ב</option>
+                        <option value="2">ר.ג</option>
+                        <option value="3">אופנוע</option>
+                        <option value="4">משאית</option>
+                        <option value="5">אוטובוס</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <h6 class="inline-title"> וו גרירה  :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="hook1" name="hook" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="hook1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="hook2" name="hook" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="hook2">לא</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <h6 class="inline-title"> נגרר  :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="dragged1" name="dragged" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="dragged1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="dragged2" name="dragged" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="dragged2">לא</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <h6 class="inline-title"> בעל רכב   :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="car1" name="car" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="car1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="car2" name="car" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="car2">לא</label>
+                    </div>
+                    <div class="col-6">
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>סוג רכב</option>
+                        <option value="2">אופנוע</option>
+                        <option value="3">פרטי</option>
+                        <option value="4">מיני וואן</option>
+                        <option value="5">4*4</option>
+                    </select>
+                </div>
+                </div>
+                <div class="col">
+                    <h6 class="inline-title"> גליון נהיגה    :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="sheet1" name="sheet" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="sheet1">נקי</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="sheet2" name="sheet" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="sheet2">לא</label>
+                    </div>
+               
+                </div>
+              <div class="col-6">
+                <input class="form-control" placeholder="מהות העבירה "/>
+                <input type="date" class="form-control" placeholder="תאריך קבלת דוח אחרון"/>
+              </div>
+            </div>
+         <!-- <div class="row prograph"> -->
+            <div class="col-6 ">
+                <h6 class="inline-title">שירות צבאי:</h6>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="servic1" name="servic" class="custom-control-input" value="yes">
+                    <label class="custom-control-label purple" for="servic1">כן</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="servic2" name="servic" class="custom-control-input" value="no">
+                    <label class="custom-control-label purple" for="servic2">לא</label>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" placeholder="דרגת שירות  "/>
+                    <input type="date" class="form-control" placeholder="תאריך שחרור"/>
+                </div>
+                <div >
+                    <h6 class="inline-title">שירות לאומי/אזרחי:</h6>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="servic3" name="servic1" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="servic3">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="servic4" name="servic1" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="servic4">לא</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" placeholder="תפקיד שירות  "/>
+                        <input class="form-control" placeholder="מקום שירות  "/>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+            </div>
 
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="license1" name="license" class="custom-control-input" value="yes">
-                <label class="custom-control-label purple" for="license1">כן</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="license2" name="license" class="custom-control-input" value="no">
-                <label class="custom-control-label purple" for="license2">לא</label>
-            </div>
-            <div class="col-6">
-            <select class="form-select form-control" aria-label="Default select example">
-                <option selected>סוג רשיון</option>
-                <option value="1">ר.ב</option>
-                <option value="2">ר.ג</option>
-                <option value="3">אופנוע</option>
-                <option value="4">משאית</option>
-                <option value="5">אוטובוס</option>
-            </select>
-        </div>
-        <div >
-            <h6 class="inline-title"> וו גרירה  :</h6>
-
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="hook1" name="hook" class="custom-control-input" value="yes">
-                <label class="custom-control-label purple" for="hook1">כן</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="hook2" name="hook" class="custom-control-input" value="no">
-                <label class="custom-control-label purple" for="hook2">לא</label>
+            <div class="button-wapper">
+                <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "addValunteer()"> רישום</button>
             </div>
         </div>
-        <div >
-            <h6 class="inline-title"> נגרר  :</h6>
-
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="dragged1" name="dragged" class="custom-control-input" value="yes">
-                <label class="custom-control-label purple" for="dragged1">כן</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="dragged2" name="dragged" class="custom-control-input" value="no">
-                <label class="custom-control-label purple" for="dragged2">לא</label>
-            </div>
-        </div>
-        <div >
-            <h6 class="inline-title"> בעל רכב   :</h6>
-
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="car1" name="car" class="custom-control-input" value="yes">
-                <label class="custom-control-label purple" for="car1">כן</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="car2" name="car" class="custom-control-input" value="no">
-                <label class="custom-control-label purple" for="car2">לא</label>
-            </div>
-            <div class="col-6">
-            <select class="form-select form-control" aria-label="Default select example">
-                <option selected>סוג רכב</option>
-                <option value="3">אופנוע</option>
-                <option value="4">פרטי</option>
-                <option value="3">מיני וואן</option>
-                <option value="5">4*4</option>
-            </select>
-        </div>
-        </div>
-        <div >
-            <h6 class="inline-title"> גליון נהיגה    :</h6>
-
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="sheet1" name="sheet" class="custom-control-input" value="yes">
-                <label class="custom-control-label purple" for="sheet1">נקי</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="sheet2" name="sheet" class="custom-control-input" value="no">
-                <label class="custom-control-label purple" for="sheet2">לא</label>
-            </div>
-       
-        </div>
-        <div class="col-6">
-        <input class="form-control" placeholder="מהות העבירה "/>
-        <input type="date" class="form-control" placeholder="תאריך קבלת דוח אחרון"/>
-    </div>
-        </div>
-        <div class="col-6">
-        <h5>שירות</h5>
 
         <div  class="col-6 second-col">
             
@@ -217,7 +259,7 @@
         </div>
     </div>
     </div>
-</div> 
+</div>
 
 <div class="section">
     <h2 class="title"> זמינות</h2>

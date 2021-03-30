@@ -12,9 +12,11 @@ import { Language } from '../classes/language';
 export class VolunteerService {
 
   url:string = "http://localhost:59782/api/volunteer"
+  listVolunteer:Array<Volunteer> = new Array<Volunteer>()
+  Volunteer:Volunteer = new Volunteer();
    constructor(private http:HttpClient) { }
 
-<<<<<<< HEAD
+
   addValunteer(volunteer:Volunteer):Observable<boolean>{
     return this.http.post<boolean>(this.url+"/addVolunteer", volunteer)
   }
@@ -23,7 +25,7 @@ export class VolunteerService {
     return this.http.get<Array<Language>>(this.getLanguages+"/GetLanguages")
   }
 
-=======
+
    add():Observable<Array<Volunteer>>{
      return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
    }
@@ -33,5 +35,4 @@ export class VolunteerService {
   getGender():Observable<Array<Gender>>{
     return this.http.get<Array<Gender>>(this.url + "/GetGender")
   } 
->>>>>>> 59ae1730b89b527763cbfc1761fd59d56fb8adf0
 }

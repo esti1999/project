@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Assisted } from '../classes/assisted';
+import { Gender } from '../classes/gender';
+import { PersonalStatus } from '../classes/personal-status';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +17,10 @@ export class AssistedService {
   add():Observable<Array<Assisted>>{
     return this.http.post<Array<Assisted>>(this.url+"/addAssisted", this.Assisted)
   }
-  
+  getPersonalStatus():Observable<Array<PersonalStatus>>{
+    return this.http.get<Array<PersonalStatus>>(this.url + "/GetPersonalStatus")
+  } 
+  getGender():Observable<Array<Gender>>{
+    return this.http.get<Array<Gender>>(this.url + "/GetGender")
+  } 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AssistedService } from 'src/app/services/assisted.service'; 
 import { Assisted } from '../../classes/assisted';
+import { PersonalStatus } from '../../classes/personal-status';
+import { Gender } from '../../classes/gender';
 
 @Component({
   selector: 'app-assisted',
@@ -10,18 +12,28 @@ import { Assisted } from '../../classes/assisted';
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
   constructor(private Assisted:AssistedService) { }
+ list:PersonalStatus[]
+ newPersonalStatus: PersonalStatus = new PersonalStatus();
 
+ list1:Gender[]
+ newGender: Gender = new Gender();
+ 
   ngOnInit(){
     // this.apiService.login()
     // .subscribe(data=>{
     //   debugger;
     //   console.log("my data",data)
     // });
+    this.Assisted.getPersonalStatus().subscribe(data=>{
+      this.list = data;
+    })
+    this.Assisted.getGender().subscribe(data=>{
+      this.list1 = data;
+    })
   }
   add(){
     this.Assisted.add().subscribe(data=>{this.Assisted.listAssisted = data
     alert("הרשמתך בוצעה בהצלחה")})
     this.Assisted.Assisted = new Assisted();
   }
-
 }

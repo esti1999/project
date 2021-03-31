@@ -14,7 +14,8 @@
                 <option value="5">עורך דין</option>
                 <option value="6">רואה חשבון</option>
             </select>
-            <input class="form-control" placeholder="מספר זהות"/>
+            <!-- #ngId [ngModel]="Volunteer.Volunteer." -->
+            <input class="form-control" placeholder="מספר זהות"  />
             <input class="form-control" placeholder="כתובת אימייל"/>
             <input class="form-control" placeholder="מספר טלפון"/>
 
@@ -34,7 +35,9 @@
             <input type="date" class="form-control" placeholder="תאריך לידה"/>
             <input class="form-control" placeholder="טלפון נוסף"/>
 
-            <select class="form-select form-control" aria-label="Default select example">
+            <select class="form-select form-control"  aria-label="Default select example">
+                <!-- <select [(ngModel)]="takingDeliveryService.newTakingDelivery.TDCityID" [ngModelOptions]="{standalone: true}" nam="city"> -->
+
                 <!-- <option selected>בחר מין</option>
                 <option value="2">זכר</option>
                 <option value="3">נקבה</option> -->

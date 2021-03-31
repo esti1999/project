@@ -6,16 +6,21 @@
         <div class="col-6">
             <h6>מידע אישי</h6>
             <input class="form-control" placeholder="שם פרטי"/>
-            <select class="form-select form-control" aria-label="Default select example">
+            <!-- <select class="form-select form-control" aria-label="Default select example">
                 <option selected>טייטל</option>
                 <option value="2">רב</option>
                 <option value="3">דוקטור</option>
                 <option value="4">פרופסור</option>
                 <option value="5">עורך דין</option>
                 <option value="6">רואה חשבון</option>
+<<<<<<< HEAD
             </select>
             <!-- #ngId [ngModel]="Volunteer.Volunteer." -->
             <input class="form-control" placeholder="מספר זהות"  />
+=======
+            </select> -->
+            <input class="form-control" placeholder="מספר זהות"/>
+>>>>>>> 11534adbb6961d3acdee5f2efd577d64489c15f3
             <input class="form-control" placeholder="כתובת אימייל"/>
             <input class="form-control" placeholder="מספר טלפון"/>
 
@@ -25,15 +30,15 @@
         <div class="col-6 second-col">
             <input class="form-control" placeholder="שם משפחה"/>
             <select class="form-select form-control" aria-label="Default select example">
-                <!-- <option selected>מצב אישי</option>
-                <option value="2">נשוי/אה</option>
+                <!-- <option selected>מצב אישי</option> -->
+                <!-- <option value="2">נשוי/אה</option>
                 <option value="3">גרוש/ה</option>
                 <option value="4">רווק/ה</option>
                 <option value="5">אלמן/ה</option> -->
                 <option *ngFor="let item of list">{{item.description}}</option>
               </select>
             <input type="date" class="form-control" placeholder="תאריך לידה"/>
-            <input class="form-control" placeholder="טלפון נוסף"/>
+            <!-- <input class="form-control" placeholder="טלפון נוסף"/> -->
 
             <select class="form-select form-control"  aria-label="Default select example">
                 <!-- <select [(ngModel)]="takingDeliveryService.newTakingDelivery.TDCityID" [ngModelOptions]="{standalone: true}" nam="city"> -->
@@ -41,22 +46,23 @@
                 <!-- <option selected>בחר מין</option>
                 <option value="2">זכר</option>
                 <option value="3">נקבה</option> -->
-                <option *ngFor="let item of list1">{{item.description}}</option>
-              </select>
+                <option *ngFor="let item of list">{{item.description}}</option>
+
+            </select>
         </div>
     </div>
 
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
-            <input class="form-control" placeholder="מספר דירה"/>
-            <input class="form-control" placeholder="רחוב"/>
-            <input class="form-control" placeholder="קומה"/>
+            <input class="form-control" placeholder="עיר "/>
+            <input class="form-control" placeholder="מספר בנין"/>
+            <input class="form-control" placeholder="מספר בית"/>
 
         </div>
         <div class="col-6 second-col">
-            <input class="form-control" placeholder="מספר בית"/>
-            <input class="form-control" placeholder="עיר"/>
+            <input class="form-control" placeholder=" רחוב"/>
+            <input class="form-control" placeholder="קומה"/>
             <input class="form-control" placeholder="מיקוד"/>
         </div>
     </div>
@@ -81,7 +87,7 @@
         </div>
     </div>
 
-    <div class="row prograph">
+    <!-- <div class="row prograph">
         <div class="col">
 
             <h6 class="inline-title"> שומר שבת:</h6>
@@ -96,7 +102,7 @@
             </div>
         
         </div>
-    </div>
+    </div> -->
 
     <div class="row prograph">
         <div class="col">
@@ -105,55 +111,254 @@
 
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="lang1" name="lang" class="custom-control-input" checked value="no">
+
                 <label class="custom-control-label purple" for="lang1">עברית</label>
-                <button  type="button" class="custom1" >קריאה</button>
-                <button  type="button" class="custom1" >כתיבה</button>
-                <button  type="button" class="custom1" >שפת אם</button>
             </div>
             <div class="custom-control custom-checkbox">
                 <input #lang2 type="checkbox" id="lang2" name="lang" class="custom-control-input" checked value="english">
                 <label class="custom-control-label purple" for="lang2">אנגלית</label>
-                <button  type="button" class="custom1" >קריאה</button>
-                <button  type="button" class="custom1" >כתיבה</button>
-                <button  type="button" class="custom1" >שפת אם</button>
             </div>
             <div class="custom-control custom-checkbox">
                 <input #lang3 type="checkbox" id="lang3" name="lang" class="custom-control-input" checked value="rusion">
                 <label class="custom-control-label purple" for="lang3">רוסית</label>
-                <button  type="button" class="custom1" >קריאה</button>
-                <button  type="button" class="custom1" >כתיבה</button>
-                <button  type="button" class="custom1" >שפת אם</button>
             </div>
             <div class="custom-control custom-checkbox">
                 <input #lang4 type="checkbox" id="lang4" name="lang" class="custom-control-input" checked value="spanish">
                 <label class="custom-control-label purple" for="lang4">ספרדית</label>
-                <button  type="button" class="custom1" >קריאה</button>
-                <button  type="button" class="custom1" >כתיבה</button>
-                <button  type="button" class="custom1" >שפת אם</button>
             </div>
             <div class="custom-control custom-checkbox">
                 <input #lang4 type="checkbox" id="lang5" name="lang" class="custom-control-input" checked value="arabic">
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
-                <button  type="button" class="custom1" >קריאה</button>
-                <button  type="button" class="custom1" >כתיבה</button>
-                <button  type="button" class="custom1" >שפת אם</button>
             </div>
-            <!-- {{lang2.checked}}
-            <label *ngIf="lang2.checked==true"> aaa</label> -->
+       
 
         </div>
     </div>
+
+
    
-    <div class="button-wapper">
-        <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> רישום</button>
-    </div>
+    <!-- <div class="button-wapper">
+        <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> אישור</button>
+    </div> -->
     
 </div>
 
 <div class="section">
-    <h2 class="title"> שירות צבאי</h2>
+    <h2 class="title"> מידע נוסף למתנדב </h2>
+
+        <div>
+        <!-- <h5>שירות</h5> -->
+        <div>
+            <div class="row prograph">
+                <!-- <h5> רכב/רישיון נהיגה</h5> -->
+                <div class="col">
+        
+                    <h6 class="inline-title"> רשיון נהיגה :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="license1" name="license" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="license1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="license2" name="license" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="license2">לא</label>
+                    </div>
+                    <div class="col-6">
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>סוג רשיון</option>
+                        <option value="1">ר.ב</option>
+                        <option value="2">ר.ג</option>
+                        <option value="3">אופנוע</option>
+                        <option value="4">משאית</option>
+                        <option value="5">אוטובוס</option>
+                    </select>
+                    <input type="date" class="form-control" placeholder="תאריך תוקף"/>
+                </div>
+                <!-- <div class="col">
+                    <h6 class="inline-title"> וו גרירה  :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="hook1" name="hook" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="hook1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="hook2" name="hook" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="hook2">לא</label>
+                    </div>
+                </div> -->
+                <!-- <div class="col">
+                    <h6 class="inline-title"> נגרר  :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="dragged1" name="dragged" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="dragged1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="dragged2" name="dragged" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="dragged2">לא</label>
+                    </div>
+                </div> -->
+                <!-- <div class="col">
+                    <h6 class="inline-title"> בעל רכב   :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="car1" name="car" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="car1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="car2" name="car" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="car2">לא</label>
+                    </div>
+                    <div class="col-6">
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>סוג רכב</option>
+                        <option value="2">אופנוע</option>
+                        <option value="3">פרטי</option>
+                        <option value="4">מיני וואן</option>
+                        <option value="5">4*4</option>
+                    </select>
+                </div>
+                </div> -->
+                <div class="col">
+                    <!-- <h6 class="inline-title"> גליון נהיגה    :</h6>
+        
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="sheet1" name="sheet" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="sheet1">נקי</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="sheet2" name="sheet" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="sheet2">לא</label>
+                    </div> -->
+               
+                </div>
+              <div class="col-6">
+                <!-- <input class="form-control" placeholder="מהות העבירה "/> -->
+                <!-- <input type="date" class="form-control" placeholder="תאריך קבלת דוח אחרון"/> -->
+                <div>
+                    <h6 class="inline-title">נשק אישי:</h6>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="Weapon1" name="Weapon" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="Weapon1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="Weapon2" name="Weapon" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="Weapon2">לא</label>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="inline-title">  תוקף רשיון נשק :</h6>
+                    <input type="date" class="form-control" placeholder="תאריך תוקף"/>
+                    <!-- <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="validity1" name="validity" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="validity1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="validity2" name="validity" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="validity2">לא</label> -->
+                        
+                <!-- </div> -->
+                </div>
+                <div>
+                    <h6 class="inline-title"> סוג רשיון:</h6>
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>סוג רשיון</option>
+                        <option value="1">אקדח</option>
+                        <option value="2">רובה</option>
+                    </select>
+                    <!-- <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="gun1" name="gun" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="gun1">אקדח</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="gun2" name="gun" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="gun2">רובה</label>
+                    </div> -->
+                </div>
+              </div>
+            </div>
+         <!-- <div class="row prograph"> -->
+            <div class="col-6 ">
+                <h6 class="inline-title">שירות צבאי:</h6>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="servic1" name="servic" class="custom-control-input" value="yes">
+                    <label class="custom-control-label purple" for="servic1">כן</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="servic2" name="servic" class="custom-control-input" value="no">
+                    <label class="custom-control-label purple" for="servic2">לא</label>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" placeholder="דרגת שירות  "/>
+                    <input type="date" class="form-control" placeholder="תאריך שחרור"/>
+                </div>
+                <div >
+                    <h6 class="inline-title">שירות לאומי/אזרחי:</h6>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="servic3" name="servic1" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="servic3">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="servic4" name="servic1" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="servic4">לא</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control" placeholder="תפקיד שירות  "/>
+                        <!-- <input class="form-control" placeholder="מקום שירות  "/> -->
+                        <input type="date" class="form-control" placeholder="תאריך שחרור"/>
+                    </div>
+                  
+                 
+                   
+                    <!-- <div>
+                        <h6 class="inline-title"> ידע קודם בהפעלת נשק :</h6>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="knowledge1" name="knowledge" class="custom-control-input" value="yes">
+                            <label class="custom-control-label purple" for="knowledge1">כן</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="knowledge2" name="knowledge" class="custom-control-input" value="no">
+                            <label class="custom-control-label purple" for="knowledge2">לא</label>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- <div class="button-wapper">
+                <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> אישור</button>
+            </div> -->
+        </div>
+
+        <div  class="col-6 second-col">
+            
+
+        </div>
+    </div>
+    </div>
 </div>
 
 <div class="section">
+    <h2 class="title"> זמינות</h2>
+    <div class="col">
+        <select class="form-select form-control" aria-label="Default select example">
+            <option selected>ימי שירות</option>
+            <option value="1">ראשון</option>
+            <option value="2">שני</option>
+            <option value="3">שלישי</option>
+            <option value="4">רביעי</option>
+            <option value="5">חמישי</option>
+            <option value="6">שישי</option>
+        </select>
+        <!-- להוסיף משמרות לכל יום -->
+        <!-- <select class="form-select form-control" aria-label="Default select example">
+            <option selected>משמרות</option>
+            <option value="3">בוקר</option>
+            <option value="4">צהרים</option>
+            <option value="5">ערב</option>
+        </select> -->
+        <div class="button-wapper">
+            <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> אישור</button>
+        </div>
 
+    </div>
 </div>

@@ -1,9 +1,11 @@
 .header-img
 {
-    height: 100vh;
+    height: 40vh;
     width: 100%;
     background-image: url('../../../assets/images/2.png');
-    margin-bottom: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 125vh;
 }
 .section{
     border-radius: 10px;
@@ -14,7 +16,7 @@
 }
 .first-section{
     border-top: 5px solid white!important;
-    position: absolute;
+    position:absolute ;
     top: 25vh;
     width: -webkit-fill-available;
 }

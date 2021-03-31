@@ -16,7 +16,7 @@
 }
 .first-section{
     border-top: 5px solid white!important;
-    position:absolute ;
+    position:absolute;
     top: 25vh;
     width: -webkit-fill-available;
 }
@@ -32,6 +32,7 @@
 }
 .prograph{
     padding-top: 30px;
+    
 }
 
 .custom-control-input:checked~.custom-control-label::before {
@@ -48,7 +49,6 @@
 }
 .btn-perple{
     background-color: #7B1FA2!important;
-
 }
 .button-wapper{
     text-align: left;

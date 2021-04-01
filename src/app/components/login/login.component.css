@@ -55,11 +55,24 @@
 .name{
     text-align: center;
 }
-.a{
-    color: white;
+.first a{
+    background-color: white;
+    color:rgb(163, 25, 145);
     padding: 10px;
 }
-.a:hover{
+/* .a:hover{
     opacity: 0.7;
     text-decoration: none!important
+}  */
+/* .form-control{
+    margin: 14px 0;
+    height: 55px;
+} */
+.btn-perple{
+    background-color: #960cc4!important;
+
+}
+.btn-perple1{
+    background-color: #a290a8!important;
+    padding: 10px;
 }

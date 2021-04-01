@@ -11,7 +11,7 @@ import { Gender } from '../../classes/gender';
 })
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
-  constructor(private Assisted:AssistedService) { }
+  constructor(public Assisted:AssistedService) { }
  list:PersonalStatus[]
  newPersonalStatus: PersonalStatus = new PersonalStatus();
 

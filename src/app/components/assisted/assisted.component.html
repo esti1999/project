@@ -1,42 +1,51 @@
 <div class="header-img"></div>
-
+<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="add()" style="direction: rtl;" >
 <div class="section first-section">
     <h2 class="title">מידע אישי לנעזר</h2>
     <div class="row prograph">
         <div class="col-6">
             <h6>מידע אישי</h6>
+<<<<<<< HEAD
+            <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel" [(ngModel)]="Assisted.Assisted.first_name" name="first_name"/>
+            <input class="form-control" placeholder="תעודת זהות" type="text" #ngId="ngModel" [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted"/>
+            <input class="form-control" placeholder="כתובת אימייל" type="email" #ngId="ngModel" [(ngModel)]="Assisted.Assisted.e_mail" name="e_mail"/>
+=======
             <input class="form-control" placeholder="שם פרטי"/>
             <input class="form-control"  placeholder="תעודת זהות "/>
             <input class="form-control" placeholder="כתובת אימייל"/>
+>>>>>>> ec1125be280d2a3fe3c6da9e72a89044f1fccb9e
             <!-- <input class="form-control" placeholder="טלפון נוסף "/> -->
-            <input type="date" class="form-control" placeholder="תאריך לידה"/>
-
-        </div>
-        
+            <input type="date" class="form-control" placeholder="תאריך לידה" type="date" #ngDate="ngModel" [(ngModel)]="Assisted.Assisted.date_birth" name="date_birth"/>
+        </div>      
         <div class="col-6 second-col">
-            <input class="form-control" placeholder="שם משפחה"/>
+            <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel" [(ngModel)]="Assisted.Assisted.last_name" name="last_name"/>
             <select class="form-select form-control" aria-label="Default select example">
-                <!-- <option selected>מצב אישי</option>
-                <option value="2">נשוי/אה</option>
-                <option value="3">גרוש/ה</option>
-                <option value="4">רווק/ה</option>
-                <option value="5">אלמן/ה</option> -->
                 <option *ngFor="let item of list">{{item.description}}</option>
               </select>
+<<<<<<< HEAD
+            <input class="form-control" placeholder="מספר טלפון" type="number" #ngPhone="ngModel" [(ngModel)]="Assisted.Assisted.phone" name="phone"/>
+=======
             <input class="form-control"  placeholder="מספר טלפון "/>
 
+>>>>>>> ec1125be280d2a3fe3c6da9e72a89044f1fccb9e
             <select class="form-select form-control" aria-label="Default select example">
-                <!-- <option selected>בחר מין</option>
-                <option value="2">זכר</option>
-                <option value="3">נקבה</option> -->
                 <option *ngFor="let item of list1">{{item.description}}</option>
               </select>
         </div>
     </div>
-
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
+<<<<<<< HEAD
+            <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/>
+            <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel" [(ngModel)]="Assisted.Assisted.number_building" name="number_building"/>
+            <input class="form-control" placeholder="מספר בית" type="number" #ngNumberHouse="ngModel" [(ngModel)]="Assisted.Assisted.number_house" name="number_house"/>
+        </div>
+        <div class="col-6 second-col">
+            <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel" [(ngModel)]="Assisted.Assisted.street" name="street"/>
+            <input class="form-control" placeholder="קומה" type="number" #ngFloor="ngModel" [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor"/>
+            <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel" [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code"/>
+=======
             <input class="form-control" placeholder="עיר "/>
             <input class="form-control"  placeholder="מספר בנין"/>
             <input class="form-control"  placeholder="מספר בית"/>
@@ -46,6 +55,7 @@
             <input class="form-control" placeholder=" רחוב"/>
             <input class="form-control"  placeholder="קומה"/>
             <input class="form-control"  placeholder="מיקוד"/>
+>>>>>>> ec1125be280d2a3fe3c6da9e72a89044f1fccb9e
         </div>
         <div class="row prograph">
           <div class="col-6">
@@ -58,12 +68,8 @@
         </div>
     </div>
     <div class="row prograph">
-
         <div class="col">
-           
-
             <h6 class="inline-title">סוג טלפון:</h6>
-
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="phone1" name="phone" class="custom-control-input" value="SMS">
                 <label class="custom-control-label purple" for="phone1">SMS</label>
@@ -78,9 +84,6 @@
             </div>
         </div>
     </div>
-
-  
-
     <div class="row prograph">
         <div class="col">
 
@@ -107,18 +110,11 @@
                 <input #lang4 type="checkbox" id="lang5" name="lang" class="custom-control-input" checked value="arabic">
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
             </div>
-         
-           
-
         </div>
     </div>
-
-
-   
     <div class="button-wapper">
-        <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> רישום</button>
-    </div>
-    
+        <button type="button" class="btn btn-dark btn-perple btn-lg"> רישום</button>
+    </div>   
 </div>
-
+</form>
 

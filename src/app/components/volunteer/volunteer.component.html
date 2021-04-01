@@ -1,68 +1,45 @@
 <div class="header-img"></div>
-
+<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="add()" style="direction: rtl;" >
 <div class="section first-section">
     <h2 class="title">מידע אישי למתנדב</h2>
     <div class="row prograph">
         <div class="col-6">
             <h6>מידע אישי</h6>
-            <input class="form-control" placeholder="שם פרטי"/>
-            <!-- <select class="form-select form-control" aria-label="Default select example">
-                <option selected>טייטל</option>
-                <option value="2">רב</option>
-                <option value="3">דוקטור</option>
-                <option value="4">פרופסור</option>
-                <option value="5">עורך דין</option>
-                <option value="6">רואה חשבון</option>
-            </select>
-            <!-- #ngId [ngModel]="Volunteer.Volunteer." -->
-
-            <input class="form-control" placeholder="מספר זהות"/>
-            <input class="form-control" placeholder="כתובת אימייל"/>
-            <input class="form-control" placeholder="מספר טלפון"/>
-
-
+            <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel" [(ngModel)]="Volunteer.Volunteer.firstName_volunteer" name="firstName_volunteer"/>
+            <select class="form-select form-control" aria-label="Default select example"></select>
+            <input class="form-control" placeholder="מספר זהות" type="text" #ngId="ngModel" [(ngModel)]="Volunteer.Volunteer.id_volunteer" name="id_volunteer"/>
+            <input class="form-control" placeholder="כתובת אימייל" type="email" #ngEmail="ngModel" [(ngModel)]="Volunteer.Volunteer.e_mail" name="e_mail"/>
+            <input class="form-control" placeholder="מספר טלפון" type="number" #ngPhone="ngModel" [(ngModel)]="Volunteer.Volunteer.phone" name="phone"/>
         </div>
-        
         <div class="col-6 second-col">
-            <input class="form-control" placeholder="שם משפחה"/>
+            <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName [ngModel]="Volunteer.Volunteer.lastName_volunteer" name="lastName_volunteer"/>
             <select class="form-select form-control" aria-label="Default select example">
-                <!-- <option selected>מצב אישי</option> -->
-                <!-- <option value="2">נשוי/אה</option>
-                <option value="3">גרוש/ה</option>
-                <option value="4">רווק/ה</option>
-                <option value="5">אלמן/ה</option> -->
                 <option *ngFor="let item of list">{{item.description}}</option>
-              </select>
-            <input type="date" class="form-control" placeholder="תאריך לידה"/>
-            <!-- <input class="form-control" placeholder="טלפון נוסף"/> -->
-
-            <select class="form-select form-control"  aria-label="Default select example">
-                <!-- <select [(ngModel)]="takingDeliveryService.newTakingDelivery.TDCityID" [ngModelOptions]="{standalone: true}" nam="city"> -->
-
-                <!-- <option selected>בחר מין</option>
-                <option value="2">זכר</option>
-                <option value="3">נקבה</option> -->
-                <option *ngFor="let item of list">{{item.description}}</option>
-
             </select>
+            <input type="date" class="form-control" placeholder="תאריך לידה" type="date" #ngBirth="ngModel" [(ngModel)]="Volunteer.Volunteer.date_of_birth" name="date_of_birth"/>
+            <!-- <input class="form-control" placeholder="טלפון נוסף"/> -->
+            <select class="form-select form-control"  aria-label="Default select example">
+                <option *ngFor="let item of list1">{{item.description}}</option>
+                <!-- <! <select [(ngModel)]="takingDeliveryService.newTakingDelivery.TDCityID" [ngModelOptions]="{standalone: true}" nam="city"> --> 
+            </select>   
         </div>
     </div>
-
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
-            <input class="form-control" placeholder="עיר "/>
-            <input class="form-control" placeholder="מספר בנין"/>
-            <input class="form-control" placeholder="מספר בית"/>
-
+            <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Volunteer.Volunteer.code_city" name="code_city"/>
+            <input class="form-control" placeholder="מספר בנין" type="number" #ngBuildNumber="ngModel" [(ngModel)]="Volunteer.Volunteer.bulding_number" name="bulding_number"/>
+            <input class="form-control" placeholder="מספר בית" type="number" #ngHouseNumber="ngModel" [(ngModel)]="Volunteer.Volunteer.house_number" name="house_number"/>
         </div>
         <div class="col-6 second-col">
-            <input class="form-control" placeholder=" רחוב"/>
-            <input class="form-control" placeholder="קומה"/>
-            <input class="form-control" placeholder="מיקוד"/>
+            <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel" [(ngModel)]="Volunteer.Volunteer.street" name="street"/>
+            <input class="form-control" placeholder="קומה" type="number" #ngFloor="ngModel" [(ngModel)]="Volunteer.Volunteer.number_floor" name="number_floor"/>
+            <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel" [(ngModel)]="Volunteer.Volunteer.postal_code" name="postal_code" />
         </div>
     </div>
     <div class="row prograph">
+<<<<<<< HEAD
+=======
         <div class="col-6">
           <h6>תחומים וסיסמא</h6>
           <button type="button" class="form-control" routerLink="/volunteering-domain" >תחומי התנדבות</button>
@@ -73,10 +50,9 @@
       </div>
     <div class="row prograph">
 
+>>>>>>> ec1125be280d2a3fe3c6da9e72a89044f1fccb9e
         <div class="col">
-
             <h6 class="inline-title">סוג טלפון:</h6>
-
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="phone1" name="phone" class="custom-control-input" value="SMS">
                 <label class="custom-control-label purple" for="phone1">SMS</label>
@@ -91,7 +67,6 @@
             </div>
         </div>
     </div>
-
     <!-- <div class="row prograph">
         <div class="col">
 
@@ -104,8 +79,7 @@
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="shabat2" name="shabat" class="custom-control-input" value="no">
                 <label class="custom-control-label purple" for="shabat2">לא</label>
-            </div>
-        
+            </div>      
         </div>
     </div> -->
     <div class="row prograph">
@@ -113,7 +87,6 @@
             <h6 class="inline-title"> שפות:</h6>
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="lang1" name="lang" class="custom-control-input" checked value="no">
-
                 <label class="custom-control-label purple" for="lang1">עברית</label>
             </div>
             <div class="custom-control custom-checkbox">
@@ -132,27 +105,35 @@
                 <input #lang4 type="checkbox" id="lang5" name="lang" class="custom-control-input" checked value="arabic">
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
             </div>
-       
-
         </div>
-    </div>
-
-
-   
-    <!-- <div class="button-wapper">
-        <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> אישור</button>
-    </div> -->
-    
+    </div>   
 </div>
 
 <div class="section">
     <h2 class="title"> מידע נוסף למתנדב </h2>
-
         <div>
         <!-- <h5>שירות</h5> -->
         <div>
             <div class="row prograph">
                 <!-- <h5> רכב/רישיון נהיגה</h5> -->
+<<<<<<< HEAD
+                <div class="col">     
+                    <h6 class="inline-title"> רשיון נהיגה :</h6>      
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="license1" name="license" class="custom-control-input" value="yes">
+                        <label class="custom-control-label purple" for="license1">כן</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="license2" name="license" class="custom-control-input" value="no">
+                        <label class="custom-control-label purple" for="license2">לא</label>
+                    </div>
+                    <div class="col-6">
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option *ngFor="let item of list2">{{item.description}}</option>
+                    </select>
+                    <input type="date" class="form-control" placeholder="תאריך תוקף"/>
+                </div>
+=======
                 <div class="col-6">
                     <div>
                         <h6 class="inline-title"> רשיון נהיגה :</h6>
@@ -178,6 +159,7 @@
                      <input type="date" class="form-control" placeholder="תאריך תוקף"/>
                     </div>
                     
+>>>>>>> ec1125be280d2a3fe3c6da9e72a89044f1fccb9e
                 <!-- <div class="col">
                     <h6 class="inline-title"> וו גרירה  :</h6>
         
@@ -223,8 +205,8 @@
                     </select>
                 </div>
                 </div> -->
-                <div class="col">
-                    <!-- <h6 class="inline-title"> גליון נהיגה    :</h6>
+                <!-- <div class="col">
+                    <h6 class="inline-title"> גליון נהיגה    :</h6>
         
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="sheet1" name="sheet" class="custom-control-input" value="yes">
@@ -233,9 +215,8 @@
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="sheet2" name="sheet" class="custom-control-input" value="no">
                         <label class="custom-control-label purple" for="sheet2">לא</label>
-                    </div> -->
-               
-                </div>
+                    </div>
+                </div> -->
               <div class="col-6">
                 <!-- <input class="form-control" placeholder="מהות העבירה "/> -->
                 <!-- <input type="date" class="form-control" placeholder="תאריך קבלת דוח אחרון"/> -->
@@ -253,22 +234,19 @@
                 <div>
                     <h6 class="inline-title">  תוקף רשיון נשק :</h6>
                     <input type="date" class="form-control" placeholder="תאריך תוקף"/>
-                    <!-- <div class="custom-control custom-radio custom-control-inline">
+                    <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="validity1" name="validity" class="custom-control-input" value="yes">
                         <label class="custom-control-label purple" for="validity1">כן</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="validity2" name="validity" class="custom-control-input" value="no">
-                        <label class="custom-control-label purple" for="validity2">לא</label> -->
-                        
-                <!-- </div> -->
+                        <label class="custom-control-label purple" for="validity2">לא</label> -->                        
+                 </div>
                 </div>
                 <div>
                     <h6 class="inline-title"> סוג רשיון:</h6>
                     <select class="form-select form-control" aria-label="Default select example">
-                        <option selected>סוג רשיון</option>
-                        <option value="1">אקדח</option>
-                        <option value="2">רובה</option>
+                        <option *ngFor="let item of list3">{{item.description}}</option>
                     </select>
                     <!-- <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="gun1" name="gun" class="custom-control-input" value="yes">
@@ -313,9 +291,6 @@
                         <button type="button" class="form-control" routerLink="/volunteering-domain" >תחומי התנדבות</button>
 
                     </div>
-                    
-                 
-                   
                     <!-- <div>
                         <h6 class="inline-title"> ידע קודם בהפעלת נשק :</h6>
                         <div class="custom-control custom-radio custom-control-inline">
@@ -329,42 +304,21 @@
                     </div> -->
                 </div>
             </div>
-
-            <!-- <div class="button-wapper">
-                <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> אישור</button>
-            </div> -->
         </div>
-
         <div  class="col-6 second-col">
-            
-
         </div>
     </div>
     </div>
 </div>
-
 <div class="section">
     <h2 class="title"> זמינות</h2>
     <div class="col">
         <select class="form-select form-control" aria-label="Default select example">
-            <option selected>ימי שירות</option>
-            <option value="1">ראשון</option>
-            <option value="2">שני</option>
-            <option value="3">שלישי</option>
-            <option value="4">רביעי</option>
-            <option value="5">חמישי</option>
-            <option value="6">שישי</option>
+            <option *ngFor="let item of list4">{{item.description}}</option>
         </select>
-        <!-- להוסיף משמרות לכל יום -->
-        <!-- <select class="form-select form-control" aria-label="Default select example">
-            <option selected>משמרות</option>
-            <option value="3">בוקר</option>
-            <option value="4">צהרים</option>
-            <option value="5">ערב</option>
-        </select> -->
         <div class="button-wapper">
-            <button type="button" class="btn btn-dark btn-perple btn-lg" (click) = "add()"> אישור</button>
+            <button type="submit" class="btn btn-dark btn-perple btn-lg"> אישור</button>
         </div>
-
     </div>
 </div>
+</form>

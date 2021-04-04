@@ -14,8 +14,11 @@ export class ApiService {
 
   public login():Observable<any>{
   
-    return this.http.get<any>(`${ApiBaseRoute}/Login/login` )
+    return this.http.get<any>(`${ApiBaseRoute}/Login/login`)
    // `${BASE_URL}/login`
   }
+
+ GetEailAddressAngPassword()
+ {}
 
 }

@@ -37,6 +37,9 @@
     color: #fff;
     border-color: #7B1FA2;
     
+
+
+    
   }
   
   .custom-control-input:checked~.custom-control-label.purple::before {

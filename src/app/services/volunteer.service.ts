@@ -23,12 +23,9 @@ export class VolunteerService {
   addValunteer(volunteer:Volunteer):Observable<boolean>{
     return this.http.post<boolean>(this.url+"/addVolunteer", volunteer)
   }
-
   getLanguages():Observable<Array<Language>>{
     return this.http.get<Array<Language>>(this.getLanguages+"/GetLanguages")
   }
-
-
    add():Observable<Array<Volunteer>>{
      return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
    }
@@ -47,4 +44,7 @@ export class VolunteerService {
    getAvailability():Observable<Array<Availability>>{
     return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
   }
+  // getLanguage():Observable<Array<Language>>{
+  //   return this.http.get<Array<Language>>(this.url + "/GetLanguage")
+  // }
 }

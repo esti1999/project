@@ -1,9 +1,3 @@
 export class Language{
-
-    CodeLanguage:number;
-    NameLanguage:string;
-    Read:boolean;
-    Speak:boolean;
-    NativeLanguage:boolean;
-    
+    constructor(public code_language?:number, public name_language?:string){}  
 }

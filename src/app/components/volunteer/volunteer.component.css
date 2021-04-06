@@ -17,7 +17,7 @@
 .first-section{
     border-top: 5px solid white!important;
     /* position:absolute; */
-    margin-top: -15px;
+    margin-top: -10px;
     top: 25vh;
     width: -webkit-fill-available;
 }

@@ -19,11 +19,6 @@ export class AssistedComponent implements OnInit {
  newGender: Gender = new Gender();
  
   ngOnInit(){
-    // this.apiService.login()
-    // .subscribe(data=>{
-    //   debugger;
-    //   console.log("my data",data)
-    // });
     this.Assisted.getPersonalStatus().subscribe(data=>{
       this.list = data;
     })

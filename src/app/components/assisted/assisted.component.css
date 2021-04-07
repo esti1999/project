@@ -4,7 +4,8 @@
     width: 100vw;
     background-image: url('../../../assets/images/1.png');
     margin-bottom: 100vh;
-    
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .section{
     border-radius: 10px;

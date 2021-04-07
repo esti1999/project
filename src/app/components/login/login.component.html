@@ -1,11 +1,13 @@
 <div class="header-img"></div>
-
+<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="Enters()" style="direction: rtl;" >
 <div class="section first-section">
     <h2 class="title">ברוכים הבאים</h2>
     <div class="yes row prograph">
         <div class="col-6 col-sm-12">
-            <input class="form-control" placeholder="email/שם משתמש">
-            <input class="form-control" placeholder="סיסמא">
+
+            <input class="form-control" placeholder="email/שם משתמש" type="email" #ngEmail="ngModel" [(ngModel)]="e_mail" name="email">
+            <input class="form-control" placeholder="סיסמא" type="password" #ngPassword="ngModel" [(ngModel)]="password" name="password">
+
             <!-- <a routerLink="/volunteer">שכחתי את הסיסמא?</a> -->
             <div class="first">
                 <label><h6>פעם ראשונה?</h6></label>
@@ -15,7 +17,11 @@
                 <a  routerLink="/assisted">נעזר</a>  
             </div>
         </div>
-    <div class="button-wapper col-sm-12" >
-        <button type="button" class="btn btn-dark btn-perple btn-lg"> התחבר</button>
+
+    <div class="button-wapper col-sm-12">
+        <button type="submit" class="btn btn-dark btn-perple btn-lg" > התחבר </button>
+
     </div>
 </div>
+</div>
+</form>

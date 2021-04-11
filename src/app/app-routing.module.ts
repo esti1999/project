@@ -10,7 +10,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'volunteer', component: VolunteerComponent},
   { path: 'assisted', component: AssistedComponent},
-  { path: 'volunteering-domain', component: VolunteeringDomainComponent},
+  { path: 'volunteering-domain/:id', component: VolunteeringDomainComponent},
+  { path: 'assistedVolunteeringDomain', component: AssistedComponent},
+  { path: 'volunteerVolunteeringDomain', component: VolunteerComponent}
 ];
 
 

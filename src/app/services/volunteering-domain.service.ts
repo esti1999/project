@@ -7,18 +7,20 @@ import {Domain, VolunteeringDomain } from '../classes/volunteering-domain';
   providedIn: 'root'
 })
 export class VolunteeringDomainService {
+
  listVolunteeringDomain:Array<VolunteeringDomain> = new Array<VolunteeringDomain>()
  volunteeringDomain:VolunteeringDomain = new VolunteeringDomain();
  url:string = "http://localhost:59782/api/volunteerDomain"
  
   constructor(private http:HttpClient) { }
 
- getVolunteeringDomain():Observable<Array<VolunteeringDomain>>{
-    return this.http.get<Array<VolunteeringDomain>>(this.url+"/getDomainList")
+ getVolunteeringDomain(code_domain:number):Observable<Array<VolunteeringDomain>>{
+    return this.http.get<Array<VolunteeringDomain>>(this.url+"/getVolunteeringByDomain/" + code_domain)
  }
 
  getDomain():Observable<Array<Domain>>{
 return this.http.get<Array<Domain>>(this.url + "/GetVolunteeringDomain")
  }
-  
+
+
 }

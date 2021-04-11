@@ -8,27 +8,28 @@ import { Language } from '../classes/language';
 import { CarLicense } from '../classes/car-license';
 import { WeaponsLicense } from '../classes/weapons-license';
 import { Availability } from '../classes/availability';
+import { City } from '../classes/city';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VolunteerService {
-
   url:string = "http://localhost:59782/api/volunteer"
   listVolunteer:Array<Volunteer> = new Array<Volunteer>()
   Volunteer:Volunteer = new Volunteer();
+  myListDomain: any[] = []
    constructor(private http:HttpClient) { }
 
 
-  addValunteer(volunteer:Volunteer):Observable<boolean>{
-    return this.http.post<boolean>(this.url+"/addVolunteer", volunteer)
+  addValunteer():Observable<boolean>{
+    return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
   }
-  getLanguages():Observable<Array<Language>>{
-    return this.http.get<Array<Language>>(this.getLanguages+"/GetLanguages")
+  add():Observable<Array<Volunteer>>{
+    return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
   }
-   add():Observable<Array<Volunteer>>{
-     return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
-   }
+  getLanguage():Observable<Array<Language>>{
+    return this.http.get<Array<Language>>(this.url+"/GetLanguage")
+  }
    getPersonalStatus():Observable<Array<PersonalStatus>>{
     return this.http.get<Array<PersonalStatus>>(this.url + "/GetPersonalStatus")
   } 
@@ -44,7 +45,7 @@ export class VolunteerService {
    getAvailability():Observable<Array<Availability>>{
     return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
   }
-  // getLanguage():Observable<Array<Language>>{
-  //   return this.http.get<Array<Language>>(this.url + "/GetLanguage")
-  // }
+  getCity():Observable<Array<City>>{
+    return this.http.get<Array<City>>(this.url + "/GetCity")
+  }
 }

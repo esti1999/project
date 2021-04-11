@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Availability } from 'src/app/classes/availability';
 import { CarLicense } from 'src/app/classes/car-license';
+import { City } from 'src/app/classes/city';
 import { Gender } from 'src/app/classes/gender';
 import { Language } from 'src/app/classes/language';
 import { PersonalStatus } from 'src/app/classes/personal-status';
+import { VolunteeringDomain } from 'src/app/classes/volunteering-domain';
 import { WeaponsLicense } from 'src/app/classes/weapons-license';
 import { ApiService } from 'src/app/services/api.service';
 import { VolunteerService } from 'src/app/services/volunteer.service';
@@ -36,12 +38,11 @@ export class VolunteerComponent implements OnInit {
   list5:Language[]
   newLanguage: Language = new Language();
 
+  list6:City[]
+  newCity: City = new City();
+
+
   ngOnInit(){
-    // this.apiService.login()
-    // .subscribe(data=>{
-    //   debugger;
-    //   console.log("my data",data)
-    // });
     this.Volunteer.getPersonalStatus().subscribe(data=>{
       this.list = data;
     })
@@ -57,14 +58,23 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getAvailability().subscribe(data=>{
       this.list4 = data;
     })
-    this.Volunteer.getLanguages().subscribe(data=>{
+    this.Volunteer.getLanguage().subscribe(data=>{
       this.list5 = data;
+    })
+    this.Volunteer.getCity().subscribe(data=>{
+      this.list6 = data;
     })
 
   }
   add(){
-    this.Volunteer.add().subscribe(data=>{this.Volunteer.listVolunteer = data
-    alert("הרשמתך בוצעה בהצלחה")})
+    this.Volunteer.addValunteer().subscribe(data=>{
+      // this.Volunteer.listVolunteer = data
+      if(data==true)
+        alert("הרשמתך בוצעה בהצלחה")
+      else 
+        alert("הרשמתך נכשלה")
+
+      })
     this.Volunteer.Volunteer = new Volunteer();
   }
   

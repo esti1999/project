@@ -14,7 +14,6 @@ import { ApiService } from './services/api.service';
 import { AssistedService } from './services/assisted.service';
 import { VolunteerService } from './services/volunteer.service';
 import { VolunteeringDomainService } from './services/volunteering-domain.service';
-import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
@@ -24,7 +23,6 @@ import { ScheduleComponent } from './schedule/schedule.component';
     AssistedComponent,
     VolunteerComponent,
     VolunteeringDomainComponent,
-    ScheduleComponent
   ],
   imports: [
     BrowserModule,

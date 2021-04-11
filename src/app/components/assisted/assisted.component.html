@@ -5,10 +5,6 @@
     <div class="row prograph">
         <div class="col-6">
             <h6>מידע אישי</h6>
-<<<<<<< HEAD
-=======
-
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
             <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel" [(ngModel)]="Assisted.Assisted.first_name" name="first_name"/>
             <input class="form-control" placeholder="תעודת זהות" type="text" #ngId="ngModel" [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted"/>
             <input class="form-control" placeholder="כתובת אימייל" type="email" #ngId="ngModel" [(ngModel)]="Assisted.Assisted.e_mail" name="e_mail"/>
@@ -20,13 +16,8 @@
             <select class="form-select form-control" aria-label="Default select example">
                 <option *ngFor="let item of list">{{item.description}}</option>
               </select>
-<<<<<<< HEAD
             <input class="form-control" placeholder="מספר טלפון" type="number" #ngPhone="ngModel" [(ngModel)]="Assisted.Assisted.phone" name="phone"/>
-=======
-
             <input class="form-control" placeholder="מספר טלפון" type="number" #ngPhone="ngModel" [(ngModel)]="Assisted.Assisted.phone" name="phone"/>
-
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
             <select class="form-select form-control" aria-label="Default select example">
                 <option *ngFor="let item of list1">{{item.description}}</option>
             </select>
@@ -35,15 +26,11 @@
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
-<<<<<<< HEAD
             <select class="form-select form-control" aria-label="Default select example">
                 <option *ngFor="let item of list3">{{item.name_city}}</option>
             </select>
             <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
-=======
-
             <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/>
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
             <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel" [(ngModel)]="Assisted.Assisted.number_building" name="number_building"/>
             <input class="form-control" placeholder="מספר בית" type="number" #ngNumberHouse="ngModel" [(ngModel)]="Assisted.Assisted.number_house" name="number_house"/>
         </div>
@@ -52,10 +39,7 @@
             <input class="form-control" placeholder="קומה" type="number" #ngFloor="ngModel" [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor"/>
             <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel" [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code"/>
         </div>
-<<<<<<< HEAD
     </div>
-=======
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
         <div class="row prograph">
           <div class="col-6">
             <h6>תחומים וסיסמא</h6>
@@ -67,11 +51,8 @@
         </div>
     <!-- <div class="row prograph">
         <div class="col">
-<<<<<<< HEAD
             <!- <h6 class="inline-title">סוג טלפון:</h6>
-=======
              <h6 class="inline-title">סוג טלפון:</h6>
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="phone1" name="phone" class="custom-control-input" value="SMS">
                 <label class="custom-control-label purple" for="phone1">SMS</label>
@@ -87,8 +68,6 @@
         <!-- </div> -->
     <!-- </div>  -->
     <div class="row prograph">
-        <div class="col">
-<<<<<<< HEAD
             <h6 class="inline-title"> שפות:</h6>        
             <div class="custom-control custom-checkbox" *ngFor="let item of list2">
                 <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name={{item.code_language}} class="custom-control-input" >
@@ -109,7 +88,6 @@
             </div>
             <div class="custom-control custom-checkbox">
                 <input #lang4 type="checkbox" id="lang4" name="lang" class="custom-control-input"  value="spanish">
-=======
             <h6 class="inline-title"> שפות:</h6>
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="lang1" name="lang" class="custom-control-input" >
@@ -125,7 +103,6 @@
             </div>
             <div class="custom-control custom-checkbox">
                 <input #lang4 type="checkbox" id="lang4" name="lang" class="custom-control-input" >
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
                 <label class="custom-control-label purple" for="lang4">ספרדית</label>
             </div>
             <div class="custom-control custom-checkbox">

@@ -22,30 +22,16 @@
                 <option *ngFor="let item of list1">{{item.description}}</option>
                 <!-- <! <select [(ngModel)]="takingDeliveryService.newTakingDelivery.TDCityID" [ngModelOptions]="{standalone: true}" nam="city"> --> 
             </select> 
-<<<<<<< HEAD
         </div>
-=======
-
         </div>
-
-
-        
-        
-
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
             <div class="col">
               <h6>תחומים וסיסמא</h6>
               <button type="button" class="form-control" routerLink="/volunteering-domain/false" >תחומי התנדבות</button>
             </div>
             <div class="col-6 second-col">
               <input class="form-control" placeholder="סיסמא">
-<<<<<<< HEAD
             </div>  
-=======
-
             </div>
-
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
     </div>
     <div class="row prograph">
         <div class="col-6">
@@ -63,19 +49,11 @@
             <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel" [(ngModel)]="Volunteer.Volunteer.postal_code" name="postal_code" />
         </div>
     </div>
-<<<<<<< HEAD
     <!-- <div class="row prograph"> -->
     <!-- <div class="row prograph">
         <div class="col">
-=======
-
-
     <div class="row prograph">
-
-
-
-        <!-- <div class="col">
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
+        <!- <div class="col">
             <h6 class="inline-title">סוג טלפון:</h6>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="phone1" name="phone" class="custom-control-input" value="SMS">
@@ -108,22 +86,16 @@
     </div> -->
     <div class="row prograph">
         <div class="col">
-<<<<<<< HEAD
             <h6 class="inline-title"> שפות:</h6>        
-
             <div  class="custom-control custom-checkbox" *ngFor="let item of list5">
                 <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="languages" class="custom-control-input"/>
                 <label class="custom-control-label purple" for={{item.code_language}}>{{item.name_language}}</label>
             </div>
-            
-            
             <!-- <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="lang1" name="lang" class="custom-control-input" >
-=======
             <h6 class="inline-title"> שפות:</h6>
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="lang1" name="lang" class="custom-control-input">
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
                 <label class="custom-control-label purple" for="lang1">עברית</label>
             </div>
             <div class="custom-control custom-checkbox">
@@ -141,11 +113,8 @@
             <div class="custom-control custom-checkbox">
                 <input #lang4 type="checkbox" id="lang5" name="lang" class="custom-control-input" >
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
-<<<<<<< HEAD
             </div>  -->
-=======
             </div>
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
         </div>
     </div>  
 </div> 
@@ -155,19 +124,12 @@
         <!-- <h5>שירות</h5> -->
         <div>
             <div class="row prograph">
-<<<<<<< HEAD
                 <!-- <h5> רכב/רישיון נהיגה</h5> -->   
                 <div class="col">  
                     <h6 class="inline-title">רישיון נהיגה:</h6>      
-=======
                 <!-- <h5> רכב/רישיון נהיגה</h5> -->
-
-
                 <div class="col">  
-                       
-
                     <h6 class="inline-title"> רשיון נהיגה :</h6>      
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="license1" name="license" class="custom-control-input" value="1"
                         #ngCodeLicenseCarYes="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="CodeLicenseCarYes">
@@ -178,7 +140,6 @@
                         #ngCodeLicenseCarNo="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="#ngCodeLicenseCarNo">
                         <label class="custom-control-label purple" for="license2">לא</label>
                     </div>
-<<<<<<< HEAD
                     <div class="col" *ngIf="Volunteer.Volunteer.code_license_car == 1">
                         <h6 class="inline-title">סוג רשיון נהיגה:</h6>
                         <select class="form-select form-control col-6" aria-label="Default select example">
@@ -187,15 +148,12 @@
                        <h6 class="inline-title">תוקף רשיון נהיגה :</h6>
                       <input type="date" class="form-control col-6" placeholder="תאריך תוקף"/>
                    </div>
-=======
                     <div class="col-6">
                     <select class="form-select form-control" aria-label="Default select example">
                         <option *ngFor="let item of list2">{{item.description}}</option>
                     </select>
                     <input type="date" class="form-control" placeholder="תאריך תוקף"/>
                 </div>
-
->>>>>>> 891d7e8bd4467c03da1accc35c490cc3de371ec6
                 <!-- <div class="col">
                     <h6 class="inline-title"> וו גרירה  :</h6>
         
@@ -283,7 +241,6 @@
                         <input type="radio" id="gun2" name="gun" class="custom-control-input" value="no">
                         <label class="custom-control-label purple" for="gun2">רובה</label>
                     </div> -->
-             
                 <div>
                     <h6 class="inline-title">תוקף רשיון נשק :</h6>
                     <input type="date" class="form-control col-6" placeholder="תאריך תוקף"/>
@@ -333,7 +290,6 @@
                     <!-- <button type="button" class="form-control" routerLink="/volunteering-domain" >תחומי התנדבות</button> -->
                    </div>
                </div>
-
                 <!-- <div >
                     <h6 class="inline-title">שירות לאומי/אזרחי:</h6>
                     <div class="custom-control custom-radio custom-control-inline">

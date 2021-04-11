@@ -1,11 +1,11 @@
 .header-img
 {
     height: 40vh;
-    width: 100vw;
-    background-image: url('../../../assets/images/1.png');
-    margin-bottom: 100vh;
+    width: 100%;
+    background-image: url('../../../assets/images/4.png');
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 125vh;
 }
 .section{
     border-radius: 10px;
@@ -41,7 +41,6 @@
   
   .custom-control-input:checked~.custom-control-label.purple::before {
     background-color: #7B1FA2;
-    
   }
 .inline-title{
     display: inline-block;
@@ -56,4 +55,3 @@
 .name{
     text-align: center;
 }
-

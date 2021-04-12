@@ -23,6 +23,7 @@ import { VolunteeringDomainService } from './services/volunteering-domain.servic
     AssistedComponent,
     VolunteerComponent,
     VolunteeringDomainComponent,
+    
   ],
   imports: [
     BrowserModule,

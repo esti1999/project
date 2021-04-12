@@ -13,28 +13,29 @@
         </div>
         <div class="col-6 second-col">
             <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel" [(ngModel)]="Volunteer.Volunteer.lastName_volunteer" name="lastName_volunteer"/>
-            <select class="form-select form-control" aria-label="Default select example">
+            <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel" [(ngModel)]="Volunteer.personalStatus" name="personalStatus">
                 <option *ngFor="let item of list">{{item.description}}</option>
             </select>
             <input type="date" class="form-control" placeholder="תאריך לידה" type="date" #ngBirth="ngModel" [(ngModel)]="Volunteer.Volunteer.date_of_birth" name="date_of_birth"/>
             <!-- <input class="form-control" placeholder="טלפון נוסף"/> -->
-            <select class="form-select form-control"  aria-label="Default select example">
+            <select class="form-select form-control"  aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Volunteer.gender" name="gender">
                 <option *ngFor="let item of list1">{{item.description}}</option>
                 <!-- <! <select [(ngModel)]="takingDeliveryService.newTakingDelivery.TDCityID" [ngModelOptions]="{standalone: true}" nam="city"> --> 
             </select> 
         </div>
-        </div>
+       
             <div class="col">
               <h6>תחומים וסיסמא</h6>
               <button type="button" class="form-control" routerLink="/volunteering-domain/false" >תחומי התנדבות</button>
             </div>
             <div class="col-6 second-col">
-              <input class="form-control" placeholder="סיסמא">
+              <input class="form-control" placeholder="סיסמא" type="text" #ngPassword="ngModel" [(ngModel)]="Volunteer.Volunteer.password" name="password">
             </div>  
+        </div>
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
-            <select class="form-select form-control" aria-label="Default select example">
+            <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel" [(ngModel)]="Volunteer.city" name="city">
                 <option *ngFor="let item of list6">{{item.name_city}}</option>
             </select>
             <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Volunteer.Volunteer.code_city" name="code_city"/> -->
@@ -85,7 +86,7 @@
     <div class="row prograph">
         <div class="col">
             <h6 class="inline-title"> שפות:</h6>        
-            <div  class="custom-control custom-checkbox" *ngFor="let item of list5">
+            <div  class="custom-control custom-checkbox" *ngFor="let item of list5" #ngList5="ngModel" [(ngModel)]="Volunteer.language" name="language">
                 <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="languages" class="custom-control-input"/>
                 <label class="custom-control-label purple" for={{item.code_language}}>{{item.name_language}}</label>
             </div>
@@ -136,18 +137,12 @@
                     </div>
                     <div class="col" *ngIf="Volunteer.Volunteer.code_license_car == 1">
                         <h6 class="inline-title">סוג רשיון נהיגה:</h6>
-                        <select class="form-select form-control col-6" aria-label="Default select example">
+                        <select class="form-select form-control col-6" aria-label="Default select example" #ngList2="ngModel" [(ngModel)]="Volunteer.carLicense" name="carLicense">
                            <option *ngFor="let item of list2">{{item.description}}</option>
                         </select>
                        <h6 class="inline-title">תוקף רשיון נהיגה :</h6>
-                      <input type="date" class="form-control col-6" placeholder="תאריך תוקף"/>
-                   </div>
-                    <div class="col-6">
-                    <select class="form-select form-control" aria-label="Default select example">
-                        <option *ngFor="let item of list2">{{item.description}}</option>
-                    </select>
-                    <input type="date" class="form-control" placeholder="תאריך תוקף"/>
-                </div>
+                      <input type="date" class="form-control col-6" placeholder="תאריך תוקף"  #ngvalidityc="ngModel" [(ngModel)]="Volunteer.validityc" name="validityc"/>
+                    </div>
                 <!-- <div class="col">
                     <h6 class="inline-title"> וו גרירה  :</h6>
         
@@ -220,10 +215,9 @@
                         <label class="custom-control-label purple" for="Weapon2">לא</label>
                     </div>
                 </div>
-                <div>
                 <div class="col" *ngIf="Volunteer.Volunteer.code_license_weapon == 1">
                     <h6 class="inline-title">סוג רשיון נשק:</h6>
-                    <select class="form-select form-control col-6" aria-label="Default select example">
+                    <select class="form-select form-control col-6" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Volunteer.weaponsLicense" name="weaponsLicense">
                         <option *ngFor="let item of list3">{{item.description}}</option>
                     </select>
                     <!-- <div class="custom-control custom-radio custom-control-inline">
@@ -234,9 +228,9 @@
                         <input type="radio" id="gun2" name="gun" class="custom-control-input" value="no">
                         <label class="custom-control-label purple" for="gun2">רובה</label>
                     </div> -->
-                <div>
+                <!-- <div> -->
                     <h6 class="inline-title">תוקף רשיון נשק :</h6>
-                    <input type="date" class="form-control col-6" placeholder="תאריך תוקף"/>
+                    <input type="date" class="form-control col-6" placeholder="תאריך תוקף"  #ngvalidityw="ngModel" [(ngModel)]="Volunteer.validityw" name="validityw"/>
                     <!-- <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="validity1" name="validity" class="custom-control-input" value="yes">
                         <label class="custom-control-label purple" for="validity1">כן</label>
@@ -245,9 +239,8 @@
                         <input type="radio" id="validity2" name="validity" class="custom-control-input" value="no">
                         <label class="custom-control-label purple" for="validity2">לא</label> -->                        
                  <!-- </div> --> 
-                </div>  
-              </div> 
-              </div>
+                <!-- </div>   -->
+               </div> 
               </div>
             </div>
          <!-- <div class="row prograph"> -->
@@ -270,16 +263,15 @@
                 </div>
                 <div>
                     <div class="col" *ngIf="Volunteer.Volunteer.code_service == 1"> 
-                    <input class="form-control col-6" placeholder="דרגת שירות  "/>
-                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור"/>
+                    <input class="form-control col-6" placeholder="דרגת שירות" type="text" #ngdescription="ngModel" [(ngModel)]="Volunteer.description" name="description"/>
+                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date" #ngDate="ngModel" [(ngModel)]="Volunteer.release_date" name="release_date"/>
                    </div>
                 </div>
-
                 <div>
                     <div class="col" *ngIf="Volunteer.Volunteer.code_service == 2"> 
-                    <input class="form-control col-6" placeholder="תפקיד שירות  "/>
+                    <input class="form-control col-6" placeholder="תפקיד שירות" type="text" #ngdescription="ngModel" [(ngModel)]="Volunteer.description" name="description"/>
                     <!-- <input class="form-control" placeholder="מקום שירות  "/> -->
-                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור"/>
+                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date" #ngDate="ngModel" [(ngModel)]="Volunteer.release_date" name="release_date"/>
                     <!-- <button type="button" class="form-control" routerLink="/volunteering-domain" >תחומי התנדבות</button> -->
                    </div>
                </div>
@@ -318,7 +310,7 @@
 <div class="section">
     <h2 class="title"> זמינות</h2>
     <div class="col">
-        <select class="form-select form-control" aria-label="Default select example">
+        <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel" [(ngModel)]="Volunteer.availability" name="availability">
             <option *ngFor="let item of list4">{{item.description}}</option>
         </select>
         <div class="button-wapper">

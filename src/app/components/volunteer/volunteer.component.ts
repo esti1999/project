@@ -18,7 +18,7 @@ import { Volunteer } from '../../classes/volunteer';
 })
 export class VolunteerComponent implements OnInit {
   // newVolunteer: Volunteer = new Volunteer();
-  constructor(public Volunteer:VolunteerService, ) { }
+  constructor(public Volunteer:VolunteerService) { }
 
   list:PersonalStatus[]
   newPersonalStatus: PersonalStatus = new PersonalStatus();
@@ -76,6 +76,8 @@ export class VolunteerComponent implements OnInit {
 
       })
     this.Volunteer.Volunteer = new Volunteer();
+    // this.Volunteer.availability = new Availability();
+    // this.Volunteer.language = new Language();
   }
   
 }

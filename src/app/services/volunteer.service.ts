@@ -9,14 +9,32 @@ import { CarLicense } from '../classes/car-license';
 import { WeaponsLicense } from '../classes/weapons-license';
 import { Availability } from '../classes/availability';
 import { City } from '../classes/city';
+import { Services } from '../classes/services';
+import { CarLicenseVolunteer } from '../classes/car-license-volunteer';
+import { WeaponsLicenseVolunteer } from '../classes/weapons-license-volunteer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VolunteerService {
   url:string = "http://localhost:59782/api/volunteer"
-  listVolunteer:Array<Volunteer> = new Array<Volunteer>()
+  listVolunteer:Array<Volunteer> = new Array<Volunteer>();
   Volunteer:Volunteer = new Volunteer();
+  personalStatus: PersonalStatus = new PersonalStatus();
+  gender: Gender = new Gender();
+  carLicense: CarLicense = new CarLicense();
+  weaponsLicense:WeaponsLicense = new WeaponsLicense();
+  availability: Availability = new Availability();
+  language: Array<Language> = new Array<Language>();
+  // language:Language[]=[];
+  city: City = new City();
+  release_date: Services = new Services();
+  description: Services = new Services();
+  validityc: CarLicenseVolunteer = new CarLicenseVolunteer();
+  validityw: WeaponsLicenseVolunteer = new WeaponsLicenseVolunteer();
+ 
+
+
   myListDomain: any[] = []
    constructor(private http:HttpClient) { }
 

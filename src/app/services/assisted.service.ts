@@ -11,9 +11,14 @@ import { City } from '../classes/city';
   providedIn: 'root'
 })
 export class AssistedService {
+  url:string = "http://localhost:59782/api/assisted"
   listAssisted:Array<Assisted> = new Array<Assisted>()
   Assisted:Assisted = new Assisted();
-  url:string = "http://localhost:59782/api/assisted"
+  gender: Gender = new Gender();
+  personalStatus: PersonalStatus = new PersonalStatus();
+  language: Array<Language> = new Array<Language>();
+  city: City = new City();
+
   myListDomain: any[] = []
   constructor(private http: HttpClient) { }
 

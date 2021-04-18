@@ -14,16 +14,16 @@ export class AssistedService {
   url:string = "http://localhost:59782/api/assisted"
   listAssisted:Array<Assisted> = new Array<Assisted>()
   Assisted:Assisted = new Assisted();
-  gender: Gender = new Gender();
-  personalStatus: PersonalStatus = new PersonalStatus();
-  language: Array<Language> = new Array<Language>();
-  city: City = new City();
+  // gender: Gender = new Gender();
+  // personalStatus: PersonalStatus = new PersonalStatus();
+  // language: Array<Language> = new Array<Language>();
+  // city: City = new City();
 
   myListDomain: any[] = []
   constructor(private http: HttpClient) { }
 
   add():Observable<Array<Assisted>>{
-    return this.http.post<Array<Assisted>>(this.url+"/addAssisted", this.Assisted)
+    return this.http.post<Array<Assisted>>(this.url+"/addAssisted" ,this.Assisted)
   }
   getPersonalStatus():Observable<Array<PersonalStatus>>{
     return this.http.get<Array<PersonalStatus>>(this.url + "/GetPersonalStatus")

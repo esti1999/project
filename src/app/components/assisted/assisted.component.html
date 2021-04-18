@@ -13,20 +13,20 @@
         </div>      
         <div class="col-6 second-col">
             <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel" [(ngModel)]="Assisted.Assisted.last_name" name="last_name"/>
-            <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Assisted.personalStatus" name="personalStatus">
-                <option *ngFor="let item of list">{{item.description}}</option>
+            <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Assisted.Assisted.code_status" name="personalStatus">
+                <option *ngFor="let item of list" value="{{item.code_status}}">{{item.description}}</option>
               </select>
             <input class="form-control" placeholder="מספר טלפון" type="text" #ngPhone="ngModel" [(ngModel)]="Assisted.Assisted.phone" name="phone"/>
-            <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Assisted.gender" name="gender">
-                <option *ngFor="let item of list1">{{item.description}}</option>
+            <select class="form-select form-control"  aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Assisted.Assisted.code_gender" name="gender">
+                <option *ngFor="let item of list1" value="{{item.code_gender}}">{{item.description}}</option>
             </select>
         </div>
     </div>
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
-            <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Assisted.city" name="city">
-                <option *ngFor="let item of list3">{{item.name_city}}</option>
+            <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="city">
+                <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
             </select>
             <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
             <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel" [(ngModel)]="Assisted.Assisted.number_building" name="number_building"/>
@@ -67,9 +67,9 @@
     <!-- </div>  -->
     <div class="row prograph">
             <h6 class="inline-title"> שפות:</h6>        
-            <div class="custom-control custom-checkbox" *ngFor="let item of list2" #ngList2="ngModel" [(ngModel)]="Assisted.language" name="language">
+            <div class="custom-control custom-checkbox" *ngFor="let item of list2" #ngList2="ngModel" [(ngModel)]="Assisted.Assisted.language" name="language">
                 <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name={{item.code_language}} class="custom-control-input" >
-                <label class="custom-control-label purple" for={{item.code_language}}>{{item.name_language}}</label>
+                <label class="custom-control-label purple" for={{item.code_language}} value="{{item.code_language}}">{{item.name_language}}</label>
             </div>
             <!-- <h6 class="inline-title"> שפות:</h6>
             <div class="custom-control custom-checkbox">

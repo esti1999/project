@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-schedule',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor() { }
+  userType:string;
+
+  constructor( private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userType=this.route.snapshot.params['userType']
   }
 
 }

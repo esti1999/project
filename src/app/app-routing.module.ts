@@ -9,9 +9,9 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
-  { path: 'volunteer', component: VolunteerComponent},
-  { path: 'schedule', component: ScheduleComponent},
-  { path: 'assisted', component: AssistedComponent},
+  { path: 'volunteer/:mode', component: VolunteerComponent},
+  { path: 'schedule/:userType', component: ScheduleComponent},
+  { path: 'assisted/:mode', component: AssistedComponent},
   { path: 'volunteering-domain/:id', component: VolunteeringDomainComponent},
   { path: 'assistedVolunteeringDomain', component: AssistedComponent},
   { path: 'volunteerVolunteeringDomain', component: VolunteerComponent}

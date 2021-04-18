@@ -17,7 +17,12 @@ export class LoginComponent implements OnInit {
   password :string
   e_mail:string
 
-  constructor(public ApiService:ApiService ,public rout:Router, public VolunteerApi:VolunteerService) { }
+  constructor(
+    public ApiService:ApiService ,
+    public rout:Router,
+    private volunteerService:VolunteerService,
+    private assistedService:AssistedService
+  ) { }
 
   ngOnInit() {}
   Enters()
@@ -27,7 +32,12 @@ export class LoginComponent implements OnInit {
       if(data!=null)
       {
         alert("ברוך הבא");
-        this.rout.navigate(['/']);
+        this.rout.navigate(['/schedule/volunteer']);
+        console.log("volunteer",data)
+
+        //save valonteer in service
+        this.volunteerService.Volunteer=data;
+
       }
       else{
         this.ApiService.GetEailAddressAndPassword1(this.e_mail, this.password)
@@ -35,7 +45,10 @@ export class LoginComponent implements OnInit {
           if(data1!=null)
           {
             alert("ברוך הבא");
-            this.rout.navigate(['/']);
+            this.rout.navigate(['/schedule/assisted']);
+            console.log("assisted",data1)
+            //save assisted
+            this.assistedService.Assisted=data1;
           }
           else
           {

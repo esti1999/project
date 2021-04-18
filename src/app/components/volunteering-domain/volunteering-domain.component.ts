@@ -19,10 +19,8 @@ export class VolunteeringDomainComponent implements OnInit {
   newVolunteeringDomain: VolunteeringDomain = new VolunteeringDomain();
   kind:string;
   constructor(private volunteer:VolunteerService, private assisted:AssistedService, private volunteeringDomain: VolunteeringDomainService , private route:ActivatedRoute, private router: Router) {
-    // this.route.params.subscribe(p=>{
-    //    this.kind=route["id"]
-    // })
-   }
+ 
+  }
 
   listDomain:any[] =[]
 

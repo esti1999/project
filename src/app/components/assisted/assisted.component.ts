@@ -5,6 +5,7 @@ import { PersonalStatus } from '../../classes/personal-status';
 import { Gender } from '../../classes/gender';
 import { Language } from 'src/app/classes/language';
 import { City } from 'src/app/classes/city';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-assisted',
@@ -13,7 +14,10 @@ import { City } from 'src/app/classes/city';
 })
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
-  constructor(public Assisted:AssistedService) { }
+  constructor(public Assisted:AssistedService ,private route:ActivatedRoute) { }
+
+  mode:string
+
  list:PersonalStatus[]
  newPersonalStatus: PersonalStatus = new PersonalStatus();
 
@@ -27,6 +31,10 @@ export class AssistedComponent implements OnInit {
  newCity: City = new City();
  
   ngOnInit(){
+
+    this.mode=this.route.snapshot.params['mode']
+
+
     this.Assisted.getPersonalStatus().subscribe(data=>{
       this.list = data;
     })

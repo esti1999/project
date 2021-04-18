@@ -111,7 +111,8 @@
         </div>
    
     <div class="button-wapper">
-        <button type="submit" class="btn btn-dark btn-perple btn-lg"> רישום</button>
+        <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום</button>
+        <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון  </button>
     </div> 
   <!-- </div> -->
  </div>

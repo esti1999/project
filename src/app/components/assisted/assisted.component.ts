@@ -43,6 +43,10 @@ export class AssistedComponent implements OnInit {
   add(){
     this.Assisted.add().subscribe(data=>{this.Assisted.listAssisted = data
     alert("הרשמתך בוצעה בהצלחה")})
-    this.Assisted.Assisted = new Assisted();
+    // this.Assisted.Assisted = new Assisted();
+    // this.Assisted.gender = new Gender();
+    // this.Assisted.personalStatus = new PersonalStatus();
+    // this.Assisted.language = new <Language>();
+    // this.Assisted.city = new City();
   }
 }

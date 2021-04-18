@@ -5,6 +5,7 @@ import { City } from 'src/app/classes/city';
 import { Gender } from 'src/app/classes/gender';
 import { Language } from 'src/app/classes/language';
 import { PersonalStatus } from 'src/app/classes/personal-status';
+import { Services } from 'src/app/classes/services';
 import { VolunteeringDomain } from 'src/app/classes/volunteering-domain';
 import { WeaponsLicense } from 'src/app/classes/weapons-license';
 import { ApiService } from 'src/app/services/api.service';
@@ -18,7 +19,7 @@ import { Volunteer } from '../../classes/volunteer';
 })
 export class VolunteerComponent implements OnInit {
   // newVolunteer: Volunteer = new Volunteer();
-  constructor(public Volunteer:VolunteerService) { }
+  constructor(public Volunteer:VolunteerService, public service: VolunteerService) { }
 
   list:PersonalStatus[]
   newPersonalStatus: PersonalStatus = new PersonalStatus();
@@ -41,7 +42,10 @@ export class VolunteerComponent implements OnInit {
   list6:City[]
   newCity: City = new City();
 
+  list7:Services[]
+  newServices: Services = new Services();
 
+  l_language = [0, 0, 0, 0, 0]
   ngOnInit(){
     this.Volunteer.getPersonalStatus().subscribe(data=>{
       this.list = data;
@@ -64,10 +68,13 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getCity().subscribe(data=>{
       this.list6 = data;
     })
+    this.Volunteer.getServices().subscribe(data=>{
+      this.list7 = data;
+    })
 
   }
   add(){
-    this.Volunteer.addValunteer().subscribe(data=>{
+    this.Volunteer.addVolunteer().subscribe(data=>{
       // this.Volunteer.listVolunteer = data
       if(data==true)
         alert("הרשמתך בוצעה בהצלחה")
@@ -75,9 +82,16 @@ export class VolunteerComponent implements OnInit {
         alert("הרשמתך נכשלה")
 
       })
-    this.Volunteer.Volunteer = new Volunteer();
+    // this.Volunteer.Volunteer = new Volunteer();
     // this.Volunteer.availability = new Availability();
+    // this.Volunteer.gender = new Gender();
+    // this.Volunteer.personalStatus = new PersonalStatus();
+    // this.Volunteer.carLicense = new CarLicense();
+    // this.Volunteer.weaponsLicense = new WeaponsLicense();
+    // this.Volunteer.city = new City();
     // this.Volunteer.language = new Language();
   }
-  
+  trackByIndex(index: number, value: any) {
+    return index;
+  }
 }

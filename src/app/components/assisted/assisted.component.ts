@@ -5,7 +5,11 @@ import { PersonalStatus } from '../../classes/personal-status';
 import { Gender } from '../../classes/gender';
 import { Language } from 'src/app/classes/language';
 import { City } from 'src/app/classes/city';
+<<<<<<< HEAD
 import { Subscription , interval} from 'rxjs';
+=======
+import { ActivatedRoute } from '@angular/router';
+>>>>>>> 3bfb7d35143dbb81f5cee9dbae7001478574b1c9
 
 @Component({
   selector: 'app-assisted',
@@ -14,7 +18,10 @@ import { Subscription , interval} from 'rxjs';
 })
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
-  constructor(public Assisted:AssistedService) { }
+  constructor(public Assisted:AssistedService ,private route:ActivatedRoute) { }
+
+  mode:string
+
  list:PersonalStatus[]
 
  subscription: Subscription;
@@ -30,6 +37,10 @@ export class AssistedComponent implements OnInit {
  newCity: City = new City();
  
   ngOnInit(){
+
+    this.mode=this.route.snapshot.params['mode']
+
+
     this.Assisted.getPersonalStatus().subscribe(data=>{
       this.list = data;
     })

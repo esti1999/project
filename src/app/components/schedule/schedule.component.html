@@ -1,0 +1,5 @@
+<div>
+    <a routerLink="/login">התנתק</a>
+    <a *ngIf="this.userType=='volunteer'" routerLink="/volunteer/update">עדכון פרטי מתנדב</a>
+    <a *ngIf="this.userType=='assisted'" routerLink="/assisted/update">עדכון פרטי נעזר</a>
+</div>

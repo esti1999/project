@@ -320,7 +320,8 @@
             <option *ngFor="let item of list4" value="{{item.code_availability}}">{{item.description}}</option>
         </select>
         <div class="button-wapper">
-            <button type="submit" class="btn btn-dark btn-perple btn-lg"> רישום  </button>
+            <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום  </button>
+            <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון  </button>
         </div>
     </div>
  </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Availability } from 'src/app/classes/availability';
 import { CarLicense } from 'src/app/classes/car-license';
 import { City } from 'src/app/classes/city';
@@ -19,7 +20,9 @@ import { Volunteer } from '../../classes/volunteer';
 })
 export class VolunteerComponent implements OnInit {
   // newVolunteer: Volunteer = new Volunteer();
-  constructor(public Volunteer:VolunteerService, public service: VolunteerService) { }
+  constructor(public Volunteer:VolunteerService,private route:ActivatedRoute) { }
+
+  mode:string
 
   list:PersonalStatus[]
   newPersonalStatus: PersonalStatus = new PersonalStatus();
@@ -47,6 +50,10 @@ export class VolunteerComponent implements OnInit {
 
   l_language = [0, 0, 0, 0, 0]
   ngOnInit(){
+
+    this.mode=this.route.snapshot.params['mode']
+
+
     this.Volunteer.getPersonalStatus().subscribe(data=>{
       this.list = data;
     })

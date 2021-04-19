@@ -5,6 +5,7 @@ import { PersonalStatus } from '../../classes/personal-status';
 import { Gender } from '../../classes/gender';
 import { Language } from 'src/app/classes/language';
 import { City } from 'src/app/classes/city';
+import { Subscription , interval} from 'rxjs';
 
 @Component({
   selector: 'app-assisted',
@@ -15,6 +16,8 @@ export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
   constructor(public Assisted:AssistedService) { }
  list:PersonalStatus[]
+
+ subscription: Subscription;
  newPersonalStatus: PersonalStatus = new PersonalStatus();
 
  list1:Gender[]
@@ -41,12 +44,24 @@ export class AssistedComponent implements OnInit {
     })
   }
   add(){
-    this.Assisted.add().subscribe(data=>{this.Assisted.listAssisted = data
-    alert("הרשמתך בוצעה בהצלחה")})
-    // this.Assisted.Assisted = new Assisted();
-    // this.Assisted.gender = new Gender();
-    // this.Assisted.personalStatus = new PersonalStatus();
-    // this.Assisted.language = new <Language>();
-    // this.Assisted.city = new City();
+    this.Assisted.addAssisted().subscribe(data=>{
+      // this.Assisted.listAssisted = data
+      if(data == true){
+            alert("הרשמתך בוצעה בהצלחה")
+            const source = interval(10000*6);
+            const text = 'Your Text Here';
+            this.subscription = source.subscribe(val => this.toEmbed());
+          }
+      else
+            alert("הרשמתך נכשלה")
+      })
+  }
+  toEmbed(){
+    console.log("שיבוץ")
+    this.Assisted.toEmbedAssisted();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

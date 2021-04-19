@@ -82,14 +82,6 @@ export class VolunteerComponent implements OnInit {
         alert("הרשמתך נכשלה")
 
       })
-    // this.Volunteer.Volunteer = new Volunteer();
-    // this.Volunteer.availability = new Availability();
-    // this.Volunteer.gender = new Gender();
-    // this.Volunteer.personalStatus = new PersonalStatus();
-    // this.Volunteer.carLicense = new CarLicense();
-    // this.Volunteer.weaponsLicense = new WeaponsLicense();
-    // this.Volunteer.city = new City();
-    // this.Volunteer.language = new Language();
   }
   trackByIndex(index: number, value: any) {
     return index;

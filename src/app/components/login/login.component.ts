@@ -18,18 +18,15 @@ export class LoginComponent implements OnInit {
   password :string
   e_mail:string
 
-<<<<<<< HEAD
- 
 
-  constructor(public ApiService:ApiService ,public rout:Router, public VolunteerApi:VolunteerService) { }
-=======
+  // constructor(public ApiService:ApiService ,public rout:Router, public VolunteerApi:VolunteerService) { }
+
   constructor(
     public ApiService:ApiService ,
     public rout:Router,
     private volunteerService:VolunteerService,
     private assistedService:AssistedService
   ) { }
->>>>>>> 3bfb7d35143dbb81f5cee9dbae7001478574b1c9
 
   ngOnInit() {
  

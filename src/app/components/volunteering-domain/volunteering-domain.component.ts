@@ -18,6 +18,7 @@ export class VolunteeringDomainComponent implements OnInit {
   list:VolunteeringDomain[]
   newVolunteeringDomain: VolunteeringDomain = new VolunteeringDomain();
   kind:string;
+  mode:string;
   constructor(private volunteer:VolunteerService, private assisted:AssistedService, private volunteeringDomain: VolunteeringDomainService , private route:ActivatedRoute, private router: Router) {
  
   }
@@ -30,7 +31,8 @@ export class VolunteeringDomainComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.kind=this.route.snapshot.params['id']
+    this.kind=this.route.snapshot.params['kind']
+    this.mode=this.route.snapshot.params['mode']
 
 
     this.volunteeringDomain.getDomain().subscribe(data=>{
@@ -46,19 +48,18 @@ export class VolunteeringDomainComponent implements OnInit {
       })
     })
   }
-
   Link(){
     if(this.kind=="true")
     {
       this.assisted.myListDomain=this.listDomain
-      this.router.navigate(["assisted"])
+      this.router.navigate(["assisted/"+this.mode])
     }
     else{
-      // if(this.kind=="false")
-      // {
-      this.volunteer.myListDomain=this.listDomain
-      this.router.navigate(["volunteer"])
-      // }
+      if(this.kind=="false")
+      {
+        this.volunteer.myListDomain=this.listDomain
+        this.router.navigate(["volunteer/"+this.mode])
+      }
     }
   }
 }

@@ -3,10 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { Availability } from 'src/app/classes/availability';
 import { CarLicense } from 'src/app/classes/car-license';
 import { City } from 'src/app/classes/city';
+import { Days } from 'src/app/classes/days';
 import { Gender } from 'src/app/classes/gender';
 import { Language } from 'src/app/classes/language';
 import { PersonalStatus } from 'src/app/classes/personal-status';
 import { Services } from 'src/app/classes/services';
+import { Shifts } from 'src/app/classes/shifts';
 import { VolunteeringDomain } from 'src/app/classes/volunteering-domain';
 import { WeaponsLicense } from 'src/app/classes/weapons-license';
 import { ApiService } from 'src/app/services/api.service';
@@ -36,8 +38,8 @@ export class VolunteerComponent implements OnInit {
   list3:WeaponsLicense[]
   newWeaponsLicense: WeaponsLicense = new WeaponsLicense();
 
-  list4: Availability[]
-  newAvailability: Availability = new Availability();
+  list4: Days[]
+  newDay: Days = new Days();
 
   list5:Language[]
   newLanguage: Language = new Language();
@@ -48,7 +50,14 @@ export class VolunteerComponent implements OnInit {
   list7:Services[]
   newServices: Services = new Services();
 
+  list8: Shifts[]
+  newShift: Shifts = new Shifts();
+
   l_language = [0, 0, 0, 0, 0]
+
+  
+
+
   ngOnInit(){
 
     this.mode=this.route.snapshot.params['mode']
@@ -66,11 +75,15 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getWeaponsLicense().subscribe(data=>{
       this.list3 = data;
     })
-    this.Volunteer.getAvailability().subscribe(data=>{
+    this.Volunteer.getDays().subscribe(data=>{
       this.list4 = data;
     })
+    this.Volunteer.getShift().subscribe(data=>{
+      this.list8 = data;
+    })
     this.Volunteer.getLanguage().subscribe(data=>{
-      this.list5 = data;
+      // this.list5 = data;
+      this.Volunteer.Volunteer.languages=data;
     })
     this.Volunteer.getCity().subscribe(data=>{
       this.list6 = data;

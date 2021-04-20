@@ -26,7 +26,7 @@
        
             <div class="col">
               <h6>תחומים וסיסמא</h6>
-              <button type="button" class="form-control" routerLink="/volunteering-domain/false" >תחומי התנדבות</button>
+              <button type="button" class="form-control" routerLink="/volunteering-domain/false/{{this.mode}}" >תחומי התנדבות</button>
             </div>
             <div class="col-6 second-col">
               <input class="form-control" placeholder="סיסמא" type="text" #ngPassword="ngModel" [(ngModel)]="Volunteer.Volunteer.password" name="password">
@@ -87,8 +87,8 @@
     <div class="row prograph">
         <div class="col">
             <h6 class="inline-title"> שפות:</h6>        
-            <div  class="custom-control custom-checkbox" *ngFor="let item of list5;let index = index;trackBy:trackByIndex" name="language">
-                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="languages" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "l_language[index]"/>
+            <div  class="custom-control custom-checkbox" *ngFor="let item of Volunteer.Volunteer.languages;let index = index; trackBy:trackByIndex" name="language">
+                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="{{item.name_language}}" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "item.IsSelected"/>
                 <label class="custom-control-label purple" for={{item.code_language}} value="{{item.code_language}}">{{item.name_language}}</label>
             </div>
             <!-- <div class="custom-control custom-checkbox">
@@ -114,7 +114,7 @@
                 <input #lang4 type="checkbox" id="lang5" name="lang" class="custom-control-input" >
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
             </div>  -->
-        </div>
+        </div>`
     </div>
 </div>  
 <div class="section">
@@ -127,18 +127,20 @@
                 <div class="col">  
                     <h6 class="inline-title"> רשיון נהיגה :</h6>      
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="license1" name="license" class="custom-control-input" value="1"
-                        #ngCodeLicenseCarYes="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="CodeLicenseCarYes">
+                        <input type="radio" id="license1" name="license" class="custom-control-input" value="1">
+                        <!-- #ngCodeLicenseCarYes="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="CodeLicenseCarYes" -->
                         <label class="custom-control-label purple" for="license1">כן</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="license2" name="license" class="custom-control-input" value="0"
-                        #ngCodeLicenseCarNo="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="#ngCodeLicenseCarNo">
+                        <input type="radio" id="license2" name="license" class="custom-control-input" value="0">
+                        <!-- #ngCodeLicenseCarNo="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="CodeLicenseCarNo" -->
                         <label class="custom-control-label purple" for="license2">לא</label>
                     </div>
-                    <div class="col" *ngIf="Volunteer.Volunteer.code_license_car == 1">
+                    <div class="col" >
+                        <!-- *ngIf="Volunteer.Volunteer.code_license_car == 1" -->
                         <h6 class="inline-title">סוג רשיון נהיגה:</h6>
-                        <select class="form-select form-control col-6" aria-label="Default select example" #ngList2="ngModel" [(ngModel)]="Volunteer.Volunteer.description" name="carLicense">
+                        <select class="form-select form-control col-6" aria-label="Default select example" >
+                            <!-- #ngList2="ngModel" [(ngModel)]="Volunteer.Volunteer.description" name="carLicense" -->
                            <option *ngFor="let item of list2" value="{{item.code_license_car}}">{{item.description}}</option>
                         </select>
                        <h6 class="inline-title">תוקף רשיון נהיגה :</h6>
@@ -207,19 +209,21 @@
                 <div>
                     <h6 class="inline-title">נשק אישי:</h6>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="Weapon1" name="Weapon" class="custom-control-input" value="1"
-                        #ngCodeWeaponsLicenseYes="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_weapon" name="CodeWeaponsLicenseYes">
+                        <input type="radio" id="Weapon1" name="Weapon" class="custom-control-input" value="1">
+                        <!-- #ngCodeWeaponsLicenseYes="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_weapon" name="CodeWeaponsLicenseYes" -->
                         <label class="custom-control-label purple" for="Weapon1">כן</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="Weapon2" name="Weapon" class="custom-control-input" value="0"
-                        #ngCodeWeaponsLicenseNo="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_weapon" name="#ngCodeWeaponsLicenseNo">
+                        <input type="radio" id="Weapon2" name="Weapon" class="custom-control-input" value="0">
+                        <!-- #ngCodeWeaponsLicenseNo="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_weapon" name="#ngCodeWeaponsLicenseNo" -->
                         <label class="custom-control-label purple" for="Weapon2">לא</label>
                     </div>
                 </div>
-                <div class="col" *ngIf="Volunteer.Volunteer.code_license_weapon == 1">
+                <div class="col" >
+                    <!-- *ngIf="Volunteer.Volunteer.code_license_weapon == 1" -->
                     <h6 class="inline-title">סוג רשיון נשק:</h6>
-                    <select class="form-select form-control col-6" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Volunteer.Volunteer.description" name="weaponsLicense">
+                    <select class="form-select form-control col-6" aria-label="Default select example" >
+                        <!-- #ngList3="ngModel" [(ngModel)]="Volunteer.Volunteer.description" name="weaponsLicense" -->
                         <option *ngFor="let item of list3" value="{{item.code_license_weapon}}">{{item.description}}</option>
                     </select>
                     <!-- <div class="custom-control custom-radio custom-control-inline">
@@ -316,7 +320,8 @@
 <div class="section">
     <h2 class="title"> זמינות</h2>
     <div class="col">
-        <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel" [(ngModel)]="Volunteer.Volunteer.code_availability" name="availability">
+        <select class="form-select form-control" aria-label="Default select example">
+            <!-- #ngList4="ngModel" [(ngModel)]="Volunteer.Volunteer.code_availability" name="availability" -->
             <option *ngFor="let item of list4" value="{{item.code_availability}}">{{item.description}}</option>
         </select>
         <div class="button-wapper">

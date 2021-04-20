@@ -1,3 +1,7 @@
+import { Language } from "./language";
+import { VolunteerLanguage } from "./volunteer-language";
+
+
 export class Volunteer {
     constructor(public id_volunteer?: string,
          public firstName_volunteer?: string, 
@@ -11,15 +15,11 @@ export class Volunteer {
          public house_number?: number,
          public bulding_number?: number, 
          public number_floor?: number, 
-         public code_language?: number, 
-         public e_mail?: string, 
-         public code_license_car?: number, 
+         public e_mail?: string,  
          public code_service?: number, 
-         public code_license_weapon?: number, 
-         public code_training?: number, 
-         public code_volunteering_domain?: number, 
-         public code_availability?: number, 
          public phone?: string, 
          public password?: string,
-         public release_date?:Date) { }
+         public release_date?:Date,
+         public languages?:Array<Language>,
+         ) { }
 }

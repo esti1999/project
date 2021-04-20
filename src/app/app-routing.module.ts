@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'volunteer/:mode', component: VolunteerComponent},
   { path: 'schedule/:userType', component: ScheduleComponent},
   { path: 'assisted/:mode', component: AssistedComponent},
-  { path: 'volunteering-domain/:id', component: VolunteeringDomainComponent},
+  { path: 'volunteering-domain/:kind/:mode', component: VolunteeringDomainComponent},
   { path: 'assistedVolunteeringDomain', component: AssistedComponent},
   { path: 'volunteerVolunteeringDomain', component: VolunteerComponent}
 ];

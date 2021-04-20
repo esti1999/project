@@ -4,12 +4,12 @@ import { Assisted } from '../../classes/assisted';
 import { PersonalStatus } from '../../classes/personal-status';
 import { Gender } from '../../classes/gender';
 import { Language } from 'src/app/classes/language';
+import { Days } from 'src/app/classes/days';
+import { Shifts } from 'src/app/classes/shifts';
 import { City } from 'src/app/classes/city';
-<<<<<<< HEAD
 import { Subscription , interval} from 'rxjs';
-=======
 import { ActivatedRoute } from '@angular/router';
->>>>>>> 3bfb7d35143dbb81f5cee9dbae7001478574b1c9
+
 
 @Component({
   selector: 'app-assisted',
@@ -35,6 +35,15 @@ export class AssistedComponent implements OnInit {
 
  list3:City[]
  newCity: City = new City();
+
+ list4: Days[]
+ newDays: Days = new Days();
+
+ 
+ list5: Shifts[]
+ newShift: Shifts = new Shifts();
+
+
  
   ngOnInit(){
 
@@ -52,6 +61,12 @@ export class AssistedComponent implements OnInit {
     })
     this.Assisted.getCity().subscribe(data=>{
       this.list3 = data;
+    })
+    this.Assisted.getDays().subscribe(data=>{
+      this.list4 = data;
+    })
+    this.Assisted.getShift().subscribe(data=>{
+      this.list5 = data;
     })
   }
   add(){
@@ -71,8 +86,7 @@ export class AssistedComponent implements OnInit {
     console.log("שיבוץ")
     this.Assisted.toEmbedAssisted();
   }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 }

@@ -7,7 +7,8 @@ import { Volunteer } from '../classes/volunteer';
 import { Language } from '../classes/language';
 import { CarLicense } from '../classes/car-license';
 import { WeaponsLicense } from '../classes/weapons-license';
-import { Availability } from '../classes/availability';
+import { Days } from '../classes/days';
+import { Shifts } from '../classes/shifts';
 import { City } from '../classes/city';
 import { Services } from '../classes/services';
 import { CarLicenseVolunteer } from '../classes/car-license-volunteer';
@@ -20,22 +21,8 @@ export class VolunteerService {
   url:string = "http://localhost:59782/api/volunteer"
   listVolunteer:Array<Volunteer> = new Array<Volunteer>();
   Volunteer:Volunteer = new Volunteer();
+  
   service: Services = new Services();
-  // personalStatus: PersonalStatus = new PersonalStatus();
-  // gender: Gender = new Gender();
-  // carLicense: CarLicense = new CarLicense();
-  // weaponsLicense:WeaponsLicense = new WeaponsLicense();
-  // availability: Availability = new Availability();
-  // language: Array<Language> = new Array<Language>();
-  // language:Language[]=[];
-  // city: City = new City();
-  // release_date: Services = new Services();
-  // description: Services = new Services();
-  // validityc: CarLicenseVolunteer = new CarLicenseVolunteer();
-  // validityw: WeaponsLicenseVolunteer = new WeaponsLicenseVolunteer();
- 
-
-
   myListDomain: any[] = []
    constructor(private http:HttpClient) { }
 
@@ -61,8 +48,11 @@ export class VolunteerService {
    getWeaponsLicense():Observable<Array<WeaponsLicense>>{
     return this.http.get<Array<WeaponsLicense>>(this.url + "/GetWeaponsLicense")
   }
-   getAvailability():Observable<Array<Availability>>{
-    return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
+  getDays():Observable<Array<Days>>{
+    return this.http.get<Array<Days>>(this.url + "/GetDays")
+  }
+  getShift():Observable<Array<Shifts>>{
+    return this.http.get<Array<Shifts>>(this.url + "/GetShift")
   }
   getCity():Observable<Array<City>>{
     return this.http.get<Array<City>>(this.url + "/GetCity")

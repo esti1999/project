@@ -48,7 +48,7 @@ export class VolunteerComponent implements OnInit {
   list7:Services[]
   newServices: Services = new Services();
 
-  l_language = [0, 0, 0, 0, 0]
+  l_language = [0, 0, 0, 0, 0, 0]
   ngOnInit(){
 
     this.mode=this.route.snapshot.params['mode']
@@ -89,14 +89,7 @@ export class VolunteerComponent implements OnInit {
         alert("הרשמתך נכשלה")
 
       })
-    // this.Volunteer.Volunteer = new Volunteer();
-    // this.Volunteer.availability = new Availability();
-    // this.Volunteer.gender = new Gender();
-    // this.Volunteer.personalStatus = new PersonalStatus();
-    // this.Volunteer.carLicense = new CarLicense();
-    // this.Volunteer.weaponsLicense = new WeaponsLicense();
-    // this.Volunteer.city = new City();
-    // this.Volunteer.language = new Language();
+
   }
   trackByIndex(index: number, value: any) {
     return index;

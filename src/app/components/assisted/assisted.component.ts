@@ -57,7 +57,8 @@ export class AssistedComponent implements OnInit {
       this.list1 = data;
     })
     this.Assisted.getLanguage().subscribe(data=>{
-      this.list2 = data;
+      // this.list2 = data;
+      this.Assisted.Assisted.languages=data;
     })
     this.Assisted.getCity().subscribe(data=>{
       this.list3 = data;

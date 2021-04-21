@@ -21,7 +21,8 @@ export class VolunteerService {
   url:string = "http://localhost:59782/api/volunteer"
   listVolunteer:Array<Volunteer> = new Array<Volunteer>();
   Volunteer:Volunteer = new Volunteer();
-  
+  day: Days = new Days();
+  shift: Shifts = new Shifts();
   service: Services = new Services();
   myListDomain: any[] = []
    constructor(private http:HttpClient) { }

@@ -1,3 +1,5 @@
+import { Language } from "./language";
+
 export class Assisted {
     constructor(public id_assisted?: number, 
         public first_name?: string, 
@@ -13,6 +15,7 @@ export class Assisted {
         public postal_code?: string,
         public e_mail?: string,
         public phone?: string,
-        public password?: string) { }
+        public password?: string,
+        public languages?:Array<Language>) { }
 }
 

@@ -20,6 +20,7 @@ export class Volunteer {
          public phone?: string, 
          public password?: string,
          public release_date?:Date,
+         public validity?:Date,
          public languages?:Array<Language>,
          ) { }
 }

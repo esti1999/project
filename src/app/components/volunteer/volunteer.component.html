@@ -144,8 +144,8 @@
                            <option *ngFor="let item of list2" value="{{item.code_license_car}}">{{item.description}}</option>
                         </select>
                        <h6 class="inline-title">תוקף רשיון נהיגה :</h6>
-                      <input type="date" class="form-control col-6" placeholder="תאריך תוקף"/>
-                      <!-- #ngvalidityc="ngModel" [(ngModel)]="Volunteer." name="validityc" -->
+                      <input type="date" class="form-control col-6" placeholder="תאריך תוקף" #ngvalidityc="ngModel" [(ngModel)]="Volunteer.Volunteer.validity" name="validityc"/>
+                      
                     </div>
                 <!-- <div class="col">
                     <h6 class="inline-title"> וו גרירה  :</h6>
@@ -236,8 +236,7 @@
                     </div> -->
                 <!-- <div> -->
                     <h6 class="inline-title">תוקף רשיון נשק :</h6>
-                    <input type="date" class="form-control col-6" placeholder="תאריך תוקף"/>
-                    <!-- #ngvalidityw="ngModel" [(ngModel)]="Volunteer." name="validityw" -->
+                    <input type="date" class="form-control col-6" placeholder="תאריך תוקף" #ngvalidityw="ngModel" [(ngModel)]="Volunteer.Volunteer.validity" name="validityw"/>
                     <!-- <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="validity1" name="validity" class="custom-control-input" value="yes">
                         <label class="custom-control-label purple" for="validity1">כן</label>
@@ -275,14 +274,14 @@
                 <div>
                     <div class="col" *ngIf="Volunteer.Volunteer.code_service == 3"> 
                     <input class="form-control col-6" placeholder="דרגת שירות" type="text" #ngdescription="ngModel" [(ngModel)]="Volunteer.service.description" name="description"/>
-                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date" #ngDate="ngModel" [(ngModel)]="Volunteer.service.release_date" name="release_date"/>
+                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date" #ngDate="ngModel" [(ngModel)]="Volunteer.Volunteer.release_date" name="release_date"/>
                    </div>
                 </div>
                 <div>
                     <div class="col" *ngIf="Volunteer.Volunteer.code_service == 2"> 
                     <input class="form-control col-6" placeholder="תפקיד שירות" type="text" #ngdescription="ngModel" [(ngModel)]="Volunteer.service.description" name="description"/>
                     <!-- <input class="form-control" placeholder="מקום שירות  "/> -->
-                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date" #ngDate="ngModel" [(ngModel)]="Volunteer.service.release_date" name="release_date"/>
+                    <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date" #ngDate="ngModel" [(ngModel)]="Volunteer.Volunteer.release_date" name="release_date"/>
                    </div>
                </div>
                 <!-- <div >
@@ -320,9 +319,11 @@
 <div class="section">
     <h2 class="title"> זמינות</h2>
     <div class="col">
-        <select class="form-select form-control" aria-label="Default select example">
-            <!-- #ngList4="ngModel" [(ngModel)]="Volunteer.Volunteer.code_availability" name="availability" -->
-            <option *ngFor="let item of list4" value="{{item.code_availability}}">{{item.description}}</option>
+        <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Volunteer.day.code_day" name="days">
+            <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
+        </select>
+        <select class="form-select form-control" aria-label="Default select example"  #ngList8="ngModel" [(ngModel)]="Volunteer.shift.code_shift" name="shifts">
+            <option *ngFor="let item of list8" value="{{item.code_shift}}">{{item.description}}</option>
         </select>
         <div class="button-wapper">
             <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום  </button>

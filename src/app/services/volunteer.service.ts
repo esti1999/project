@@ -7,7 +7,8 @@ import { Volunteer } from '../classes/volunteer';
 import { Language } from '../classes/language';
 import { CarLicense } from '../classes/car-license';
 import { WeaponsLicense } from '../classes/weapons-license';
-import { Availability } from '../classes/availability';
+import { Days } from '../classes/days';
+import { Shifts } from '../classes/shifts';
 import { City } from '../classes/city';
 import { Services } from '../classes/services';
 import { CarLicenseVolunteer } from '../classes/car-license-volunteer';
@@ -20,54 +21,15 @@ export class VolunteerService {
   url:string = "http://localhost:59782/api/volunteer"
   listVolunteer:Array<Volunteer> = new Array<Volunteer>();
   Volunteer:Volunteer = new Volunteer();
+  day: Days = new Days();
+  shift: Shifts = new Shifts();
   service: Services = new Services();
-  // personalStatus: PersonalStatus = new PersonalStatus();
-  // gender: Gender = new Gender();
-  // carLicense: CarLicense = new CarLicense();
-  // weaponsLicense:WeaponsLicense = new WeaponsLicense();
-  // availability: Availability = new Availability();
-  // language: Array<Language> = new Array<Language>();
-  // language:Language[]=[];
-  // city: City = new City();
-  // release_date: Services = new Services();
-  // description: Services = new Services();
-  // validityc: CarLicenseVolunteer = new CarLicenseVolunteer();
-  // validityw: WeaponsLicenseVolunteer = new WeaponsLicenseVolunteer();
- 
-
-
   myListDomain: any[] = []
    constructor(private http:HttpClient) { }
 
 
   addVolunteer():Observable<boolean>{
-
-  //   this.Volunteer.id_volunteer = "322766730"
-  //   this.Volunteer.firstName_volunteer="hcf"
-  //   this.Volunteer.lastName_volunteer="kj";
-  //  this.Volunteer.date_of_birth= new Date()
-  //  this.Volunteer.code_status=1
-  //  this.Volunteer.code_gender=2
-  //  this.Volunteer.code_city=1
-  //  this.Volunteer.street="fgjk"
-  //  this.Volunteer.postal_code="34567"
-  //  this.Volunteer.house_number=5
-  //  this.Volunteer.number_floor=3
-  //  this.Volunteer.bulding_number=2
-  //  this.Volunteer.code_language=1
-  //  this.Volunteer.code_license_car=2
-  //  this.Volunteer.e_mail="poiuytre"
-  //  this.Volunteer.code_service=5
-  //  this.Volunteer.code_license_weapon=1
-  //  this.Volunteer.code_volunteering_domain=1
-  //  this.Volunteer.code_availability=1
-  //  this.Volunteer.postal_code="12345"
-  //  this.Volunteer.phone="34567"
-  //  this.Volunteer.password="qwertyui"
-
-
-
-return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
+ return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
   }
   add():Observable<Array<Volunteer>>{
     return this.http.post<Array<Volunteer>>(this.url+"/addVolunteer", this.Volunteer)
@@ -87,8 +49,11 @@ return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
    getWeaponsLicense():Observable<Array<WeaponsLicense>>{
     return this.http.get<Array<WeaponsLicense>>(this.url + "/GetWeaponsLicense")
   }
-   getAvailability():Observable<Array<Availability>>{
-    return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
+  getDays():Observable<Array<Days>>{
+    return this.http.get<Array<Days>>(this.url + "/GetDays")
+  }
+  getShift():Observable<Array<Shifts>>{
+    return this.http.get<Array<Shifts>>(this.url + "/GetShift")
   }
   getCity():Observable<Array<City>>{
     return this.http.get<Array<City>>(this.url + "/GetCity")

@@ -25,8 +25,8 @@
     <div class="row prograph">
         <div class="col-6">
             <h6>כתובת</h6>
-            <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="city">
-                <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
+            <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="city" required>
+                <option *ngFor="let item of list3" value="{{item.code_city}}" >{{item.name_city}}</option>
             </select>
             <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
             <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel" [(ngModel)]="Assisted.Assisted.number_building" name="number_building"/>
@@ -34,14 +34,14 @@
         </div>
         <div class="col-6 second-col">
             <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel" [(ngModel)]="Assisted.Assisted.street" name="street"/>
-            <input class="form-control" placeholder="קומה" type="number" #ngFloor="ngModel" [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor"/>
+            <input class="form-control" placeholder="קומה" type="text" #ngFloor="ngModel" [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor"/>
             <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel" [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code"/>
         </div>
     </div>
         <div class="row prograph">
           <div class="col-6">
             <h6>תחומים וסיסמא</h6>
-            <button type="button" class="form-control" routerLink="/volunteering-domain/true" >תחומי התנדבות</button>
+            <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}" >תחומי התנדבות</button>
           </div>
           <div class="col-6 second-col">
             <input class="form-control" placeholder="סיסמא" #ngPassword="ngModel" [(ngModel)]="Assisted.Assisted.password" name="password">
@@ -67,8 +67,8 @@
     <!-- </div>  -->
     <div class="row prograph">
             <h6 class="inline-title"> שפות:</h6>        
-            <div class="custom-control custom-checkbox" *ngFor="let item of list2" #ngList2="ngModel" [(ngModel)]="Assisted.Assisted.language" name="language">
-                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name={{item.code_language}} class="custom-control-input" >
+            <div class="custom-control custom-checkbox" *ngFor="let item of Assisted.Assisted.languages" name="language">
+                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="{{item.name_language}}" class="custom-control-input" #ngList2="ngModel" [(ngModel)]="item.IsSelected" >
                 <label class="custom-control-label purple" for={{item.code_language}} value="{{item.code_language}}">{{item.name_language}}</label>
             </div>
             <!-- <h6 class="inline-title"> שפות:</h6>
@@ -108,8 +108,7 @@
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
             </div> -->
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
-        </div>
-   
+     </div>
     <div class="button-wapper">
         <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום</button>
         <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון  </button>

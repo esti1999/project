@@ -4,8 +4,12 @@ import { Assisted } from '../../classes/assisted';
 import { PersonalStatus } from '../../classes/personal-status';
 import { Gender } from '../../classes/gender';
 import { Language } from 'src/app/classes/language';
+import { Days } from 'src/app/classes/days';
+import { Shifts } from 'src/app/classes/shifts';
 import { City } from 'src/app/classes/city';
+import { Subscription , interval} from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-assisted',
@@ -19,6 +23,8 @@ export class AssistedComponent implements OnInit {
   mode:string
 
  list:PersonalStatus[]
+
+ subscription: Subscription;
  newPersonalStatus: PersonalStatus = new PersonalStatus();
 
  list1:Gender[]
@@ -29,6 +35,15 @@ export class AssistedComponent implements OnInit {
 
  list3:City[]
  newCity: City = new City();
+
+ list4: Days[]
+ newDays: Days = new Days();
+
+ 
+ list5: Shifts[]
+ newShift: Shifts = new Shifts();
+
+
  
   ngOnInit(){
 
@@ -42,19 +57,37 @@ export class AssistedComponent implements OnInit {
       this.list1 = data;
     })
     this.Assisted.getLanguage().subscribe(data=>{
-      this.list2 = data;
+      // this.list2 = data;
+      this.Assisted.Assisted.languages=data;
     })
     this.Assisted.getCity().subscribe(data=>{
       this.list3 = data;
     })
+    this.Assisted.getDays().subscribe(data=>{
+      this.list4 = data;
+    })
+    this.Assisted.getShift().subscribe(data=>{
+      this.list5 = data;
+    })
   }
   add(){
-    this.Assisted.add().subscribe(data=>{this.Assisted.listAssisted = data
-    alert("הרשמתך בוצעה בהצלחה")})
-    // this.Assisted.Assisted = new Assisted();
-    // this.Assisted.gender = new Gender();
-    // this.Assisted.personalStatus = new PersonalStatus();
-    // this.Assisted.language = new <Language>();
-    // this.Assisted.city = new City();
+    this.Assisted.addAssisted().subscribe(data=>{
+      // this.Assisted.listAssisted = data
+      if(data == true){
+            alert("הרשמתך בוצעה בהצלחה")
+            const source = interval(10000*6);
+            const text = 'Your Text Here';
+            this.subscription = source.subscribe(val => this.toEmbed());
+          }
+      else
+            alert("הרשמתך נכשלה")
+      })
   }
+  toEmbed(){
+    console.log("שיבוץ")
+    this.Assisted.toEmbedAssisted();
+  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 }

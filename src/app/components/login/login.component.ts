@@ -6,6 +6,7 @@ import{ VolunteerService } from 'src/app/services/volunteer.service';
 import { ApiService } from 'src/app/services/api.service';
 import { Volunteer } from 'src/app/classes/volunteer';
 import { NgForOf } from '@angular/common';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
   password :string
   e_mail:string
 
+
+  // constructor(public ApiService:ApiService ,public rout:Router, public VolunteerApi:VolunteerService) { }
+
   constructor(
     public ApiService:ApiService ,
     public rout:Router,
@@ -24,7 +28,10 @@ export class LoginComponent implements OnInit {
     private assistedService:AssistedService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+ 
+  }
+ 
   Enters()
   {
     this.ApiService.GetEailAddressAndPassword(this.e_mail, this.password)

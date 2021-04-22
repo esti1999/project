@@ -50,18 +50,13 @@ export class VolunteerComponent implements OnInit {
   list7:Services[]
   newServices: Services = new Services();
 
-<<<<<<< HEAD
+
   l_language = [0, 0, 0, 0, 0, 0]
-=======
+
   list8: Shifts[]
   newShift: Shifts = new Shifts();
 
-  l_language = [0, 0, 0, 0, 0]
 
-  
-
-
->>>>>>> 4b5f024380b6ad72a5db86ada94faa1fbccfac97
   ngOnInit(){
 
     this.mode=this.route.snapshot.params['mode']
@@ -106,10 +101,7 @@ export class VolunteerComponent implements OnInit {
         alert("הרשמתך נכשלה")
 
       })
-<<<<<<< HEAD
 
-=======
->>>>>>> 4b5f024380b6ad72a5db86ada94faa1fbccfac97
   }
   trackByIndex(index: number, value: any) {
     return index;

@@ -86,15 +86,14 @@
     </div> -->
     <div class="row prograph">
         <div class="col">
-<<<<<<< HEAD
+<!-- 
             <h6 class="inline-title"> שפות:</h6>     
             <div  class="custom-control custom-checkbox" *ngFor="let item of list5;let index = index;trackBy:trackByIndex" name="language">
-                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="languages" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "l_language[index]"/>
-=======
+                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="languages" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "l_language[index]"/> -->
+
             <h6 class="inline-title"> שפות:</h6>        
             <div  class="custom-control custom-checkbox" *ngFor="let item of Volunteer.Volunteer.languages;let index = index; trackBy:trackByIndex" name="language">
                 <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="{{item.name_language}}" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "item.IsSelected"/>
->>>>>>> 4b5f024380b6ad72a5db86ada94faa1fbccfac97
                 <label class="custom-control-label purple" for={{item.code_language}} value="{{item.code_language}}">{{item.name_language}}</label>
             </div>   
 

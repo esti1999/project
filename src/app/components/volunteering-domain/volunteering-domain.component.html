@@ -7,7 +7,7 @@
             <h6>תחומים</h6>
             <div *ngFor="let item of listDomain">
               <select class="form-select form-control" aria-label="Default select example">
-                <option selected>{{item.domain.description}}</option>
+                <option selected class="col-6">{{item.domain.description}}</option>
                 <option *ngFor="let item1 of item.volunteerDomain" (click)="selectDomain(item1.code_volunteering)">{{item1.description}}</option>
               </select>
             </div>

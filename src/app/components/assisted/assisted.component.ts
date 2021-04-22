@@ -85,7 +85,10 @@ export class AssistedComponent implements OnInit {
   }
   toEmbed(){
     console.log("שיבוץ")
-    this.Assisted.toEmbedAssisted();
+    this.Assisted.toEmbedAssisted().subscribe(res=>{
+      if(res)
+      console.log("שבוץ")
+    });
   }
   // ngOnDestroy() {
   //   this.subscription.unsubscribe();

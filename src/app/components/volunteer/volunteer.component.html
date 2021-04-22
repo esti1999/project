@@ -133,17 +133,17 @@
                 <div class="col">  
                     <h6 class="inline-title"> רשיון נהיגה :</h6>      
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="license1" name="license" class="custom-control-input" value="1">
-                        <!-- #ngCodeLicenseCarYes="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="CodeLicenseCarYes" -->
+                        <input type="radio" id="license1" name="license" class="custom-control-input" value="1"
+                    #ngCodeLicenseCarYes="ngModel" [(ngModel)]="car" name="CodeLicenseCarYes">
                         <label class="custom-control-label purple" for="license1">כן</label>
                     </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="license2" name="license" class="custom-control-input" value="0">
-                        <!-- #ngCodeLicenseCarNo="ngModel" [(ngModel)]="Volunteer.Volunteer.code_license_car" name="CodeLicenseCarNo" -->
+                    <div class="custom-control custom-radio custom-control-inline" >
+                        <input type="radio" id="license2" name="license" class="custom-control-input" value="0"
+                        #ngCodeLicenseCarNo="ngModel" [(ngModel)]="car" name="CodeLicenseCarNo">
                         <label class="custom-control-label purple" for="license2">לא</label>
                     </div>
-                    <div class="col" >
-                        <!-- *ngIf="Volunteer.Volunteer.code_license_car == 1" -->
+                    <div class="col" *ngIf="car == 1">
+                      
                         <h6 class="inline-title">סוג רשיון נהיגה:</h6>
                         <select class="form-select form-control col-6" aria-label="Default select example" >
                             <!-- #ngList2="ngModel" [(ngModel)]="Volunteer.Volunteer.description" name="carLicense" -->

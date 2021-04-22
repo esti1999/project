@@ -1,53 +1,69 @@
 <div class="header-img"></div>
-<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="add()" style="direction: rtl;" >
-  <div class="section first-section">
-    <h2 class="title">מידע אישי לנעזר</h2>
-    <div class="row prograph">
-        <div class="col-6">
-            <h6>מידע אישי</h6>
-            <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel" [(ngModel)]="Assisted.Assisted.first_name" name="first_name"/>
-            <input class="form-control" placeholder="תעודת זהות" type="text" #ngId="ngModel" [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted"/>
-            <input class="form-control" placeholder="כתובת אימייל" type="email" #ngId="ngModel" [(ngModel)]="Assisted.Assisted.e_mail" name="e_mail"/>
-            <!-- <input class="form-control" placeholder="טלפון נוסף "/> -->
-            <input type="date" class="form-control" placeholder="תאריך לידה" type="date" #ngDate="ngModel" [(ngModel)]="Assisted.Assisted.date_birth" name="date_birth"/>
-        </div>      
-        <div class="col-6 second-col">
-            <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel" [(ngModel)]="Assisted.Assisted.last_name" name="last_name"/>
-            <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Assisted.Assisted.code_status" name="personalStatus">
-                <option *ngFor="let item of list" value="{{item.code_status}}">{{item.description}}</option>
-              </select>
-            <input class="form-control" placeholder="מספר טלפון" type="text" #ngPhone="ngModel" [(ngModel)]="Assisted.Assisted.phone" name="phone"/>
-            <select class="form-select form-control"  aria-label="Default select example" #ngList1="ngModel" [(ngModel)]="Assisted.Assisted.code_gender" name="gender">
-                <option *ngFor="let item of list1" value="{{item.code_gender}}">{{item.description}}</option>
-            </select>
-        </div>
-    </div>
-    <div class="row prograph">
-        <div class="col-6">
-            <h6>כתובת</h6>
-            <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="city" required>
-                <option *ngFor="let item of list3" value="{{item.code_city}}" >{{item.name_city}}</option>
-            </select>
-            <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
-            <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel" [(ngModel)]="Assisted.Assisted.number_building" name="number_building"/>
-            <input class="form-control" placeholder="מספר בית" type="number" #ngNumberHouse="ngModel" [(ngModel)]="Assisted.Assisted.number_house" name="number_house"/>
-        </div>
-        <div class="col-6 second-col">
-            <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel" [(ngModel)]="Assisted.Assisted.street" name="street"/>
-            <input class="form-control" placeholder="קומה" type="text" #ngFloor="ngModel" [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor"/>
-            <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel" [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code"/>
-        </div>
-    </div>
+<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="add()" style="direction: rtl;">
+    <div class="section first-section">
+        <h2 class="title">מידע אישי לנעזר</h2>
         <div class="row prograph">
-          <div class="col-6">
-            <h6>תחומים וסיסמא</h6>
-            <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}" >תחומי התנדבות</button>
-          </div>
-          <div class="col-6 second-col">
-            <input class="form-control" placeholder="סיסמא" #ngPassword="ngModel" [(ngModel)]="Assisted.Assisted.password" name="password">
-          </div>
+            <div class="col-6">
+                <h6>מידע אישי</h6>
+                <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel"
+                    [(ngModel)]="Assisted.Assisted.first_name" name="first_name" />
+                <input class="form-control" placeholder="תעודת זהות" type="text" #ngId="ngModel"
+                    [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted" />
+                <input class="form-control" placeholder="כתובת אימייל" type="email" #ngId="ngModel"
+                    [(ngModel)]="Assisted.Assisted.e_mail" name="e_mail" />
+                <!-- <input class="form-control" placeholder="טלפון נוסף "/> -->
+                <input type="date" class="form-control" placeholder="תאריך לידה" type="date" #ngDate="ngModel"
+                    [(ngModel)]="Assisted.Assisted.date_birth" name="date_birth" />
+            </div>
+            <div class="col-6 second-col">
+                <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel"
+                    [(ngModel)]="Assisted.Assisted.last_name" name="last_name" />
+                <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel"
+                    [(ngModel)]="Assisted.Assisted.code_status" name="personalStatus">
+                    <option *ngFor="let item of list" value="{{item.code_status}}">{{item.description}}</option>
+                </select>
+                <input class="form-control" placeholder="מספר טלפון" type="text" #ngPhone="ngModel"
+                    [(ngModel)]="Assisted.Assisted.phone" name="phone" />
+                <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel"
+                    [(ngModel)]="Assisted.Assisted.code_gender" name="gender">
+                    <option *ngFor="let item of list1" value="{{item.code_gender}}">{{item.description}}</option>
+                </select>
+            </div>
         </div>
-    <!-- <div class="row prograph">
+        <div class="row prograph">
+            <div class="col-6">
+                <h6>כתובת</h6>
+                <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel"
+                    [(ngModel)]="Assisted.Assisted.code_city" name="city" required>
+                    <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
+                </select>
+                <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
+                <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel"
+                    [(ngModel)]="Assisted.Assisted.number_building" name="number_building" />
+                <input class="form-control" placeholder="מספר בית" type="number" #ngNumberHouse="ngModel"
+                    [(ngModel)]="Assisted.Assisted.number_house" name="number_house" />
+            </div>
+            <div class="col-6 second-col">
+                <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel"
+                    [(ngModel)]="Assisted.Assisted.street" name="street" />
+                <input class="form-control" placeholder="קומה" type="text" #ngFloor="ngModel"
+                    [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor" />
+                <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel"
+                    [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code" />
+            </div>
+        </div>
+        <div class="row prograph">
+            <div class="col-6">
+                <h6>תחומים וסיסמא</h6>
+                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
+                    התנדבות</button>
+            </div>
+            <div class="col-6 second-col">
+                <input class="form-control" placeholder="סיסמא" #ngPassword="ngModel"
+                    [(ngModel)]="Assisted.Assisted.password" name="password">
+            </div>
+        </div>
+        <!-- <div class="row prograph">
         <div class="col">
             <!- <h6 class="inline-title">סוג טלפון:</h6>
              <h6 class="inline-title">סוג טלפון:</h6>
@@ -64,12 +80,16 @@
                 <label class="custom-control-label purple" for="phone3">כשר</label>
             </div> -->
         <!-- </div> -->
-    <!-- </div>  -->
-    <div class="row prograph">
-            <h6 class="inline-title"> שפות:</h6>        
-            <div class="custom-control custom-checkbox" *ngFor="let item of Assisted.Assisted.languages" name="language">
-                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="{{item.name_language}}" class="custom-control-input" #ngList2="ngModel" [(ngModel)]="item.IsSelected" >
-                <label class="custom-control-label purple" for={{item.code_language}} value="{{item.code_language}}">{{item.name_language}}</label>
+        <!-- </div>  -->
+        <div class="row prograph">
+            <h6 class="inline-title"> שפות:</h6>
+            <div class="custom-control custom-checkbox" *ngFor="let item of Assisted.Assisted.languages"
+                name="language">
+                <input type="checkbox" value={{item.code_language}} id={{item.code_language}}
+                    name="{{item.name_language}}" class="custom-control-input" #ngList2="ngModel"
+                    [(ngModel)]="item.IsSelected">
+                <label class="custom-control-label purple" for={{item.code_language}}
+                    value="{{item.code_language}}">{{item.name_language}}</label>
             </div>
             <!-- <h6 class="inline-title"> שפות:</h6>
             <div class="custom-control custom-checkbox">
@@ -108,11 +128,38 @@
                 <label class="custom-control-label purple" for="lang5">ערבית</label>
             </div> -->
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
-     </div>
-    <div class="button-wapper">
-        <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום</button>
-        <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון  </button>
-    </div> 
-  <!-- </div> -->
- </div>
+        </div>
+
+        <!-- <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Assisted.day.code_day" name="days">
+        <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
+    </select>
+    <select class="form-select form-control" aria-label="Default select example"  #ngList8="ngModel" [(ngModel)]="Assisted.shift.code_shift" name="shifts">
+        <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
+    </select> -->
+</div>
+
+<div class="section">
+    <div class="row prograph">
+        <h2 class="title"> זמינות</h2>
+        <div class="col" >
+            <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"
+                [(ngModel)]="Assisted.day.code_day" name="days">
+                <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
+            </select>
+            <select class="form-select form-control" aria-label="Default select example" #ngList5="ngModel"
+                [(ngModel)]="Assisted.shift.code_shift" name="shifts">
+                <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
+            </select>
+            <div class="button-wapper">
+                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
+                    רישום</button>
+                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
+                </button>
+                <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+
 </form>

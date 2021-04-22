@@ -26,6 +26,11 @@ export class VolunteeringDomainComponent implements OnInit {
   listDomain:any[] =[]
 
   selectDomain(code:number){
+    if(this.kind=="true")
+    {
+      this.assisted.myListDomain.push(code)
+    }
+    else
     this.volunteer.myListDomain.push(code)
   }
 
@@ -48,16 +53,17 @@ export class VolunteeringDomainComponent implements OnInit {
       })
     })
   }
+ 
   Link(){
     if(this.kind=="true")
     {
-      this.assisted.myListDomain=this.listDomain
+     // this.assisted.myListDomain=this.listDomain
       this.router.navigate(["assisted/"+this.mode])
     }
     else{
       if(this.kind=="false")
       {
-        this.volunteer.myListDomain=this.listDomain
+       // this.volunteer.myListDomain=this.listDomain
         this.router.navigate(["volunteer/"+this.mode])
       }
     }

@@ -1,3 +1,4 @@
+import { Availability } from "./availability";
 import { Language } from "./language";
 
 export class Assisted {
@@ -16,6 +17,10 @@ export class Assisted {
         public e_mail?: string,
         public phone?: string,
         public password?: string,
-        public languages?:Array<Language>) { }
+        public languages?:Array<Language>,
+        public domain?: string[],
+        public availability?:Availability)
+       
+          { }
 }
 

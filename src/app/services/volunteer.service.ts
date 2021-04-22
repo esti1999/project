@@ -18,6 +18,7 @@ import { WeaponsLicenseVolunteer } from '../classes/weapons-license-volunteer';
   providedIn: 'root'
 })
 export class VolunteerService {
+ 
   url:string = "http://localhost:59782/api/volunteer"
   listVolunteer:Array<Volunteer> = new Array<Volunteer>();
   Volunteer:Volunteer = new Volunteer();
@@ -27,8 +28,20 @@ export class VolunteerService {
   myListDomain: any[] = []
    constructor(private http:HttpClient) { }
 
+  //  addVolunteerDomaim(): Observable<boolean> {
+  
+    
+  // }
 
   addVolunteer():Observable<boolean>{
+    this.Volunteer.domain=[]
+  this.Volunteer.domain = this.myListDomain;
+  this.Volunteer.availability = {
+    code_availability:0,
+    code_day:this.day.code_day,
+    code_shift:this.shift.code_shift
+
+  }
  return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
   }
   add():Observable<Array<Volunteer>>{

@@ -55,7 +55,7 @@ export class VolunteerComponent implements OnInit {
 
   l_language = [0, 0, 0, 0, 0]
 
-  
+  car : number = 0;
 
 
   ngOnInit(){
@@ -96,8 +96,14 @@ export class VolunteerComponent implements OnInit {
   add(){
     this.Volunteer.addVolunteer().subscribe(data=>{
       // this.Volunteer.listVolunteer = data
-      if(data==true)
+      if(data==true){
+
+        
+      //  this.Volunteer.addVolunteerDomaim();
+
         alert("הרשמתך בוצעה בהצלחה")
+      }
+       
       else 
         alert("הרשמתך נכשלה")
 

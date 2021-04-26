@@ -54,9 +54,9 @@
         </div>
         <div class="row prograph">
             <div class="col-6">
-                <h6>תחומים וסיסמא</h6>
-                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
-                    התנדבות</button>
+                <h6>סיסמא ואימות</h6>
+                <!-- <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
+                    התנדבות</button> -->
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" placeholder="סיסמא" #ngPassword="ngModel"
@@ -151,7 +151,7 @@
                 <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
             </select>
             <div class="button-wapper">
-                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
+                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/asking">
                     רישום</button>
                 <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
                 </button>

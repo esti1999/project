@@ -9,12 +9,16 @@ import { LoginComponent } from './components/login/login.component';
 import { AssistedComponent } from './components/assisted/assisted.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { VolunteeringDomainComponent } from './components/volunteering-domain/volunteering-domain.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { AskingComponent } from './components/asking/asking.component';
+
 // import services
 import { ApiService } from './services/api.service';
 import { AssistedService } from './services/assisted.service';
 import { VolunteerService } from './services/volunteer.service';
 import { VolunteeringDomainService } from './services/volunteering-domain.service';
-import { ScheduleComponent } from './components/schedule/schedule.component';
+// import { AskingComponent } from './components/asking/asking.component';
+
 
 
 // import { NgModule } from '@angular/core';
@@ -32,6 +36,8 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     VolunteerComponent,
     VolunteeringDomainComponent,
     ScheduleComponent,
+    AskingComponent,
+   
     
   ],
   imports: [

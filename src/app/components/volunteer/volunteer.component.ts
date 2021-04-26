@@ -53,12 +53,12 @@ export class VolunteerComponent implements OnInit {
 
   l_language = [0, 0, 0, 0, 0, 0]
 
-<<<<<<< HEAD
+
   list8: Shifts[]
   newShift: Shifts = new Shifts();
-=======
+
   car : number = 0;
->>>>>>> 9fb854f20ca09dc540432b170132cb96988eb3c2
+
 
 
   ngOnInit(){

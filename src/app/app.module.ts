@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControlDirective, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +31,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ApiService, AssistedService, VolunteerService, VolunteeringDomainService],
   bootstrap: [AppComponent]

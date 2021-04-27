@@ -6,24 +6,46 @@
             <div class="col-6">
                 <h6>מידע אישי</h6>
                 <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel"
-                    [(ngModel)]="Assisted.Assisted.first_name" name="first_name" />
+                    [(ngModel)]="Assisted.Assisted.first_name" name="first_name" id="first_name" required pattern="" />
+                <div class="error" *ngIf="ngFirstName.invalid&&(ngFirstName.touched||ngFirstName.dirty)">
+                    <i *ngIf="ngFirstName.errors!.required">שדה חובה</i>
+                    <i></i>
+                </div>
                 <input class="form-control" placeholder="תעודת זהות" type="text" #ngId="ngModel"
-                    [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted" />
-                <input class="form-control" placeholder="כתובת אימייל" type="email" #ngId="ngModel"
-                    [(ngModel)]="Assisted.Assisted.e_mail" name="e_mail" />
+                    [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted" id="id_assisted" required
+                    pattern="[0-9]*" maxlength="9" />
+                <div class="error" *ngIf="ngId.invalid&&(ngId.touched||ngId.dirty)">
+                    <i *ngIf="ngId.errors!.required">שדה חובה</i>
+                    <i *ngIf="ngId.errors!.pattern">שדה זה חייב להכיל מספרים בלבד</i>
+                </div>
+                <input class="form-control" placeholder="כתובת אימייל" type="email" #ngEmail="ngModel"
+                    [(ngModel)]="Assisted.Assisted.e_mail" name="e_mail" id="e_mail" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+                <div class="error" *ngIf="ngEmail.invalid&&(ngEmail.touched||ngEmail.dirty)">
+                    <i *ngIf="ngEmail.errors!.required">שדה חובה</i>
+                    <i *ngIf="ngEmail.errors!.pattern">אנא הזן כתובת מייל תקינה</i>
+                </div>
                 <!-- <input class="form-control" placeholder="טלפון נוסף "/> -->
                 <input type="date" class="form-control" placeholder="תאריך לידה" type="date" #ngDate="ngModel"
-                    [(ngModel)]="Assisted.Assisted.date_birth" name="date_birth" />
+                    [(ngModel)]="Assisted.Assisted.date_birth" name="date_birth" id="date_birth" />
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel"
-                    [(ngModel)]="Assisted.Assisted.last_name" name="last_name" />
-                <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel"
+                    [(ngModel)]="Assisted.Assisted.last_name" name="last_name" id="last_name" required pattern="" />
+                <div class="error" *ngIf="ngLastName.invalid&&(ngLastName.touched||ngLastName.dirty)">
+                    <i *ngIf="ngLastName.errors!.required">שדה חובה</i>
+                </div>
+                <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel"
                     [(ngModel)]="Assisted.Assisted.code_status" name="personalStatus">
                     <option *ngFor="let item of list" value="{{item.code_status}}">{{item.description}}</option>
                 </select>
                 <input class="form-control" placeholder="מספר טלפון" type="text" #ngPhone="ngModel"
-                    [(ngModel)]="Assisted.Assisted.phone" name="phone" />
+                    [(ngModel)]="Assisted.Assisted.phone" name="phone" id="phone" required pattern="05?[0-9]-?[0-9]{7}"
+                    maxlength="10" />
+                <div class="error" *ngIf="ngPhone.invalid&&(ngPhone.touched||ngPhone.dirty)">
+                    <i *ngIf="ngPhone.errors!.required">שדה חובה</i>
+                    <i *ngIf="ngPhone.errors!.pattern">אנה הזן מספר פלאפון תקין</i>
+                </div>
                 <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel"
                     [(ngModel)]="Assisted.Assisted.code_gender" name="gender">
                     <option *ngFor="let item of list1" value="{{item.code_gender}}">{{item.description}}</option>
@@ -34,22 +56,22 @@
             <div class="col-6">
                 <h6>כתובת</h6>
                 <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel"
-                    [(ngModel)]="Assisted.Assisted.code_city" name="city" required>
+                    [(ngModel)]="Assisted.Assisted.code_city" name="city">
                     <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
                 </select>
                 <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
                 <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel"
-                    [(ngModel)]="Assisted.Assisted.number_building" name="number_building" />
+                    [(ngModel)]="Assisted.Assisted.number_building" name="number_building" id="number_building" />
                 <input class="form-control" placeholder="מספר בית" type="number" #ngNumberHouse="ngModel"
-                    [(ngModel)]="Assisted.Assisted.number_house" name="number_house" />
+                    [(ngModel)]="Assisted.Assisted.number_house" name="number_house" id="number_house" />
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel"
-                    [(ngModel)]="Assisted.Assisted.street" name="street" />
+                    [(ngModel)]="Assisted.Assisted.street" name="street" id="street" pattern="" />
                 <input class="form-control" placeholder="קומה" type="text" #ngFloor="ngModel"
-                    [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor" />
+                    [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor" id="number_floor" />
                 <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel"
-                    [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code" />
+                    [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code" id="postal_code" />
             </div>
         </div>
         <div class="row prograph">
@@ -59,8 +81,23 @@
                     התנדבות</button>
             </div>
             <div class="col-6 second-col">
-                <input class="form-control" placeholder="סיסמא" #ngPassword="ngModel"
-                    [(ngModel)]="Assisted.Assisted.password" name="password">
+                <input class="form-control" type="hide ? 'password' : 'text'" placeholder="סיסמא" #ngPassword="ngModel"
+                    [(ngModel)]="Assisted.Assisted.password" name="password" id="password" required minlength="8"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}">
+                <div class="error" *ngIf="ngPassword.invalid&&(ngPassword.touched||ngPassword.dirty)">
+                    <i *ngIf="ngPassword.errors!.required">שדה חובה</i>
+                    <i *ngIf="ngPassword.errors!.pattern"> סיסימא חייבת להכיל לפחות שמונה תווים המורכבים מאותיות אנגליות
+                        קטנות וגדולות ומספרים</i>
+                </div>
+            </div>
+            <div class="col-6 second-col">
+                <input type="password" [(ngModel)]="password2" name="confirmpassword" id="confirmpassword"
+                    placeholder="אימות סיסמא" class="form-control" required #confirmpassword="ngModel"
+                    pattern="{{ ngPassword.value }}" />
+                <div *ngIf=" confirmpassword.invalid && (confirmpassword.touched||confirmpassword.dirty)" class="error">
+                    <i *ngIf="confirmpassword.errors!.required">שדה חובה</i>
+                    <i *ngIf="confirmpassword.errors!.pattern">סיסמא ואימות סיסמא חייבים להתאים</i>
+                </div>
             </div>
         </div>
         <!-- <div class="row prograph">
@@ -129,37 +166,33 @@
             </div> -->
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>
-
-        <!-- <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Assisted.day.code_day" name="days">
+    </div>
+        <div class="section1"> 
+            <div class="button-wapper">
+                <button *ngIf="this.mode=='register'" type="submit"
+                    class="btn btn-dark btn-perple btn-lg">רישום</button>
+                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון</button>
+                <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
+            </div>
+        </div>
+    <!-- <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Assisted.day.code_day" name="days">
         <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
     </select>
     <select class="form-select form-control" aria-label="Default select example"  #ngList8="ngModel" [(ngModel)]="Assisted.shift.code_shift" name="shifts">
         <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
     </select> -->
-</div>
-
-<div class="section">
-    <div class="row prograph">
-        <h2 class="title"> זמינות</h2>
-        <div class="col" >
-            <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"
+    <!-- <div class="section1"> -->
+    <!-- <h2 class="title"> זמינות</h2> -->
+    <!-- <div class="col"> -->
+    <!-- <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"
                 [(ngModel)]="Assisted.day.code_day" name="days">
                 <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
             </select>
             <select class="form-select form-control" aria-label="Default select example" #ngList5="ngModel"
                 [(ngModel)]="Assisted.shift.code_shift" name="shifts">
                 <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
-            </select>
-            <div class="button-wapper">
-                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
-                    רישום</button>
-                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
-                </button>
-                <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
-            </div>
-        </div>
-        <!-- </div> -->
-    </div>
-</div>
+            </select> -->
 
+    <!-- </div> -->
+    <!-- </div> -->
 </form>

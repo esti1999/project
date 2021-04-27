@@ -43,7 +43,7 @@ export class AssistedComponent implements OnInit {
  list5: Shifts[]
  newShift: Shifts = new Shifts();
 
-
+ password2: string="";
  
   ngOnInit(){
 
@@ -58,7 +58,9 @@ export class AssistedComponent implements OnInit {
     })
     this.Assisted.getLanguage().subscribe(data=>{
       // this.list2 = data;
-      this.Assisted.Assisted.languages=data;
+      if(this.Assisted.Assisted.languages.length==0){
+        this.Assisted.Assisted.languages=data;
+      }
     })
     this.Assisted.getCity().subscribe(data=>{
       this.list3 = data;

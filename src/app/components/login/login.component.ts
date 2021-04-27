@@ -17,15 +17,15 @@ import { interval, Subscription } from 'rxjs';
 export class LoginComponent implements OnInit {
   password :string
   e_mail:string
-
+  user:any
 
   // constructor(public ApiService:ApiService ,public rout:Router, public VolunteerApi:VolunteerService) { }
 
   constructor(
     public ApiService:ApiService ,
     public rout:Router,
-    private volunteerService:VolunteerService,
-    private assistedService:AssistedService
+    public volunteerService:VolunteerService,
+    public assistedService:AssistedService
   ) { }
 
   ngOnInit() {
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
 
         //save valonteer in service
         this.volunteerService.Volunteer=data;
+        this.volunteerService.Volunteer.date_of_birth=new Date(data.date_of_birth)
 
       }
       else{

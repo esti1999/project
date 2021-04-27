@@ -26,7 +26,9 @@ export class VolunteerService {
   shift: Shifts = new Shifts();
   service: Services = new Services();
   myListDomain: any[] = []
-   constructor(private http:HttpClient) { }
+   constructor(private http:HttpClient) {
+     this.Volunteer.languages = new Array<Language>()
+    }
 
   //  addVolunteerDomaim(): Observable<boolean> {
   

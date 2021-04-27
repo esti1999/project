@@ -167,14 +167,13 @@
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>
     </div>
-        <div class="section1"> 
-            <div class="button-wapper">
-                <button *ngIf="this.mode=='register'" type="submit"
-                    class="btn btn-dark btn-perple btn-lg">רישום</button>
-                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון</button>
-                <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
-            </div>
+    <div class="section1">
+        <div class="button-wapper">
+            <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">רישום</button>
+            <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון</button>
+            <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
         </div>
+    </div>
     <!-- <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Assisted.day.code_day" name="days">
         <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
     </select>
@@ -191,23 +190,19 @@
             <select class="form-select form-control" aria-label="Default select example" #ngList5="ngModel"
                 [(ngModel)]="Assisted.shift.code_shift" name="shifts">
                 <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
-<<<<<<< HEAD
             </select> -->
-=======
-            </select>
-            <div class="button-wapper">
-                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/asking">
-                    רישום</button>
-                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
-                </button>
-                <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
-            </div>
-        </div>
-        <!-- </div> -->
-    </div>
-</div>
->>>>>>> 9370da057c4ccd43145c414dc592bd1ff15745d0
-
+    <!-- </select> -->
+    <!-- <div class="button-wapper"> -->
+        <!-- <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/asking">
+            רישום</button>
+        <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
+        </button> -->
+        <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
     <!-- </div> -->
     <!-- </div> -->
 </form>

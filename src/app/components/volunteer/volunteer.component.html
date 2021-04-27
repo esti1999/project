@@ -401,8 +401,8 @@
     <div class="section">
         <h2 class="title">זמינות</h2>
         <div class="col">
-            <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel" 
-                [(ngModel)]="Volunteer.day.code_day" name="days" >
+            <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel"
+                 [(ngModel)]="Volunteer.day.code_day" name="days" >
                 <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
             </select>
             <select class="form-select form-control" aria-label="Default select example" #ngList8="ngModel"

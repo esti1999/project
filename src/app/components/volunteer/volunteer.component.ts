@@ -103,6 +103,11 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getServices().subscribe(data=>{
       this.list7 = data;
     })
+    this.Volunteer.getAvailabilityVolunteer().subscribe(data=>{
+      if(this.Volunteer.Volunteer.availabilitys.length==0){
+        this.Volunteer.Volunteer.availabilitys=data;
+      }
+    })
 
   }
   add(){

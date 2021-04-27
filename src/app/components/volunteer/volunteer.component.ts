@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Availability } from 'src/app/classes/availability';
 import { CarLicense } from 'src/app/classes/car-license';
@@ -12,17 +13,20 @@ import { Shifts } from 'src/app/classes/shifts';
 import { VolunteeringDomain } from 'src/app/classes/volunteering-domain';
 import { WeaponsLicense } from 'src/app/classes/weapons-license';
 import { ApiService } from 'src/app/services/api.service';
-import { VolunteerService } from 'src/app/services/volunteer.service';
+import {  VolunteerService } from 'src/app/services/volunteer.service';
 import { Volunteer } from '../../classes/volunteer';
+import {FormControl, FormGroupDirective, FormGroup, FormBuilder, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-volunteer',
   templateUrl: './volunteer.component.html',
   styleUrls: ['./volunteer.component.css']
 })
+
 export class VolunteerComponent implements OnInit {
   // newVolunteer: Volunteer = new Volunteer();
-  constructor(public Volunteer:VolunteerService,private route:ActivatedRoute) { }
+
+  constructor(public Volunteer:VolunteerService, private route:ActivatedRoute) { }
 
   mode:string
 
@@ -58,6 +62,9 @@ export class VolunteerComponent implements OnInit {
   newShift: Shifts = new Shifts();
 
   car : number = 0;
+  weapon : number = 0;
+
+ password2: string="";
 
 
 
@@ -86,7 +93,9 @@ export class VolunteerComponent implements OnInit {
     })
     this.Volunteer.getLanguage().subscribe(data=>{
       // this.list5 = data;
-      this.Volunteer.Volunteer.languages=data;
+      if(this.Volunteer.Volunteer.languages.length==0){
+        this.Volunteer.Volunteer.languages=data;
+      }
     })
     this.Volunteer.getCity().subscribe(data=>{
       this.list6 = data;
@@ -100,16 +109,11 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.addVolunteer().subscribe(data=>{
       // this.Volunteer.listVolunteer = data
       if(data==true){
-
-        
       //  this.Volunteer.addVolunteerDomaim();
-
         alert("הרשמתך בוצעה בהצלחה")
       }
-       
       else 
         alert("הרשמתך נכשלה")
-
       })
 
   }
@@ -117,3 +121,4 @@ export class VolunteerComponent implements OnInit {
     return index;
   }
 }
+

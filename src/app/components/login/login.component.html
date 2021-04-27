@@ -1,26 +1,41 @@
 <div class="header-img"></div>
-<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="Enters()" style="direction: rtl;" >
-<div class="section first-section">
+<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="Enters()" style="direction: rtl;">
+  <div class="section first-section">
     <h2 class="title">ברוכים הבאים</h2>
     <div class="yes row prograph">
-        <div class="col-6 col-sm-12">
-            <input class="form-control" placeholder="email/שם משתמש" type="email" #ngEmail="ngModel" [(ngModel)]="e_mail" name="email">
-            <input class="form-control" placeholder="סיסמא" type="password" #ngPassword="ngModel" [(ngModel)]="password" name="password">
-            <!-- <a routerLink="/volunteer">שכחתי את הסיסמא?</a> -->
-            <div class="first">
-
-              <h4>פעם ראשונה?
-                <!-- <button class="btn btn-dark btn-perple1 btn-lg" type="button" routerLink="/volunteer">מתנדב</button>
+      <div class="col-sm-12">
+        <input class="form-control" placeholder="email/שם משתמש" type="email" #ngEmail="ngModel" [(ngModel)]="e_mail"
+          name="Email" id="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+        <div class="error" *ngIf="ngEmail.invalid&&(ngEmail.touched||ngEmail.dirty)">
+          <i *ngIf="ngEmail.errors!.required">שדה חובה</i>
+          <i *ngIf="ngEmail.errors!.pattern">אנא הזן כתובת מייל תקינה</i>
+        </div>
+        <input class="form-control" placeholder="סיסמא" type="password" #ngPassword="ngModel" [(ngModel)]="password"
+          name="password" minlength="8" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}">
+        <div class="error" *ngIf="ngPassword.invalid&&(ngPassword.touched||ngPassword.dirty)">
+          <i *ngIf="ngPassword.errors!.required">שדה חובה</i>
+          <i *ngIf="ngPassword.errors!.pattern">סיסימא חייבת להכיל לפחות שמונה תווים המורכבים מאותיות אנגליות גדולות
+            וקטנות ומספרים</i>
+        </div>
+        <!-- <a routerLink="/volunteer">שכחתי את הסיסמא?</a> -->
+        <div class="first">
+          <label>
+            <h4>פעם ראשונה?</h4>
+          </label>
+          <!-- <button class="btn btn-dark btn-perple1 btn-lg" type="button" routerLink="/volunteer">מתנדב</button>
                 <button class="btn btn-dark btn-perple1 btn-lg" type="button" routerLink="/volunteer">נעזר</button> -->
-                 <a  routerLink="/volunteer/register">מתנדב</a>   
-                 <a  routerLink="/assisted/register">נעזר</a> 
-              </h4>
-            </div>
+          <a routerLink="/volunteer/register">
+            <h5 class="centrado">מתנדב</h5>
+          </a>
+          <a routerLink="/assisted/register">
+            <h5 class="centrado">נעזר</h5>
+          </a>
         </div>
 
-      <div class="button-wapper col-sm-12">
-        <button type="submit" class="btn btn-dark btn-perple btn-lg"  > התחבר </button>
-      </div> 
-   </div>
-</div>
+        <div class="button-wapper col-sm-12">
+          <button type="submit" class="btn btn-dark btn-perple btn-lg"> התחבר </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>

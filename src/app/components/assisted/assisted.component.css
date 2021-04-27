@@ -10,11 +10,18 @@
 .section{
     border-radius: 10px;
     padding: 90px;
-    margin:80px 180px;
+    margin: 80px 180px;
     background-color: white;
     border-top: 5px solid #e65d13;
 }
-
+/* .section1{
+    border-radius: 10px;
+    padding: 90px;
+    margin: 80px 180px;
+    background-color: white;
+    border-top: 5px solid #e65d13;
+    margin-top: 1200px;
+} */
 @media ( max-width:1052px){
     .section{
         padding: 20px!important;

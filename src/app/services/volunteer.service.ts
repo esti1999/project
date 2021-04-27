@@ -26,7 +26,9 @@ export class VolunteerService {
   shift: Shifts = new Shifts();
   service: Services = new Services();
   myListDomain: any[] = []
-   constructor(private http:HttpClient) { }
+   constructor(private http:HttpClient) {
+     this.Volunteer.languages = new Array<Language>()
+    }
 
   //  addVolunteerDomaim(): Observable<boolean> {
   
@@ -34,14 +36,14 @@ export class VolunteerService {
   // }
 
   addVolunteer():Observable<boolean>{
-    this.Volunteer.domain=[]
-  this.Volunteer.domain = this.myListDomain;
-  this.Volunteer.availability = {
-    code_availability:0,
-    code_day:this.day.code_day,
-    code_shift:this.shift.code_shift
+  //   this.Volunteer.domain=[]
+  //  this.Volunteer.domain = this.myListDomain;
+  //  this.Volunteer.availability = {
+  //   code_availability:0,
+  //   code_day:this.day.code_day,
+  //   code_shift:this.shift.code_shift
 
-  }
+  // }
  return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
   }
   add():Observable<Array<Volunteer>>{
@@ -74,4 +76,7 @@ export class VolunteerService {
   getServices():Observable<Array<Services>>{
     return this.http.get<Array<Services>>(this.url + "/GetServices")
   }
+
 }
+
+

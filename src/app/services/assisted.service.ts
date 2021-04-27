@@ -26,7 +26,9 @@ export class AssistedService {
   // city: City = new City();
 
   myListDomain: any[] = []
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.Assisted.languages = new Array<Language>()
+   }
 
   add():Observable<Array<Assisted>>{
 

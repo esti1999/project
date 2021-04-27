@@ -1,5 +1,27 @@
-<div>
-    <a routerLink="/login">התנתק</a>
-    <a *ngIf="this.userType=='volunteer'" routerLink="/volunteer/update">עדכון פרטי מתנדב</a>
-    <a *ngIf="this.userType=='assisted'" routerLink="/assisted/update">עדכון פרטי נעזר</a>
+
+<div class="header-img">
+    <div class="first">
+        <div>
+            <a routerLink="/login">התנתק</a>
+            <a *ngIf="this.userType=='volunteer'" routerLink="/volunteer/update">עדכון פרטי מתנדב</a>
+            <a *ngIf="this.userType=='assisted'" routerLink="/assisted/update">עדכון פרטי נעזר</a>
+            
+        </div>
+    </div>
 </div>
+<form action="/action_page.php" #myForm="ngForm"  style="direction: rtl;">
+    <div class="section first-section">
+        <div class="yes row prograph" *ngIf="this.userType =='volunteer'">
+            <div class="col-10">
+                <input class="form-control" type="text" placeholder="שיבוץ">
+            </div>
+            <div class="col-1 second-col">
+                <button class="btn btn-dark btn-perple btn-lg"> אישור </button>
+            </div> 
+            <div class="col-1 second-col">
+                <button class="btn btn-dark btn-perple btn-lg"> ביטול </button>
+            </div>
+        </div>
+    </div>
+</form>
+

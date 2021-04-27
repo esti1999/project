@@ -54,15 +54,18 @@ export class VolunteerComponent implements OnInit {
   list7:Services[]
   newServices: Services = new Services();
 
+
+  l_language = [0, 0, 0, 0, 0, 0]
+
+
   list8: Shifts[]
   newShift: Shifts = new Shifts();
-
-  l_language = [0, 0, 0, 0, 0]
 
   car : number = 0;
   weapon : number = 0;
 
  password2: string="";
+
 
 
   ngOnInit(){
@@ -112,6 +115,7 @@ export class VolunteerComponent implements OnInit {
       else 
         alert("הרשמתך נכשלה")
       })
+
   }
   trackByIndex(index: number, value: any) {
     return index;

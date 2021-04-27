@@ -76,9 +76,9 @@
         </div>
         <div class="row prograph">
             <div class="col-6">
-                <h6>תחומים וסיסמא</h6>
-                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
-                    התנדבות</button>
+                <h6>סיסמא ואימות</h6>
+                <!-- <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
+                    התנדבות</button> -->
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" type="hide ? 'password' : 'text'" placeholder="סיסמא" #ngPassword="ngModel"
@@ -191,7 +191,22 @@
             <select class="form-select form-control" aria-label="Default select example" #ngList5="ngModel"
                 [(ngModel)]="Assisted.shift.code_shift" name="shifts">
                 <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
+<<<<<<< HEAD
             </select> -->
+=======
+            </select>
+            <div class="button-wapper">
+                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/asking">
+                    רישום</button>
+                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
+                </button>
+                <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+</div>
+>>>>>>> 9370da057c4ccd43145c414dc592bd1ff15745d0
 
     <!-- </div> -->
     <!-- </div> -->

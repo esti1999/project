@@ -3,6 +3,7 @@
   <div class="section first-section">
     <h2 class="title">ברוכים הבאים</h2>
     <div class="yes row prograph">
+<<<<<<< HEAD
       <div class="col-sm-12">
         <input class="form-control" placeholder="email/שם משתמש" type="email" #ngEmail="ngModel" [(ngModel)]="e_mail" name="Email" id="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
         <div class="error" *ngIf="ngEmail.invalid&&(ngEmail.touched||ngEmail.dirty)">
@@ -21,6 +22,21 @@
                 <button class="btn btn-dark btn-perple1 btn-lg" type="button" routerLink="/volunteer">נעזר</button> -->
           <a routerLink="/volunteer/register"><h5>מתנדב</h5></a>
           <a routerLink="/assisted/register"><h5 class="centrado">נעזר</h5></a>
+=======
+        <div class="col-6 col-sm-12">
+            <input class="form-control" placeholder="email/שם משתמש" type="email" #ngEmail="ngModel" [(ngModel)]="e_mail" name="email">
+            <input class="form-control" placeholder="סיסמא" type="password" #ngPassword="ngModel" [(ngModel)]="password" name="password">
+            <!-- <a routerLink="/volunteer">שכחתי את הסיסמא?</a> -->
+            <div class="first">
+
+              <h4>פעם ראשונה?
+                <!-- <button class="btn btn-dark btn-perple1 btn-lg" type="button" routerLink="/volunteer">מתנדב</button>
+                <button class="btn btn-dark btn-perple1 btn-lg" type="button" routerLink="/volunteer">נעזר</button> -->
+                 <a  routerLink="/volunteer/register">מתנדב</a>   
+                 <a  routerLink="/assisted/register">נעזר</a> 
+              </h4>
+            </div>
+>>>>>>> 9370da057c4ccd43145c414dc592bd1ff15745d0
         </div>
       </div>
 

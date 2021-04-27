@@ -137,6 +137,7 @@
             </div>      
         </div>
     </div> -->
+<<<<<<< HEAD
         <div class="row prograph">
             <div class="col">
                 <h6 class="inline-title"> שפות:</h6>
@@ -149,6 +150,22 @@
                         value="{{item.code_language}}">{{item.name_language}}</label>
                 </div>
                 <!-- <div class="custom-control custom-checkbox">
+=======
+    <div class="row prograph">
+        <div class="col">
+<!-- 
+            <h6 class="inline-title"> שפות:</h6>     
+            <div  class="custom-control custom-checkbox" *ngFor="let item of list5;let index = index;trackBy:trackByIndex" name="language">
+                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="languages" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "l_language[index]"/> -->
+
+            <h6 class="inline-title"> שפות:</h6>        
+            <div  class="custom-control custom-checkbox" *ngFor="let item of Volunteer.Volunteer.languages;let index = index; trackBy:trackByIndex" name="language">
+                <input type="checkbox" value={{item.code_language}} id={{item.code_language}} name="{{item.name_language}}" class="custom-control-input"  #ngList5="ngModel" [(ngModel)] = "item.IsSelected"/>
+                <label class="custom-control-label purple" for={{item.code_language}} value="{{item.code_language}}">{{item.name_language}}</label>
+            </div>   
+
+            <!-- <div class="custom-control custom-checkbox">
+>>>>>>> 9370da057c4ccd43145c414dc592bd1ff15745d0
                 <input type="checkbox" id="lang1" name="lang" class="custom-control-input" >
             <h6 class="inline-title"> שפות:</h6>
             <div class="custom-control custom-checkbox">

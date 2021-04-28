@@ -2,7 +2,7 @@ import { Language } from "./language";
 import { VolunteerLanguage } from "./volunteer-language";
 import {VolunteerDomain} from "./volunteer-domain"
 import { Availability } from "./availability";
-import { Domain } from "./volunteering-domain";
+import { Domain, VolunteeringDomain } from "./volunteering-domain";
 
 export class Volunteer {
     constructor(public id_volunteer?: string,
@@ -24,9 +24,11 @@ export class Volunteer {
          public release_date?:Date,
          public validityc?:Date,
          public validityw?:Date,
+         public code_weapons_license?:number,
+         public code_car_license?:number,
          public languages?:Array<Language>,
          public availabilitys?:Array<Availability>,
-         public domains?:Array<Domain>,
+         public volunteeringdomains?:Array<VolunteeringDomain>,
         //  public domain?: string[],
         //  public availability?:Availability 
 

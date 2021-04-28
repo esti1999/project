@@ -19,7 +19,7 @@ export class VolunteeringDomainService {
  }
 
  getDomain():Observable<Array<Domain>>{
-return this.http.get<Array<Domain>>(this.url + "/GetVolunteeringDomain")
+ return this.http.get<Array<Domain>>(this.url + "/GetVolunteeringDomain")
  }
 
 

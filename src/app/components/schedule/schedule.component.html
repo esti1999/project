@@ -1,45 +1,45 @@
-
 <div class="header-img">
     <div class="first">
         <div>
             <a routerLink="/login">התנתק</a>
             <a *ngIf="this.userType=='volunteer'" routerLink="/volunteer/update">עדכון פרטי מתנדב</a>
             <a *ngIf="this.userType=='assisted'" routerLink="/assisted/update">עדכון פרטי נעזר</a>
-            
         </div>
     </div>
 </div>
-<form action="/action_page.php" #myForm="ngForm"  style="direction: rtl;">
+<form action="/action_page.php" #myForm="ngForm" style="direction: rtl;">
     <div class="section first-section">
         <div class="yes row prograph" *ngIf="this.userType =='volunteer'">
-            <div class="col-10">
+            <div class="col-12">
                 <input class="form-control" type="text" placeholder="שיבוץ">
             </div>
             <div class="col-1 second-col">
-                <button class="btn btn-dark btn-perple btn-lg"> אישור </button>
-            </div> 
+                <button type="button" class="btn btn-dark btn-perple btn-lg"> אישור </button>
+            </div>
             <div class="col-1 second-col">
-                <button class="btn btn-dark btn-perple btn-lg"> ביטול </button>
+                <button type="button" class="btn btn-dark btn-perple btn-lg"> ביטול </button>
             </div>
         </div>
         <div class="yes row prograph" *ngIf="this.userType =='assisted'">
-            <div class="col-6">
-                <button type="button" class="form-control" routerLink="/volunteering-domain">תחומי
-                    התנדבות</button>
+            <div class="col-sm-12 second-col">
+                <button type="button" class="form-control" routerLink="/volunteering-domain">תחומי התנדבות</button>
+            </div> 
+            <div class="col-sm-12 second-col">
+                <h5 class="title"> זמינות</h5>
+                <div class="col">
+                    <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"
+                        [(ngModel)]="AssistedAvailability.day.code_day" name="days">
+                        <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
+                    </select>
+                    <select class="form-select form-control" aria-label="Default select example" #ngList8="ngModel"
+                        [(ngModel)]="AssistedAvailability.shift.code_shift" name="shifts">
+                        <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-6 second-col">
-            <div class="col">
-                <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel" 
-                [(ngModel)]="Volunteer.day.code_day" name="days" >
-                <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
-            </select>
-            <select class="form-select form-control" aria-label="Default select example" #ngList8="ngModel"
-                [(ngModel)]="Volunteer.shift.code_shift" name="shifts">
-                <option *ngFor="let item of list8" value="{{item.code_shift}}">{{item.description}}</option>
-            </select>
-           </div>
+            <div class="button-wapper col-sm-12">
+                <button type="submit" class="btn btn-dark btn-perple btn-lg"> אישור </button>
             </div>
         </div>
     </div>
 </form>
-

@@ -14,6 +14,7 @@ import { Services } from '../classes/services';
 import { CarLicenseVolunteer } from '../classes/car-license-volunteer';
 import { WeaponsLicenseVolunteer } from '../classes/weapons-license-volunteer';
 import { Availability } from '../classes/availability';
+import { Domain, VolunteeringDomain } from '../classes/volunteering-domain';
 
 @Injectable({
   providedIn: 'root'
@@ -30,11 +31,10 @@ export class VolunteerService {
    constructor(private http:HttpClient) {
      this.Volunteer.languages = new Array<Language>()
      this.Volunteer.availabilitys = new Array<Availability>()
+     this.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>()
     }
 
   //  addVolunteerDomaim(): Observable<boolean> {
-  
-    
   // }
 
   addVolunteer():Observable<boolean>{
@@ -81,7 +81,7 @@ export class VolunteerService {
   getAvailabilityVolunteer():Observable<Array<Availability>>{
     return this.http.get<Array<Availability>>(this.url + "/GetAvailabilityVolunteer")
   }
-
+  
 }
 
 

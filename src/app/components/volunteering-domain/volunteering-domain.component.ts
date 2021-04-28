@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { ngModuleJitUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
-import { VolunteeringDomain } from 'src/app/classes/volunteering-domain';
+import { Domain, VolunteeringDomain } from 'src/app/classes/volunteering-domain';
 import { ApiService } from 'src/app/services/api.service';
 import { AssistedService } from 'src/app/services/assisted.service';
 import { VolunteerService } from 'src/app/services/volunteer.service';
@@ -25,13 +25,13 @@ export class VolunteeringDomainComponent implements OnInit {
 
   listDomain:any[] =[]
 
-  selectDomain(code:number){
+  selectDomain(code_volunteering:number){
     if(this.kind=="true")
     {
-      this.assisted.myListDomain.push(code)
+      // this.assisted.myListDomain.push(code)
     }
     else
-    this.volunteer.myListDomain.push(code)
+    this.volunteer.Volunteer.volunteeringdomains.push({code_volunteering:code_volunteering})
   }
 
   ngOnInit(): void {

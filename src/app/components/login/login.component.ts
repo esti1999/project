@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
 
         //save valonteer in service
         this.volunteerService.Volunteer=data;
-        this.volunteerService.Volunteer.date_of_birth=new Date(data.date_of_birth)
+        this.volunteerService.Volunteer.date_of_birth=new Date(data.date_of_birth);
+       
 
       }
       else{
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
             console.log("assisted",data1)
             //save assisted
             this.assistedService.Assisted=data1;
+            this.assistedService.Assisted.date_birth=new Date(data1.date_birth);
           }
           else
           {

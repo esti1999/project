@@ -1,5 +1,5 @@
 export class VolunteeringDomain {
-    constructor(public code_domain?:number, public name_domain?:number, public code_Volunteering?:number, public name_Volunteering?:string, public Details?:string){}
+    constructor(public code_domain?:number, public code_volunteering?:number, public descriptoin?:string){}
 }
 
 export class Domain {

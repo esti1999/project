@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'assistedVolunteeringDomain', component: AssistedComponent},
   { path: 'volunteerVolunteeringDomain', component: VolunteerComponent},
   { path: 'asking', component: AskingComponent},
+  { path: 'volunteering-domain', component: VolunteeringDomainComponent},
   
 ];
 

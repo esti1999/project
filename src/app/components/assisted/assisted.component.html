@@ -35,9 +35,9 @@
                 <div class="error" *ngIf="ngLastName.invalid&&(ngLastName.touched||ngLastName.dirty)">
                     <i *ngIf="ngLastName.errors!.required">שדה חובה</i>
                 </div>
-                <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel"
-                    [(ngModel)]="Assisted.Assisted.code_status" name="personalStatus">
-                    <option *ngFor="let item of list" value="{{item.code_status}}">{{item.description}}</option>
+                <select class="form-select form-control" placeholder="סטטוס" aria-label="Default select example" #ngList="ngModel"
+                    [(ngModel)]="Assisted.Assisted.code_status" name="personalStatus" >
+                    <option *ngFor="let item of list" value="{{item.code_status}}" >{{item.description}}</option>
                 </select>
                 <input class="form-control" placeholder="מספר טלפון" type="text" #ngPhone="ngModel"
                     [(ngModel)]="Assisted.Assisted.phone" name="phone" id="phone" required pattern="05?[0-9]-?[0-9]{7}"
@@ -47,7 +47,7 @@
                     <i *ngIf="ngPhone.errors!.pattern">אנה הזן מספר פלאפון תקין</i>
                 </div>
                 <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel"
-                    [(ngModel)]="Assisted.Assisted.code_gender" name="gender">
+                    [(ngModel)]="Assisted.Assisted.code_gender" name="gender" aria-placeholder="מין">
                     <option *ngFor="let item of list1" value="{{item.code_gender}}">{{item.description}}</option>
                 </select>
             </div>
@@ -55,7 +55,7 @@
         <div class="row prograph">
             <div class="col-6">
                 <h6>כתובת</h6>
-                <select class="form-select form-control" aria-label="Default select example" #ngList3="ngModel"
+                <select class="form-select form-control" aria-placeholder="עיר" aria-label="Default select example" #ngList3="ngModel"
                     [(ngModel)]="Assisted.Assisted.code_city" name="city">
                     <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
                 </select>
@@ -163,8 +163,8 @@
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>   
         <div class="button-wapper">
-            <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">רישום</button>
-            <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון</button>
+            <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule">רישום</button>
+            <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> עדכון</button>
             <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
         </div>
 </div>

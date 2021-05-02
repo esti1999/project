@@ -8,7 +8,7 @@ import { Days } from 'src/app/classes/days';
 import { Shifts } from 'src/app/classes/shifts';
 import { City } from 'src/app/classes/city';
 import { Subscription , interval} from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
-  constructor(public Assisted:AssistedService ,private route:ActivatedRoute) { }
+  constructor(public Assisted:AssistedService ,private route:ActivatedRoute, private rout:Router) { }
 
   mode:string
 
@@ -82,7 +82,8 @@ export class AssistedComponent implements OnInit {
             this.subscription = source.subscribe(val => this.toEmbed());
           }
       else
-            alert("הרשמתך נכשלה")
+            // alert("הרשמתך נכשלה")
+            this.rout.navigate(['/schedule/assisted']);
       })
   }
   toEmbed(){

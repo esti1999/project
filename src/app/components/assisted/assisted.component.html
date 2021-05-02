@@ -47,7 +47,8 @@
                     <i *ngIf="ngPhone.errors!.pattern">אנה הזן מספר פלאפון תקין</i>
                 </div>
                 <select class="form-select form-control" aria-label="Default select example" #ngList1="ngModel"
-                    [(ngModel)]="Assisted.Assisted.code_gender" name="gender" aria-placeholder="מין">
+                    [(ngModel)]="Assisted.Assisted.code_gender" name="gender" required>
+                    <option value="" disabled selected>מין</option>
                     <option *ngFor="let item of list1" value="{{item.code_gender}}">{{item.description}}</option>
                 </select>
             </div>
@@ -55,8 +56,9 @@
         <div class="row prograph">
             <div class="col-6">
                 <h6>כתובת</h6>
-                <select class="form-select form-control" aria-placeholder="עיר" aria-label="Default select example" #ngList3="ngModel"
-                    [(ngModel)]="Assisted.Assisted.code_city" name="city">
+                <select class="form-select form-control"  aria-label="Default select example" #ngList3="ngModel"
+                    [(ngModel)]="Assisted.Assisted.code_city" name="city" required>
+                    <option value="" disabled selected hidden>עיר</option>
                     <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
                 </select>
                 <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->

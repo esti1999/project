@@ -29,9 +29,13 @@ export class VolunteeringDomainComponent implements OnInit {
     if(this.kind=="true")
     {
       // this.assisted.myListDomain.push(code)
+      !this.assisted.Assisted.volunteeringdomains?this.assisted.Assisted.volunteeringdomains=new Array<VolunteeringDomain>():null
+      this.assisted.Assisted.volunteeringdomains.push({code_volunteering:code_volunteering})
     }
-    else
-    this.volunteer.Volunteer.volunteeringdomains.push({code_volunteering:code_volunteering})
+    else{
+      !this.volunteer.Volunteer.volunteeringdomains?this.volunteer.Volunteer.volunteeringdomains=new Array<VolunteeringDomain>():null
+      this.volunteer.Volunteer.volunteeringdomains.push({code_volunteering:code_volunteering})
+    }
   }
 
   ngOnInit(): void {

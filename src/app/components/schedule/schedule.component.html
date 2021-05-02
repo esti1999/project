@@ -22,23 +22,23 @@
         </div>
         <div class="yes row prograph" *ngIf="this.userType =='assisted'">
             <div class="col-sm-12 second-col">
-                <button type="button" class="form-control" routerLink="/volunteering-domain">תחומי התנדבות</button>
+                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי עזרה</button>
             </div> 
             <div class="col-sm-12 second-col">
                 <h5 class="title"> זמינות</h5>
                 <div class="col">
                     <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"
-                        [(ngModel)]="AssistedAvailability.day.code_day" name="days">
+                        [(ngModel)]="Assisted.day.code_day" name="days">
                         <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
                     </select>
-                    <select class="form-select form-control" aria-label="Default select example" #ngList8="ngModel"
-                        [(ngModel)]="AssistedAvailability.shift.code_shift" name="shifts">
+                    <select class="form-select form-control" aria-label="Default select example" #ngList5="ngModel"
+                        [(ngModel)]="Assisted.shift.code_shift" name="shifts">
                         <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
                     </select>
                 </div>
             </div>
             <div class="button-wapper col-sm-12">
-                <button type="submit" class="btn btn-dark btn-perple btn-lg"> אישור </button>
+                <button  type="submit" (click)="add" class="btn btn-dark btn-perple btn-lg" > אישור </button>
             </div>
         </div>
     </div>

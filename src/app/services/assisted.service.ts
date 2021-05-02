@@ -31,7 +31,6 @@ export class AssistedService {
    }
 
   add():Observable<Array<Assisted>>{
-
     return this.http.post<Array<Assisted>>(this.url+"/addAssisted" ,this.Assisted)
   }
   toEmbedAssisted() {
@@ -40,13 +39,13 @@ export class AssistedService {
   addAssisted():Observable<boolean>{
     // this.Assisted.code_language = 1;
     // this.Assisted.code_help_domain = 1;
+    
     this.Assisted.domain=[]
     this.Assisted.domain = this.myListDomain;
     this.Assisted.availability = {
       code_availability:0,
       code_day:this.day.code_day,
       code_shift:this.shift.code_shift
-  
     }
     return this.http.post<boolean>(this.url+"/addAssisted", this.Assisted)
   }

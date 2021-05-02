@@ -1,5 +1,5 @@
 <div class="header-img"></div>
-<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="add()" style="direction: rtl;">
+<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="navigateSchedule()" style="direction: rtl;">
     <div class="section first-section">
         <h2 class="title">מידע אישי לנעזר</h2>
         <div class="row prograph">
@@ -82,8 +82,8 @@
             <!-- </div> -->
             <div class="col-6 second-col">
                 <input class="form-control" type="hide ? 'password' : 'text'" placeholder="סיסמא" #ngPassword="ngModel"
-                    [(ngModel)]="Assisted.Assisted.password" name="password" id="password" required minlength="8"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}">
+                    [(ngModel)]="Assisted.Assisted.password" name="password" id="password" required  
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}" minlength="8">
                 <div class="error" *ngIf="ngPassword.invalid&&(ngPassword.touched||ngPassword.dirty)">
                     <i *ngIf="ngPassword.errors!.required">שדה חובה</i>
                     <i *ngIf="ngPassword.errors!.pattern"> סיסימא חייבת להכיל לפחות שמונה תווים המורכבים מאותיות אנגליות
@@ -163,8 +163,9 @@
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>   
         <div class="button-wapper">
-            <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">רישום</button>
-            <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון</button>
+            <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> רישום</button>
+            <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> עדכון</button>
+            <!-- <button  type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> אישור</button> -->
             <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
         </div>
 </div>

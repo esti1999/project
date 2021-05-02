@@ -31,7 +31,7 @@ export class VolunteerService {
    constructor(private http:HttpClient) {
      this.Volunteer.languages = new Array<Language>()
      this.Volunteer.availabilitys = new Array<Availability>()
-     this.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>()
+    //  this.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>()
     }
 
   //  addVolunteerDomaim(): Observable<boolean> {

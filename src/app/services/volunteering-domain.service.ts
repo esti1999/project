@@ -15,11 +15,11 @@ export class VolunteeringDomainService {
   constructor(private http:HttpClient) { }
 
  getVolunteeringDomain(code_domain:number):Observable<Array<VolunteeringDomain>>{
-    return this.http.get<Array<VolunteeringDomain>>(this.url+"/getVolunteeringByDomain/" + code_domain)
+    return this.http.get<Array<VolunteeringDomain>>(this.url+"/getVolunteeringDomain/" + code_domain)
  }
 
  getDomain():Observable<Array<Domain>>{
- return this.http.get<Array<Domain>>(this.url + "/GetVolunteeringDomain")
+ return this.http.get<Array<Domain>>(this.url + "/GetDomain")
  }
 
 

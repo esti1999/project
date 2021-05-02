@@ -8,7 +8,7 @@ import { Days } from 'src/app/classes/days';
 import { Shifts } from 'src/app/classes/shifts';
 import { City } from 'src/app/classes/city';
 import { Subscription , interval} from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,9 +18,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
-  constructor(public Assisted:AssistedService ,private route:ActivatedRoute) { }
-
-  mode:string
+  constructor(public Assisted:AssistedService ,private route:ActivatedRoute, private rout:Router) { }
+  mode:string;
 
  list:PersonalStatus[]
 
@@ -38,7 +37,6 @@ export class AssistedComponent implements OnInit {
 
  list4: Days[]
  newDays: Days = new Days();
-
  
  list5: Shifts[]
  newShift: Shifts = new Shifts();
@@ -72,27 +70,9 @@ export class AssistedComponent implements OnInit {
       this.list5 = data;
     })
   }
-  add(){
-    this.Assisted.addAssisted().subscribe(data=>{
-      // this.Assisted.listAssisted = data
-      if(data == true){
-            alert("הרשמתך בוצעה בהצלחה")
-            const source = interval(10000*6);
-            const text = 'Your Text Here';
-            this.subscription = source.subscribe(val => this.toEmbed());
-          }
-      else
-            alert("הרשמתך נכשלה")
-      })
+
+  navigateSchedule()
+  {
+    this.rout.navigate(['/schedule/assisted']);
   }
-  toEmbed(){
-    console.log("שיבוץ")
-    this.Assisted.toEmbedAssisted().subscribe(res=>{
-      if(res)
-      console.log("שבוץ")
-    });
-  }
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
 }

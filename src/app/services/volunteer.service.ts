@@ -69,6 +69,10 @@ export class VolunteerService {
   getDays():Observable<Array<Days>>{
     return this.http.get<Array<Days>>(this.url + "/GetDays")
   }
+
+  getAvailabilitys():Observable<Array<Availability>>{
+    return this.http.get<Array<Availability>>(this.url + "/GetAvailabilitys")
+  }
   getShift():Observable<Array<Shifts>>{
     return this.http.get<Array<Shifts>>(this.url + "/GetShift")
   }

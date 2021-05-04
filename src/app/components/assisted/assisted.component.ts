@@ -19,7 +19,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
   constructor(public Assisted:AssistedService ,private route:ActivatedRoute, private rout:Router) { }
+
   mode:string;
+ 
 
  list:PersonalStatus[]
 
@@ -43,7 +45,8 @@ export class AssistedComponent implements OnInit {
 
  password2: string="";
  
-  ngOnInit(){
+  ngOnInit()
+  {
 
     this.mode=this.route.snapshot.params['mode']
     this.password2=this.Assisted.Assisted.password;
@@ -71,7 +74,29 @@ export class AssistedComponent implements OnInit {
       this.list5 = data;
     })
   }
-
+  add()
+  {
+    this.Assisted.addAssisted().subscribe(data=>{
+      // this.Assisted.listAssisted = data
+      if(data == true){
+            alert("הרשמתך בוצעה בהצלחה")
+            const source = interval(10000*6);
+            const text = 'Your Text Here';
+            this.subscription = source.subscribe(val => this.toEmbed());
+          }
+      else
+            // alert("הרשמתך נכשלה")
+            this.rout.navigate(['/schedule/assisted']);
+      })
+  }
+  toEmbed()
+  {
+    console.log("שיבוץ")
+    this.Assisted.toEmbedAssisted().subscribe(res=>{
+      if(res)
+      console.log("שבוץ")
+    });
+  }
   navigateSchedule()
   {
     this.rout.navigate(['/schedule/assisted']);

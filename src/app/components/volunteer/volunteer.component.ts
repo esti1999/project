@@ -57,6 +57,7 @@ export class VolunteerComponent implements OnInit {
 
   l_language = [0, 0, 0, 0, 0, 0]
 
+  avalabilitys:Availability[]
 
   list8: Shifts[]
   newShift: Shifts = new Shifts();
@@ -92,6 +93,12 @@ export class VolunteerComponent implements OnInit {
     })
     this.Volunteer.getDays().subscribe(data => {
       this.list4 = data;
+    })
+
+    this.Volunteer.getAvailabilitys().subscribe(data => {
+      if (this.Volunteer.Volunteer.availabilitys.length == 0) {
+        this.Volunteer.Volunteer.availabilitys = data;
+      }
     })
     this.Volunteer.getShift().subscribe(data => {
       this.list8 = data;

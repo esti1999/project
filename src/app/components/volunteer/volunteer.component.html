@@ -357,8 +357,12 @@
                             <input type="radio" [value]="item.code_service" id="service{{item.code_service}}"
                                 #ngList7="ngModel" [(ngModel)]="Volunteer.Volunteer.code_service" name="service"
                                 class="custom-control-input">
+<<<<<<< HEAD
                             <label class="custom-control-label purple"
                                 for="service{{item.code_service}}">{{item.description}}</label>
+=======
+                            <label class="custom-control-label purple" for="service{{item.code_service}}">{{item.description}}</label>
+>>>>>>> 76b55a1c475092a68083d317a9de65a52617564c
                         </div>
                         <!-- <div class="custom-control custom-radio custom-control">
                     <input type="radio" id="servic1" name="CodeService" class="custom-control-input" value="1"
@@ -459,20 +463,35 @@
                 [(ngModel)]="availability.code_shift" name="shifts">
                 <option *ngFor="let item of list8" value="{{item.code_shift}}">{{item.description}}</option>
             </select> -->
-            <table>
+            
+            <!-- <table>
                 <tr>
                     <th></th>
-                    <th *ngFor="let day of list4">{{day.description}}</th>
+                    <th class="day" *ngFor="let day of list4">{{day.description}}</th>
                 </tr>
                 <tr *ngFor="let shift of list8">
                     <th>{{shift.description}}</th>
+<<<<<<< HEAD
                     <td *ngFor="let day of list4">              
                         <input type="checkbox" (change)="updateAvailability($event,day.code_day, shift.code_shift)"
                             [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />                   
+=======
+                    <td *ngFor="let day of list4">
+                        <input 
+                            class="chek"
+                            type="checkbox"
+                            (change)="updateAvailability($event,day.code_day, shift.code_shift)"
+                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />
+>>>>>>> 76b55a1c475092a68083d317a9de65a52617564c
                     </td>
                 </tr>
-            </table>
+            </table> -->
 
+            <div *ngFor="let availability of Volunteer.Volunteer.availabilitys">
+                <label>{{availability.day_description}}  {{availability.shift_description}}</label>
+                <input  type="checkbox"/>
+            </div>
+            
             <div class="button-wapper">
                 <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום
                 </button>

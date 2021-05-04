@@ -31,7 +31,7 @@ export class VolunteerService {
    constructor(private http:HttpClient) {
      this.Volunteer.languages = new Array<Language>()
      this.Volunteer.availabilitys = new Array<Availability>()
-     this.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>()
+    //  this.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>()
     }
 
   //  addVolunteerDomaim(): Observable<boolean> {
@@ -68,6 +68,10 @@ export class VolunteerService {
   }
   getDays():Observable<Array<Days>>{
     return this.http.get<Array<Days>>(this.url + "/GetDays")
+  }
+
+  getAvailabilitys():Observable<Array<Availability>>{
+    return this.http.get<Array<Availability>>(this.url + "/GetAvailabilitys")
   }
   getShift():Observable<Array<Shifts>>{
     return this.http.get<Array<Shifts>>(this.url + "/GetShift")

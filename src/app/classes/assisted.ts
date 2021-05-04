@@ -1,5 +1,6 @@
 import { Availability } from "./availability";
 import { Language } from "./language";
+import { VolunteeringDomain } from "./volunteering-domain";
 
 export class Assisted {
     constructor(public id_assisted?: number, 
@@ -19,6 +20,7 @@ export class Assisted {
         public password?: string,
         public languages?:Array<Language>,
         public domain?: string[],
+        public volunteeringdomains?:Array<VolunteeringDomain>,
         public availability?:Availability)
        
           { }

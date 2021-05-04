@@ -1,3 +1,3 @@
 export class Days{
-    constructor(public code_day?:number, public dedescription?: string){}
+    constructor(public code_day?:number, public description?: string){}
 }

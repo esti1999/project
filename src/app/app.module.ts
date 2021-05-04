@@ -10,7 +10,6 @@ import { AssistedComponent } from './components/assisted/assisted.component';
 import { VolunteerComponent } from './components/volunteer/volunteer.component';
 import { VolunteeringDomainComponent } from './components/volunteering-domain/volunteering-domain.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
-import { AskingComponent } from './components/asking/asking.component';
 // import services
 import { ApiService } from './services/api.service';
 import { AssistedService } from './services/assisted.service';
@@ -25,10 +24,7 @@ import { VolunteeringDomainService } from './services/volunteering-domain.servic
     AssistedComponent,
     VolunteerComponent,
     VolunteeringDomainComponent,
-    ScheduleComponent,
-    AskingComponent,
-   
-    
+    ScheduleComponent,  
   ],
   imports: [
     BrowserModule,

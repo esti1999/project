@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { interval, Subscription } from 'rxjs';
 import { Days } from 'src/app/classes/days';
 import { Shifts } from 'src/app/classes/shifts';
 import { AssistedService } from 'src/app/services/assisted.service';
+import { VolunteeringDomainService} from 'src/app/services/volunteering-domain.service'
+import { VolunteeringDomainComponent } from '../volunteering-domain/volunteering-domain.component';
 
 @Component({
   selector: 'app-schedule',
@@ -20,20 +23,53 @@ export class ScheduleComponent implements OnInit {
 
   userType:string;
 
-  constructor( private route:ActivatedRoute, public AssistedAvailability: AssistedService) { 
+  mode:string;
+  
+
+  subscription: Subscription;
+  constructor( private route:ActivatedRoute, public Assisted: AssistedService) { 
     
   }
 
   ngOnInit(): void {
     this.userType=this.route.snapshot.params['userType']
+    this.mode=this.route.snapshot.params['mode']
 
-    this.AssistedAvailability.getDays().subscribe(data=>{
+
+    this.Assisted.getDays().subscribe(data=>{
       this.list4 = data;
     })
-    this.AssistedAvailability.getShift().subscribe(data=>{
+    this.Assisted.getShift().subscribe(data=>{
       this.list5 = data;
     })
-  }
-  
 
+  }
+
+
+
+  add(){
+    this.Assisted.addAssisted().subscribe(data=>{
+      // this.Assisted.listAssisted = data
+      if(data == true){
+            alert("הרשמתך בוצעה בהצלחה")    
+
+            // const source = interval(10000*6);
+            // const text = 'Your Text Here';
+            // this.subscription = source.subscribe(val => this.toEmbed());
+          }
+      else
+            alert("הרשמתך נכשלה")
+      })
+  }
+
+//   toEmbed(){
+//     console.log("שיבוץ")
+//     this.Assisted.toEmbedAssisted().subscribe(res=>{
+//       if(res)
+//       console.log("שבוץ")
+//     });
+//   }
+//   ngOnDestroy() {
+//     this.subscription.unsubscribe();
+//   }
 }

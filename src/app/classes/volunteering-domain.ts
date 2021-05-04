@@ -3,5 +3,5 @@ export class VolunteeringDomain {
 }
 
 export class Domain {
-    constructor(public code_domain?:number,public description?:string){}
+    constructor(public code_domain:number,public description:string){}
 }

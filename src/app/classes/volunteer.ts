@@ -26,6 +26,7 @@ export class Volunteer {
          public validityw?:Date,
          public code_weapons_license?:number,
          public code_car_license?:number,
+         public description_service?:string,
          public languages?:Array<Language>,
          public availabilitys?:Array<Availability>,
          public volunteeringdomains?:Array<VolunteeringDomain>,

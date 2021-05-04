@@ -20,7 +20,8 @@ export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
   constructor(public Assisted:AssistedService ,private route:ActivatedRoute, private rout:Router) { }
 
-  mode:string
+  mode:string;
+ 
 
  list:PersonalStatus[]
 
@@ -38,14 +39,14 @@ export class AssistedComponent implements OnInit {
 
  list4: Days[]
  newDays: Days = new Days();
-
  
  list5: Shifts[]
  newShift: Shifts = new Shifts();
 
  password2: string="";
  
-  ngOnInit(){
+  ngOnInit()
+  {
 
     this.mode=this.route.snapshot.params['mode']
 
@@ -72,7 +73,8 @@ export class AssistedComponent implements OnInit {
       this.list5 = data;
     })
   }
-  add(){
+  add()
+  {
     this.Assisted.addAssisted().subscribe(data=>{
       // this.Assisted.listAssisted = data
       if(data == true){
@@ -86,14 +88,16 @@ export class AssistedComponent implements OnInit {
             this.rout.navigate(['/schedule/assisted']);
       })
   }
-  toEmbed(){
+  toEmbed()
+  {
     console.log("שיבוץ")
     this.Assisted.toEmbedAssisted().subscribe(res=>{
       if(res)
       console.log("שבוץ")
     });
   }
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
+  navigateSchedule()
+  {
+    this.rout.navigate(['/schedule/assisted']);
+  }
 }

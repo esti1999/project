@@ -6,11 +6,12 @@
             <div class="col-6">
                 <h6>מידע אישי</h6>
                 <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel"
-                    [(ngModel)]="Volunteer.Volunteer.firstName_volunteer" name="firstName_volunteer" required
-                    pattern="" />
+                    [(ngModel)]="Volunteer.Volunteer.firstName_volunteer" name="firstName_volunteer" required/>
+                    <!-- pattern="/^[א-ת\s]+$/ "/> -->
+                    <!-- || ^[a-zA-Z ]*$" -->
                 <div class="error" *ngIf="ngFirstName.invalid&&(ngFirstName.touched||ngFirstName.dirty)">
-                    <i *ngIf="ngFirstName.errors!.required">שדה חובה</i>
-                    <i></i>
+                    <i *ngIf="ngFirstName.errors!.required"> שדה חובה</i>
+                    <!-- <i *ngIf="ngFirstName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
                 </div>
                 <!-- <select class="form-select form-control" aria-label="Default select example"></select> -->
                 <input class="form-control" placeholder="מספר זהות" type="text" #ngId="ngModel"
@@ -37,10 +38,11 @@
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel"
-                    [(ngModel)]="Volunteer.Volunteer.lastName_volunteer" name="lastName_volunteer" required
-                    pattern="" />
+                    [(ngModel)]="Volunteer.Volunteer.lastName_volunteer" name="lastName_volunteer" required/>
+                    <!-- pattern="/^[א-ת\s]+$/ " /> -->
                 <div class="error" *ngIf="ngLastName.invalid&&(ngLastName.touched||ngLastName.dirty)">
                     <i *ngIf="ngLastName.errors!.required">שדה חובה</i>
+                    <!-- <i *ngIf="ngLastName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
                 </div>
                 <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel"
                     [(ngModel)]="Volunteer.Volunteer.code_status" name="personalStatus">
@@ -61,7 +63,8 @@
 
             <div class="col-sm-12">
                 <h6>תחומים וסיסמא</h6>
-                <button type="button" class="form-control" routerLink="/volunteering-domain/false/{{this.mode}}">תחומי התנדבות</button>
+                <button type="button" class="form-control" routerLink="/volunteering-domain/false/{{this.mode}}">תחומי
+                    התנדבות</button>
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" placeholder="סיסמא" type="hide ? 'password' : 'text'" #ngPassword="ngModel"
@@ -101,8 +104,13 @@
                     [(ngModel)]="Volunteer.Volunteer.street" name="street" />
                 <input class="form-control" placeholder="קומה" type="number" #ngFloor="ngModel"
                     [(ngModel)]="Volunteer.Volunteer.number_floor" name="number_floor" />
-                <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel"
-                    [(ngModel)]="Volunteer.Volunteer.postal_code" name="postal_code" />
+                <input class="form-control" placeholder="מיקוד" type="text" #ngPostalCode="ngModel"
+                    [(ngModel)]="Volunteer.Volunteer.postal_code" name="postal_code" maxlength="7" minlength="7"
+                    pattern="[0-9]*" />
+                <div *ngIf=" ngPostalCode.invalid && (ngPostalCode.touched||ngPostalCode.dirty)" class="error">
+                    <i *ngIf="ngPostalCode.errors!.pattern">שדה זה חייב להכיל מספרים בלבד</i>
+                </div>
+
             </div>
         </div>
         <!-- <div class="row prograph"> -->
@@ -214,6 +222,9 @@
                             <select class="form-select form-control col-6" aria-label="Default select example"
                                 #ngList2="ngModel" [(ngModel)]="Volunteer.Volunteer.code_car_license" name="carLicense"
                                 required>
+                                <div *ngIf=" ngList2.invalid && (ngList2.touched||ngList2.dirty)" class="error">
+                                    <i *ngIf="ngList2.errors!.required">שדה חובה</i>
+                                </div>
                                 <option *ngFor="let item of list2" [value]="item.code_car_license">
                                     {{item.description}}</option>
                             </select>
@@ -221,6 +232,9 @@
                             <input type="date" class="form-control col-6" placeholder="תאריך תוקף"
                                 #ngvalidityc="ngModel" [ngModel]="Volunteer.Volunteer.validityc | date:'yyyy-MM-dd'"
                                 (ngModelChange)="Volunteer.Volunteer.validityc = $event" name="validityc" required />
+                            <div *ngIf=" ngvalidityc.invalid && (ngvalidityc.touched||ngvalidityc.dirty)" class="error">
+                                <i *ngIf="ngvalidityc.errors!.required">שדה חובה</i>
+                            </div>
                         </div>
                         <!-- <div class="col">
                     <h6 class="inline-title"> וו גרירה  :</h6>
@@ -284,15 +298,13 @@
                             <div>
                                 <h6 class="inline-title">נשק אישי:</h6>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="Weapon1" class="custom-control-input"
-                                        [value]="true" #ngCodeWeaponsLicenseYes="ngModel" [(ngModel)]="weapon"
-                                        name="weapon">
+                                    <input type="radio" id="Weapon1" class="custom-control-input" [value]="true"
+                                        #ngCodeWeaponsLicenseYes="ngModel" [(ngModel)]="weapon" name="weapon">
                                     <label class="custom-control-label purple" for="Weapon1">כן</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="Weapon2" class="custom-control-input"
-                                        [value]="false" #ngCodeWeaponsLicenseNo="ngModel" [(ngModel)]="weapon"
-                                        name="weapon">
+                                    <input type="radio" id="Weapon2" class="custom-control-input" [value]="false"
+                                        #ngCodeWeaponsLicenseNo="ngModel" [(ngModel)]="weapon" name="weapon">
                                     <label class="custom-control-label purple" for="Weapon2">לא</label>
                                 </div>
                             </div>
@@ -301,6 +313,9 @@
                                 <select class="form-select form-control col-6" aria-label="Default select example"
                                     #ngList3="ngModel" [(ngModel)]="Volunteer.Volunteer.code_weapons_license"
                                     name="weaponsLicense" required>
+                                    <div *ngIf=" ngList3.invalid && (ngList3.touched||ngList3.dirty)" class="error">
+                                        <i *ngIf="ngList3.errors!.required">שדה חובה</i>
+                                    </div>
                                     <option *ngFor="let item of list3" [value]="item.code_weapons_license">
                                         {{item.description}}</option>
                                 </select>
@@ -318,6 +333,11 @@
                                     #ngvalidityw="ngModel" [ngModel]="Volunteer.Volunteer.validityw | date:'yyyy-MM-dd'"
                                     (ngModelChange)="Volunteer.Volunteer.validityw = $event" name="validityw"
                                     required />
+                                <div *ngIf=" ngvalidityw.invalid && (ngvalidityw.touched||ngvalidityw.dirty)"
+                                    class="error">
+                                    <i *ngIf="ngvalidityw.errors!.required">שדה חובה</i>
+                                </div>
+
                                 <!-- <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="validity1" name="validity" class="custom-control-input" value="yes">
                         <label class="custom-control-label purple" for="validity1">כן</label>
@@ -335,9 +355,10 @@
                         <h6 class="">סוג שרות:</h6>
                         <div class="custom-control custom-radio custom-control" *ngFor="let item of list7">
                             <input type="radio" [value]="item.code_service" id="service{{item.code_service}}"
-                                 #ngList7="ngModel" [(ngModel)]="Volunteer.Volunteer.code_service" name="service"
+                                #ngList7="ngModel" [(ngModel)]="Volunteer.Volunteer.code_service" name="service"
                                 class="custom-control-input">
-                            <label class="custom-control-label purple" for="service">{{item.description}}</label>
+                            <label class="custom-control-label purple"
+                                for="service{{item.code_service}}">{{item.description}}</label>
                         </div>
                         <!-- <div class="custom-control custom-radio custom-control">
                     <input type="radio" id="servic1" name="CodeService" class="custom-control-input" value="1"
@@ -358,21 +379,41 @@
                             <div class="col" *ngIf="Volunteer.Volunteer.code_service == 3">
                                 <input class="form-control col-6" placeholder="דרגת שירות" type="text"
                                     #ngdescription="ngModel" [(ngModel)]="Volunteer.Volunteer.description_service"
-                                    name="description" />
+                                    pattern="/^[א-ת\s]+$/ "
+                                    name="description" required  />
+                                <div *ngIf=" ngdescription.invalid && (ngdescription.touched||ngdescription.dirty)"
+                                    class="error">
+                                    <i *ngIf="ngdescription.errors!.required">שדה חובה</i>
+                                    <i *ngIf="ngdescription.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i>
+                                </div>
                                 <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date"
                                     #ngDate="ngModel" [ngModel]="Volunteer.Volunteer.release_date | date:'yyyy-MM-dd'"
-                                    (ngModelChange)="Volunteer.Volunteer.release_date = $event" name="release_date" required/>
+                                    (ngModelChange)="Volunteer.Volunteer.release_date = $event" name="release_date"
+                                    required />
+                                <div *ngIf=" ngDate.invalid && (ngDate.touched||ngDate.dirty)" class="error">
+                                    <i *ngIf="ngDate.errors!.required">שדה חובה</i>
+                                </div>
                             </div>
                         </div>
                         <div>
                             <div class="col" *ngIf="Volunteer.Volunteer.code_service == 2">
                                 <input class="form-control col-6" placeholder="תפקיד שירות" type="text"
                                     #ngdescription="ngModel" [(ngModel)]="Volunteer.Volunteer.description_service"
-                                    name="description" />
+                                    pattern="/^[א-ת\s]+$/ "
+                                    name="description" required  />
+                                <div *ngIf=" ngdescription.invalid && (ngdescription.touched||ngdescription.dirty)"
+                                    class="error">
+                                    <i *ngIf="ngdescription.errors!.required">שדה חובה</i>
+                                    <i *ngIf="ngdescription.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i>
+                                </div>
                                 <!-- <input class="form-control" placeholder="מקום שירות  "/> -->
                                 <input type="date" class="form-control col-6" placeholder="תאריך שחרור" type="date"
                                     #ngDate="ngModel" [ngModel]="Volunteer.Volunteer.release_date | date:'yyyy-MM-dd'"
-                                    (ngModelChange)="Volunteer.Volunteer.release_date = $event" name="release_date" required/>
+                                    (ngModelChange)="Volunteer.Volunteer.release_date = $event" name="release_date"
+                                    required />
+                                <div *ngIf=" ngDate.invalid && (ngDate.touched||ngDate.dirty)" class="error">
+                                    <i *ngIf="ngDate.errors!.required">שדה חובה</i>
+                                </div>
                             </div>
                         </div>
                         <!-- <div >
@@ -425,9 +466,9 @@
                 </tr>
                 <tr *ngFor="let shift of list8">
                     <th>{{shift.description}}</th>
-                    <td *ngFor="let day of list4">
+                    <td *ngFor="let day of list4">              
                         <input type="checkbox" (change)="updateAvailability($event,day.code_day, shift.code_shift)"
-                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />
+                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />                   
                     </td>
                 </tr>
             </table>

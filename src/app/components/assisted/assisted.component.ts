@@ -46,6 +46,7 @@ export class AssistedComponent implements OnInit {
   ngOnInit(){
 
     this.mode=this.route.snapshot.params['mode']
+    this.password2=this.Assisted.Assisted.password;
 
 
     this.Assisted.getPersonalStatus().subscribe(data=>{

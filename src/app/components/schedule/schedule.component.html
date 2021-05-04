@@ -22,9 +22,27 @@
         </div>
         <div class="yes row prograph" *ngIf="this.userType =='assisted'">
             <div class="col-sm-12 second-col">
-                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי עזרה</button>
-            </div> 
-            <div class="col-sm-12 second-col">
+                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
+                    עזרה</button>
+            </div>
+            <div class="">
+                <h4 class="title">זמינות</h4>
+                <div class="col">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let day of list4">{{day.description}}</th>
+                        </tr>
+                        <tr *ngFor="let shift of list5">
+                            <th>{{shift.description}}</th>
+                            <td *ngFor="let day of list4">
+                                <input type="checkbox"
+                                    (change)="updateAvailability($event,day.code_day, shift.code_shift)"
+                                    [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />
+                            </td>
+                        </tr>
+                    </table>
+                    <!-- <div class="col-sm-12 second-col">
                 <h5 class="title"> זמינות</h5>
                 <div class="col">
                     <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"
@@ -36,9 +54,12 @@
                         <option *ngFor="let item of list5" value="{{item.code_shift}}">{{item.description}}</option>
                     </select>
                 </div>
+            </div> -->
+
+                </div>
             </div>
-            <div class="button-wapper col-sm-12">
-                <button  type="submit" (click)="add" class="btn btn-dark btn-perple btn-lg" > אישור </button>
+            <div class="button-wapper">
+                <button type="submit" (click)="add" class="btn btn-dark btn-perple btn-lg"> אישור </button>
             </div>
         </div>
     </div>

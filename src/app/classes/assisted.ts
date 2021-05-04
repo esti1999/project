@@ -21,7 +21,9 @@ export class Assisted {
         public languages?:Array<Language>,
         public domain?: string[],
         public volunteeringdomains?:Array<VolunteeringDomain>,
-        public availability?:Availability)
+        public availability?:Availability,
+        public availabilitys?:Array<Availability>,
+        )
        
           { }
 }

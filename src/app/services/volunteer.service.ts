@@ -82,10 +82,9 @@ export class VolunteerService {
   getServices():Observable<Array<Services>>{
     return this.http.get<Array<Services>>(this.url + "/GetServices")
   }
-  getAvailabilityVolunteer():Observable<Array<Availability>>{
-    return this.http.get<Array<Availability>>(this.url + "/GetAvailabilityVolunteer")
-  }
-  
+  getAvailability():Observable<Array<Availability>>{
+    return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
+  } 
 }
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
+import { Availability } from 'src/app/classes/availability';
 import { Days } from 'src/app/classes/days';
 import { Shifts } from 'src/app/classes/shifts';
 import { AssistedService } from 'src/app/services/assisted.service';
@@ -24,10 +25,11 @@ export class ScheduleComponent implements OnInit {
   userType:string;
 
   mode:string;
-  
+
+  availabilitys: Availability[];
 
   subscription: Subscription;
-  constructor( private route:ActivatedRoute, public Assisted: AssistedService) { 
+  constructor( private route:ActivatedRoute, public Assisted: AssistedService,private router:Router) { 
     
   }
 
@@ -42,10 +44,19 @@ export class ScheduleComponent implements OnInit {
     this.Assisted.getShift().subscribe(data=>{
       this.list5 = data;
     })
+    this.availabilitys = this.Assisted.Assisted.availabilitys.filter(a => a.IsSelected);
 
   }
-
-
+  isAvailabilitySelected(code_day, code_shift): boolean {
+    let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
+    return availability != null;
+  }
+  updateAvailability(event, code_day, code_shift){
+    if(event.target.checked)
+       this.Assisted.Assisted.availabilitys.find(a=>a.code_day==code_day && a.code_shift==code_shift).IsSelected=true;
+    else
+       this.Assisted.Assisted.availabilitys.find(a=>a.code_day==code_day && a.code_shift==code_shift).IsSelected=false;
+  }
 
   add(){
     this.Assisted.addAssisted().subscribe(data=>{

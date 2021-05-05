@@ -62,19 +62,20 @@ export class VolunteerComponent implements OnInit {
   list8: Shifts[]
   newShift: Shifts = new Shifts();
 
-  car: boolean ;
-  weapon: boolean ;
+  car: boolean;
+  weapon: boolean;
 
   password2: string = "";
 
   availabilitys: Availability[];
 
+
   ngOnInit() {
 
-   this.mode = this.route.snapshot.params['mode']
-   this.car = this.Volunteer.Volunteer.code_car_license?true:false;
-   this.weapon = this.Volunteer.Volunteer.code_weapons_license?true:false;
-   this.password2=this.Volunteer.Volunteer.password;
+    this.mode = this.route.snapshot.params['mode']
+    this.car = this.Volunteer.Volunteer.code_car_license ? true : false;
+    this.weapon = this.Volunteer.Volunteer.code_weapons_license ? true : false;
+    this.password2 = this.Volunteer.Volunteer.password;
 
 
 
@@ -108,6 +109,12 @@ export class VolunteerComponent implements OnInit {
         this.Volunteer.Volunteer.languages = data;
       }
     })
+    this.Volunteer.getAvailability().subscribe(data => {
+      
+      if (this.Volunteer.Volunteer.availabilitys.length == 0) {
+        this.Volunteer.Volunteer.availabilitys = data;
+      }
+    })
     this.Volunteer.getCity().subscribe(data => {
       this.list6 = data;
     })
@@ -119,6 +126,8 @@ export class VolunteerComponent implements OnInit {
     //     this.Volunteer.Volunteer.availabilitys=data;
     //   }
     // })
+
+    // if(this.availabilitys!=undefined)
     this.availabilitys = this.Volunteer.Volunteer.availabilitys.filter(a => a.IsSelected);
 
   }
@@ -126,11 +135,15 @@ export class VolunteerComponent implements OnInit {
     let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
     return availability != null;
   }
-  updateAvailability(event, code_day, code_shift){
-    if(event.target.checked)
-    this.Volunteer.Volunteer.availabilitys.find(a=>a.code_day==code_day && a.code_shift==code_shift).IsSelected=true;
-    else
-    this.Volunteer.Volunteer.availabilitys.find(a=>a.code_day==code_day && a.code_shift==code_shift).IsSelected=false;
+
+  updateAvailability(event, code_day, code_shift) {
+    let availability: Availability = this.Volunteer.Volunteer.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
+    if (availability) {
+      if (event.target.checked)
+        availability.IsSelected = true;
+      else
+        availability.IsSelected = false;
+    }
   }
   add() {
     this.Volunteer.addVolunteer().subscribe(data => {

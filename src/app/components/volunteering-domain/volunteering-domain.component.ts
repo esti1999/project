@@ -70,7 +70,7 @@ export class VolunteeringDomainComponent implements OnInit {
     if(this.kind=="true")
     {
      // this.assisted.myListDomain=this.listDomain
-      this.router.navigate(["assisted/"+this.mode])
+      this.router.navigate(["schedule/"+this.mode])
     }
     else{
       if(this.kind=="false")

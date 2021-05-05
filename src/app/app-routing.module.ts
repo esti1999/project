@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'volunteering-domain/:kind/:mode', component: VolunteeringDomainComponent},
   { path: 'assistedVolunteeringDomain', component: AssistedComponent},
   { path: 'volunteerVolunteeringDomain', component: VolunteerComponent},
-  { path: 'volunteering-domain', component: VolunteeringDomainComponent},
+  { path: 'volunteering-domain/:mode', component: VolunteeringDomainComponent},
   
 ];
 

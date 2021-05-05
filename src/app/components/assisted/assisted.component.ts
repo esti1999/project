@@ -88,6 +88,27 @@ export class AssistedComponent implements OnInit {
             // alert("הרשמתך נכשלה")
             this.rout.navigate(['/schedule/assisted']);
       })
+      
+  }
+  add1()
+  {
+    this.Assisted.addAssisted().subscribe(data=>{
+      // this.Assisted.listAssisted = data
+      if(this.mode == 'update'){
+        if(data==true)
+        {
+          alert("העדכון בוצע בהצלחה")
+          const source = interval(10000*6);
+          const text = 'Your Text Here';
+          this.subscription = source.subscribe(val => this.toEmbed());
+        }
+         
+          }
+      else
+            // alert("הרשמתך נכשלה")
+            this.rout.navigate(['/schedule/assisted']);
+      })
+      
   }
   toEmbed()
   {

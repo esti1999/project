@@ -13,15 +13,20 @@
             <div class="col-12">
                 <input class="form-control" type="text" placeholder="שיבוץ">
             </div>
-            <div class="col-1 second-col">
+            <div class="col-2 second-col">
                 <button type="button" class="btn btn-dark btn-perple btn-lg"> אישור </button>
             </div>
-            <div class="col-1 second-col">
+            <div class="col-2 second-col">
                 <button type="button" class="btn btn-dark btn-perple btn-lg"> ביטול </button>
             </div>
         </div>
         <div class="yes row prograph" *ngIf="this.userType =='assisted'">
             <div class="col-sm-12 second-col">
+
+                <button type="button" class="form-control" routerLink="/volunteering-domain/{{this.mode}}">תחומי עזרה</button>
+            </div> 
+            <div class="col-sm-12 second-col">
+
                 <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
                     עזרה</button>
             </div>
@@ -43,6 +48,7 @@
                         </tr>
                     </table>
                     <!-- <div class="col-sm-12 second-col">
+
                 <h5 class="title"> זמינות</h5>
                 <div class="col">
                     <select class="form-select form-control" aria-label="Default select example" #ngList4="ngModel"

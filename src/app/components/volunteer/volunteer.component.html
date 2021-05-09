@@ -6,12 +6,12 @@
             <div class="col-6">
                 <h6>מידע אישי</h6>
                 <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel"
-                    [(ngModel)]="Volunteer.Volunteer.firstName_volunteer" name="firstName_volunteer" required/>
-                    <!-- pattern="/^[א-ת\s]+$/ "/> -->
+                    [(ngModel)]="Volunteer.Volunteer.firstName_volunteer" name="firstName_volunteer" required
+                    pattern="/^[א-ת\s]+$/ "/>
                     <!-- || ^[a-zA-Z ]*$" -->
                 <div class="error" *ngIf="ngFirstName.invalid&&(ngFirstName.touched||ngFirstName.dirty)">
                     <i *ngIf="ngFirstName.errors!.required"> שדה חובה</i>
-                    <!-- <i *ngIf="ngFirstName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
+                    <i *ngIf="ngFirstName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i>
                 </div>
                 <!-- <select class="form-select form-control" aria-label="Default select example"></select> -->
                 <input class="form-control" placeholder="מספר זהות" type="text" #ngId="ngModel"
@@ -38,11 +38,11 @@
             </div>
             <div class="col-6 second-col">
                 <input class="form-control" placeholder="שם משפחה" type="text" #ngLastName="ngModel"
-                    [(ngModel)]="Volunteer.Volunteer.lastName_volunteer" name="lastName_volunteer" required/>
-                    <!-- pattern="/^[א-ת\s]+$/ " /> -->
+                    [(ngModel)]="Volunteer.Volunteer.lastName_volunteer" name="lastName_volunteer" required
+                    pattern="/^[א-ת\s]+$/ " />
                 <div class="error" *ngIf="ngLastName.invalid&&(ngLastName.touched||ngLastName.dirty)">
                     <i *ngIf="ngLastName.errors!.required">שדה חובה</i>
-                    <!-- <i *ngIf="ngLastName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
+                    <i *ngIf="ngLastName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i>
                 </div>
                 <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel"
                     [(ngModel)]="Volunteer.Volunteer.code_status" name="personalStatus">
@@ -357,17 +357,8 @@
                             <input type="radio" [value]="item.code_service" id="service{{item.code_service}}"
                                 #ngList7="ngModel" [(ngModel)]="Volunteer.Volunteer.code_service" name="service"
                                 class="custom-control-input">
-<<<<<<< HEAD
                             <label class="custom-control-label purple"
                                 for="service{{item.code_service}}">{{item.description}}</label>
-                            <label class="custom-control-label purple" for="service{{item.code_service}}">{{item.description}}</label>
-=======
-
-                            <label class="custom-control-label purple"
-                                for="service{{item.code_service}}">{{item.description}}</label>
-
-
->>>>>>> 18242e13908612813f30e472cf5133113233478f
                         </div>
                         <!-- <div class="custom-control custom-radio custom-control">
                     <input type="radio" id="servic1" name="CodeService" class="custom-control-input" value="1"
@@ -469,39 +460,23 @@
                 <option *ngFor="let item of list8" value="{{item.code_shift}}">{{item.description}}</option>
             </select> -->
             
-            <!-- <table>
+            <table>
                 <tr>
                     <th></th>
                     <th class="day" *ngFor="let day of list4">{{day.description}}</th>
                 </tr>
                 <tr *ngFor="let shift of list8">
                     <th>{{shift.description}}</th>
-<<<<<<< HEAD
                     <td *ngFor="let day of list4">              
                         <input type="checkbox" (change)="updateAvailability($event,day.code_day, shift.code_shift)"
                             [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />                   
-=======
-
-                    <td *ngFor="let day of list4">              
-                        <input type="checkbox" (change)="updateAvailability($event,day.code_day, shift.code_shift)"
-                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />                   
-
->>>>>>> 18242e13908612813f30e472cf5133113233478f
-                    <td *ngFor="let day of list4">
-                        <input 
-                            class="chek"
-                            type="checkbox"
-                            (change)="updateAvailability($event,day.code_day, shift.code_shift)"
-                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />
-
-                    </td>
                 </tr>
-            </table> -->
+            </table>
 
-            <div *ngFor="let availability of Volunteer.Volunteer.availabilitys">
+            <!-- <div *ngFor="let availability of Volunteer.Volunteer.availabilitys">
                 <label>{{availability.day_description}}  {{availability.shift_description}}</label>
                 <input  type="checkbox"/>
-            </div>
+            </div> -->
             
             <div class="button-wapper">
                 <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום

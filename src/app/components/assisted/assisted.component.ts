@@ -9,6 +9,7 @@ import { Shifts } from 'src/app/classes/shifts';
 import { City } from 'src/app/classes/city';
 import { Subscription , interval} from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Availability } from 'src/app/classes/availability';
 
 
 @Component({
@@ -44,6 +45,9 @@ export class AssistedComponent implements OnInit {
  newShift: Shifts = new Shifts();
 
  password2: string="";
+
+ availabilitys: Availability[];
+
  
   ngOnInit()
   {
@@ -73,20 +77,47 @@ export class AssistedComponent implements OnInit {
     this.Assisted.getShift().subscribe(data=>{
       this.list5 = data;
     })
+    this.Assisted.getAvailabilitys().subscribe(data => {
+      if (this.Assisted.Assisted.availabilitys.length == 0) {
+        this.Assisted.Assisted.availabilitys = data;
+      }
+    })
+    if (this.Assisted.Assisted.availabilitys != undefined) {
+      this.availabilitys = this.Assisted.Assisted.availabilitys.filter(a => a.IsSelected);
+
+    }
   }
+
+  isAvailabilitySelected(code_day, code_shift): boolean {
+    if (this.Assisted.Assisted.availabilitys != undefined) {
+      let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
+      return availability != null;
+    }
+  }
+  updateAvailability(event, code_day, code_shift) {
+    if (this.Assisted.Assisted.availabilitys != undefined) {
+      if (event.target.checked) {
+        this.Assisted.Assisted.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift).IsSelected = true;
+      }
+    else
+        this.Assisted.Assisted.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift).IsSelected = false;
+    
+  }
+}
+
   add()
   {
     this.Assisted.addAssisted().subscribe(data=>{
       // this.Assisted.listAssisted = data
       if(data == true){
             alert("הרשמתך בוצעה בהצלחה")
-            const source = interval(10000*6);
-            const text = 'Your Text Here';
-            this.subscription = source.subscribe(val => this.toEmbed());
+            // this.rout.navigate(['/schedule/assisted']);
+            // const source = interval(10000*6);
+            // const text = 'Your Text Here';
+            // this.subscription = source.subscribe(val => this.toEmbed());
           }
       else
-            // alert("הרשמתך נכשלה")
-            this.rout.navigate(['/schedule/assisted']);
+            alert("הרשמתך נכשלה")
       })
       
   }
@@ -98,26 +129,26 @@ export class AssistedComponent implements OnInit {
         if(data==true)
         {
           alert("העדכון בוצע בהצלחה")
-          const source = interval(10000*6);
-          const text = 'Your Text Here';
-          this.subscription = source.subscribe(val => this.toEmbed());
+          // const source = interval(10000*6);
+          // const text = 'Your Text Here';
+          // this.subscription = source.subscribe(val => this.toEmbed());
         }
          
           }
       else
-            // alert("הרשמתך נכשלה")
-            this.rout.navigate(['/schedule/assisted']);
+            alert("הרשמתך נכשלה")
+            // this.rout.navigate(['/schedule/assisted']);
       })
       
   }
-  toEmbed()
-  {
-    console.log("שיבוץ")
-    this.Assisted.toEmbedAssisted().subscribe(res=>{
-      if(res)
-      console.log("שבוץ")
-    });
-  }
+  // toEmbed()
+  // {
+  //   console.log("שיבוץ")
+  //   this.Assisted.toEmbedAssisted().subscribe(res=>{
+  //     if(res)
+  //     console.log("שבוץ")
+  //   });
+  // }
   navigateSchedule()
   {
     this.rout.navigate(['/schedule/assisted']);

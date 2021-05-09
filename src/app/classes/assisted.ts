@@ -19,7 +19,7 @@ export class Assisted {
         public phone?: string,
         public password?: string,
         public languages?:Array<Language>,
-        public domain?: string[],
+        // public domain?: string[],
         public volunteeringdomains?:Array<VolunteeringDomain>,
         public availability?:Availability,
         public availabilitys?:Array<Availability>,

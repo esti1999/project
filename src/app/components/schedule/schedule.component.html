@@ -23,13 +23,13 @@
         <div class="yes row prograph" *ngIf="this.userType =='assisted'">
             <div class="col-sm-12 second-col">
 
-                <button type="button" class="form-control" routerLink="/volunteering-domain/{{this.mode}}">תחומי עזרה</button>
+                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי עזרה</button>
             </div> 
-            <div class="col-sm-12 second-col">
+            <!-- <div class="col-sm-12 second-col">
 
                 <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
                     עזרה</button>
-            </div>
+            </div> -->
             <div class="">
                 <h4 class="title">זמינות</h4>
                 <div class="col">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="button-wapper">
-                <button type="submit" (click)="add" class="btn btn-dark btn-perple btn-lg"> אישור </button>
+                <button type="submit" (click)="add()" class="btn btn-dark btn-perple btn-lg"> אישור </button>
             </div>
         </div>
     </div>

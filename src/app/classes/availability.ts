@@ -1,9 +1,5 @@
 export class Availability{
-<<<<<<< HEAD
     // constructor(public code_availability?:number, public code_day?:number, public code_shift?:number, public IsSelected:boolean=false){}
-=======
-
->>>>>>> 18242e13908612813f30e472cf5133113233478f
     constructor(
         public code_availability?:number,
         public code_day?:number,
@@ -12,8 +8,4 @@ export class Availability{
         public shift_description?:string,
         public IsSelected?:boolean
     ){}
-<<<<<<< HEAD
-=======
-
->>>>>>> 18242e13908612813f30e472cf5133113233478f
 }

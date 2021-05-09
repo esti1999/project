@@ -72,9 +72,9 @@
             <div class="col-6 second-col">
                 <input class="form-control" placeholder=" רחוב" type="text" #ngStreet="ngModel"
                     [(ngModel)]="Assisted.Assisted.street" name="street" id="street" pattern="" />
-                <input class="form-control" placeholder="קומה" type="text" #ngFloor="ngModel"
+                <input class="form-control" placeholder="קומה" type="number" #ngFloor="ngModel"
                     [(ngModel)]="Assisted.Assisted.number_floor" name="number_floor" id="number_floor" />
-                <input class="form-control" placeholder="מיקוד" type="number" #ngPostalCode="ngModel"
+                <input class="form-control" placeholder="מיקוד" type="text" #ngPostalCode="ngModel"
                     [(ngModel)]="Assisted.Assisted.postal_code" name="postal_code" id="postal_code" maxlength="7" minlength="7" pattern="[0-9]*"/>
                     <div *ngIf=" ngPostalCode.invalid && (ngPostalCode.touched||ngPostalCode.dirty)" class="error">
                         <i *ngIf="ngPostalCode.errors!.pattern">שדה זה חייב להכיל מספרים בלבד</i>
@@ -169,13 +169,34 @@
             </div> -->
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>   
+     </div>
+        <div class="section1"> 
+            <div class="col-sm-12 second-col">
+
+                <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי עזרה</button>
+            </div>   
+            
+            <table>
+                <tr>
+                    <th></th>
+                    <th class="day" *ngFor="let day of list4">{{day.description}}</th>
+                </tr>
+                <tr *ngFor="let shift of list5">
+                    <th>{{shift.description}}</th>
+                    <td *ngFor="let day of list4">              
+                        <input type="checkbox" (change)="updateAvailability($event,day.code_day, shift.code_shift)"
+                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />                   
+                </tr>
+            </table>
+      
         <div class="button-wapper">
 
-            <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> רישום</button>
-            <button (click)="add1()" *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> עדכון</button>
+            <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום</button>
+            <button (click)="add1()" *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg" > עדכון</button>
             <!-- <button  type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> אישור</button> -->
             <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
-        </div>
+        </div> 
+    
 </div>
     <!-- <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Assisted.day.code_day" name="days">
         <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>

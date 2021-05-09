@@ -151,6 +151,7 @@ export class VolunteerComponent implements OnInit {
       if (data == true) {
         //  this.Volunteer.addVolunteerDomaim();
         alert("הרשמתך בוצעה בהצלחה")
+        
       }
       else
         alert("הרשמתך נכשלה")

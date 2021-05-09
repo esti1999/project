@@ -8,6 +8,7 @@ import { PersonalStatus } from '../classes/personal-status';
 import { City } from '../classes/city';
 import { Days } from '../classes/days';
 import { Shifts } from '../classes/shifts';
+import { Availability } from '../classes/availability';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,7 @@ export class AssistedService {
   myListDomain: any[] = []
   constructor(private http: HttpClient) {
     this.Assisted.languages = new Array<Language>()
+    this.Assisted.availabilitys = new Array<Availability>()
    }
 
   add():Observable<Array<Assisted>>{
@@ -66,5 +68,11 @@ export class AssistedService {
   }
   getShift():Observable<Array<Shifts>>{
     return this.http.get<Array<Shifts>>(this.url + "/GetShift")
+  }
+  getAvailability():Observable<Array<Availability>>{
+    return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
+  } 
+  getAvailabilitys():Observable<Array<Availability>>{
+    return this.http.get<Array<Availability>>(this.url + "/GetAvailabilitys")
   }
 }

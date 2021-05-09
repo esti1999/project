@@ -31,18 +31,18 @@ export class VolunteeringDomainComponent implements OnInit {
       // this.assisted.myListDomain.push(code)
       !this.assisted.Assisted.volunteeringdomains?this.assisted.Assisted.volunteeringdomains=new Array<VolunteeringDomain>():null
       this.assisted.Assisted.volunteeringdomains.push({
-                                                code_volunteering:code_volunteering,
-                                                code_domain:domain.code_domain,
-                                                descriptoin:domain.description
-                                              })
+         code_volunteering:code_volunteering,
+         code_domain:domain.code_domain,
+         descriptoin:domain.description
+ })
     }
     else{
       !this.volunteer.Volunteer.volunteeringdomains?this.volunteer.Volunteer.volunteeringdomains=new Array<VolunteeringDomain>():null
       this.volunteer.Volunteer.volunteeringdomains.push({
-                                                      code_volunteering:code_volunteering,
-                                                      code_domain:domain.code_domain,
-                                                      descriptoin:domain.description
-                                                    })
+          code_volunteering:code_volunteering,
+          code_domain:domain.code_domain,
+          descriptoin:domain.description
+ })
     }
   }
 
@@ -67,10 +67,12 @@ export class VolunteeringDomainComponent implements OnInit {
   }
  
   Link(){
+    // if(this.mode=="true")
     if(this.kind=="true")
     {
      // this.assisted.myListDomain=this.listDomain
-      this.router.navigate(["schedule/"+this.mode])
+    //  this.router.navigate(["schedule/"+"assisted/"+this.mode])
+     this.router.navigate(["assisted/"+this.mode])
     }
     else{
       if(this.kind=="false")

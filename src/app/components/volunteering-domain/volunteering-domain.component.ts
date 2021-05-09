@@ -15,71 +15,75 @@ import { VolunteeringDomainService } from 'src/app/services/volunteering-domain.
   styleUrls: ['./volunteering-domain.component.css']
 })
 export class VolunteeringDomainComponent implements OnInit {
-  list:VolunteeringDomain[]
+  list: VolunteeringDomain[]
   newVolunteeringDomain: VolunteeringDomain = new VolunteeringDomain();
-  kind:string;
-  mode:string;
-  constructor(private volunteer:VolunteerService, private assisted:AssistedService, private volunteeringDomain: VolunteeringDomainService , private route:ActivatedRoute, private router: Router) {
- 
+  kind: string;
+  mode: string;
+  constructor(private volunteer: VolunteerService, private assisted: AssistedService, private volunteeringDomain: VolunteeringDomainService, private route: ActivatedRoute, private router: Router) {
+
   }
 
-  listDomain:any[] =[]
+  listDomain: any[] = []
 
-  selectDomain(code_volunteering:number, domain:Domain){
-    if(this.kind=="true")
-    {
+  selectDomain(code_volunteering: number, domain: Domain) {
+    if (this.kind == "true") {
       // this.assisted.myListDomain.push(code)
-      !this.assisted.Assisted.volunteeringdomains?this.assisted.Assisted.volunteeringdomains=new Array<VolunteeringDomain>():null
+      !this.assisted.Assisted.volunteeringdomains ? this.assisted.Assisted.volunteeringdomains = new Array<VolunteeringDomain>() : null
       this.assisted.Assisted.volunteeringdomains.push({
-         code_volunteering:code_volunteering,
-         code_domain:domain.code_domain,
-         descriptoin:domain.description
- })
+        code_volunteering: code_volunteering,
+        code_domain: domain.code_domain,
+        descriptoin: domain.description
+      })
     }
-    else{
-      !this.volunteer.Volunteer.volunteeringdomains?this.volunteer.Volunteer.volunteeringdomains=new Array<VolunteeringDomain>():null
+    else {
+      !this.volunteer.Volunteer.volunteeringdomains ? this.volunteer.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>() : null
       this.volunteer.Volunteer.volunteeringdomains.push({
-          code_volunteering:code_volunteering,
-          code_domain:domain.code_domain,
-          descriptoin:domain.description
- })
+        code_volunteering: code_volunteering,
+        code_domain: domain.code_domain,
+        descriptoin: domain.description
+      })
+
     }
   }
 
   ngOnInit(): void {
 
-    this.kind=this.route.snapshot.params['kind']
-    this.mode=this.route.snapshot.params['mode']
+    this.kind = this.route.snapshot.params['kind']
+    this.mode = this.route.snapshot.params['mode']
 
 
-    this.volunteeringDomain.getDomain().subscribe(data=>{
+    this.volunteeringDomain.getDomain().subscribe(data => {
       this.list = data;
-      this.list.forEach(elemnt=>{
-        this.volunteeringDomain.getVolunteeringDomain(elemnt.code_domain).subscribe(res=>{
-          var dom ={
-            domain:elemnt,
-            volunteerDomain:res
+      this.list.forEach(elemnt => {
+        this.volunteeringDomain.getVolunteeringDomain(elemnt.code_domain).subscribe(res => {
+          var dom = {
+            domain: elemnt,
+            volunteerDomain: res
           }
-            this.listDomain.push(dom);
+          this.listDomain.push(dom);
         })
       })
     })
   }
- 
-  Link(){
+
+  Link() {
     // if(this.mode=="true")
-    if(this.kind=="true")
-    {
-     // this.assisted.myListDomain=this.listDomain
-    //  this.router.navigate(["schedule/"+"assisted/"+this.mode])
-     this.router.navigate(["assisted/"+this.mode])
+    if (this.kind == "true") {
+      // this.assisted.myListDomain=this.listDomain
+      //  this.router.navigate(["schedule/"+"assisted/"+this.mode])
+      this.router.navigate(["assisted/" + this.mode])
     }
-    else{
-      if(this.kind=="false")
-      {
-       // this.volunteer.myListDomain=this.listDomain
-        this.router.navigate(["volunteer/"+this.mode])
+    else {
+      if (this.kind == "false") {
+        // this.volunteer.myListDomain=this.listDomain
+        this.router.navigate(["volunteer/" + this.mode])
       }
     }
+  }
+  ifExist(code_volunteering): boolean {
+    let temp = this.volunteer.Volunteer.volunteeringdomains.find(x => x.code_volunteering == code_volunteering);
+    if (temp)
+      return true;
+    return false;
   }
 }

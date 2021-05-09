@@ -77,6 +77,12 @@ export class AssistedComponent implements OnInit {
     this.Assisted.getShift().subscribe(data=>{
       this.list5 = data;
     })
+    this.Assisted.getAvailability().subscribe(data => {
+      
+      if (this.Assisted.Assisted.availabilitys.length == 0) {
+        this.Assisted.Assisted.availabilitys = data;
+      }
+    })
     this.Assisted.getAvailabilitys().subscribe(data => {
       if (this.Assisted.Assisted.availabilitys.length == 0) {
         this.Assisted.Assisted.availabilitys = data;
@@ -95,7 +101,8 @@ export class AssistedComponent implements OnInit {
     }
   }
   updateAvailability(event, code_day, code_shift) {
-    if (this.Assisted.Assisted.availabilitys != undefined) {
+    let availability: Availability = this.Assisted.Assisted.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
+    if (availability) {
       if (event.target.checked) {
         this.Assisted.Assisted.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift).IsSelected = true;
       }

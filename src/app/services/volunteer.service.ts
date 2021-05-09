@@ -28,7 +28,7 @@ export class VolunteerService {
   shift: Shifts = new Shifts();
   service: Services = new Services();
   myListDomain: any[] = []
-   constructor(private http:HttpClient) {
+   constructor(private http:HttpClient ) {
      this.Volunteer.languages = new Array<Language>()
      this.Volunteer.availabilitys = new Array<Availability>()
     //  this.Volunteer.volunteeringdomains = new Array<VolunteeringDomain>()
@@ -46,6 +46,10 @@ export class VolunteerService {
   //   code_shift:this.shift.code_shift
 
   // }
+   if(this.Volunteer.code_car_license == undefined)
+      this.Volunteer.code_car_license = 6
+    if(this.Volunteer.code_weapons_license == undefined)
+      this.Volunteer.code_weapons_license = 3
  return this.http.post<boolean>(this.url+"/addVolunteer", this.Volunteer)
   }
   add():Observable<Array<Volunteer>>{

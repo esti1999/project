@@ -11,7 +11,7 @@
                     <!-- || ^[a-zA-Z ]*$" -->
                 <div class="error" *ngIf="ngFirstName.invalid&&(ngFirstName.touched||ngFirstName.dirty)">
                     <i *ngIf="ngFirstName.errors!.required"> שדה חובה</i>
-                    <i *ngIf="ngFirstName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i>
+                    <!-- <i *ngIf="ngFirstName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
                 </div>
                 <!-- <select class="form-select form-control" aria-label="Default select example"></select> -->
                 <input class="form-control" placeholder="מספר זהות" type="text" #ngId="ngModel"
@@ -42,7 +42,7 @@
                     pattern="/^[א-ת\s]+$/ " />
                 <div class="error" *ngIf="ngLastName.invalid&&(ngLastName.touched||ngLastName.dirty)">
                     <i *ngIf="ngLastName.errors!.required">שדה חובה</i>
-                    <i *ngIf="ngLastName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i>
+                    <!-- <i *ngIf="ngLastName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
                 </div>
                 <select class="form-select form-control" aria-label="Default select example" #ngList="ngModel"
                     [(ngModel)]="Volunteer.Volunteer.code_status" name="personalStatus">

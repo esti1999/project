@@ -14,8 +14,8 @@
 
             <select class="form-select form-control" (change)="selectDomain($event.target.value,item.domain)"
               aria-label="Default select example">
-              <option [ngValue]="undefined" disabled selected>{{item.domain.description}}</option>
-              <option *ngFor="let item1 of item.volunteerDomain" [ngValue]="item1.code_volunteering" >{{item1.description}}</option>
+              <option [ngValue]="undefined" disabled selected>{{item.domain.description}} </option>
+              <option *ngFor="let item1 of item.volunteerDomain" value={{item1.code_volunteering}} >{{item1.description}}</option>
             </select>
             <!-- (selected)="ifExist(item1.code)" -->
         </div>

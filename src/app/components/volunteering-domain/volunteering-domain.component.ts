@@ -32,7 +32,8 @@ export class VolunteeringDomainComponent implements OnInit {
       this.assisted.Assisted.volunteeringdomains.push({
         code_volunteering: code_volunteering,
         code_domain: domain.code_domain,
-        descriptoin: domain.description
+        description: domain.description,
+        IsSelected:true
       })
     }
     else {
@@ -40,7 +41,8 @@ export class VolunteeringDomainComponent implements OnInit {
       this.volunteer.Volunteer.volunteeringdomains.push({
         code_volunteering: code_volunteering,
         code_domain: domain.code_domain,
-        descriptoin: domain.description
+        description: domain.description,
+        IsSelected:true
       })
 
     }

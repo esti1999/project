@@ -22,11 +22,8 @@ export class AssistedComponent implements OnInit {
   constructor(public Assisted:AssistedService ,private route:ActivatedRoute, private rout:Router) { }
 
   mode:string;
- 
 
  list:PersonalStatus[]
-
- subscription: Subscription;
  newPersonalStatus: PersonalStatus = new PersonalStatus();
 
  list1:Gender[]
@@ -46,16 +43,14 @@ export class AssistedComponent implements OnInit {
 
  password2: string="";
 
+ subscription: Subscription;
+
  availabilitys: Availability[];
 
- 
   ngOnInit()
   {
-
     this.mode=this.route.snapshot.params['mode']
     this.password2=this.Assisted.Assisted.password;
-
-
     this.Assisted.getPersonalStatus().subscribe(data=>{
       this.list = data;
     })
@@ -93,7 +88,6 @@ export class AssistedComponent implements OnInit {
 
     }
   }
-
   isAvailabilitySelected(code_day, code_shift): boolean {
     if (this.Assisted.Assisted.availabilitys != undefined) {
       let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
@@ -118,15 +112,14 @@ export class AssistedComponent implements OnInit {
       // this.Assisted.listAssisted = data
       if(data == true){
             alert("הרשמתך בוצעה בהצלחה")
-            // this.rout.navigate(['/schedule/assisted']);
-            // const source = interval(10000*6);
-            // const text = 'Your Text Here';
-            // this.subscription = source.subscribe(val => this.toEmbed());
+            this.rout.navigate(['/schedule/assisted']);
+            const source = interval(10000*6);
+            const text = 'Your Text Here';
+            this.subscription = source.subscribe(val => this.toEmbed());
           }
       else
             alert("הרשמתך נכשלה")
-      })
-      
+      })    
   }
   add1()
   {
@@ -136,26 +129,24 @@ export class AssistedComponent implements OnInit {
         if(data==true)
         {
           alert("העדכון בוצע בהצלחה")
-          // const source = interval(10000*6);
-          // const text = 'Your Text Here';
-          // this.subscription = source.subscribe(val => this.toEmbed());
-        }
-         
+          const source = interval(10000*6);
+          const text = 'Your Text Here';
+          this.subscription = source.subscribe(val => this.toEmbed());
+        }        
           }
       else
             alert("הרשמתך נכשלה")
             // this.rout.navigate(['/schedule/assisted']);
-      })
-      
+      })      
   }
-  // toEmbed()
-  // {
-  //   console.log("שיבוץ")
-  //   this.Assisted.toEmbedAssisted().subscribe(res=>{
-  //     if(res)
-  //     console.log("שבוץ")
-  //   });
-  // }
+  toEmbed()
+  {
+    console.log("שיבוץ")
+    this.Assisted.toEmbedAssisted().subscribe(res=>{
+      if(res)
+      console.log("שבוץ")
+    });
+  }
   navigateSchedule()
   {
     this.rout.navigate(['/schedule/assisted']);

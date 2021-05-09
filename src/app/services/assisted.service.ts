@@ -18,13 +18,8 @@ export class AssistedService {
   url:string = "http://localhost:59782/api/assisted"
   listAssisted:Array<Assisted> = new Array<Assisted>()
   Assisted:Assisted = new Assisted();
-  
   day: Days = new Days();
   shift: Shifts = new Shifts();
-  // gender: Gender = new Gender();
-  // personalStatus: PersonalStatus = new PersonalStatus();
-  // language: Array<Language> = new Array<Language>();
-  // city: City = new City();
 
   myListDomain: any[] = []
   constructor(private http: HttpClient) {
@@ -39,16 +34,6 @@ export class AssistedService {
     return this.http.post<Assisted>(this.url + "/embededAssisted" , this.Assisted);
   }
   addAssisted():Observable<boolean>{
-    // this.Assisted.code_language = 1;
-    // this.Assisted.code_help_domain = 1;
-    
-    // this.Assisted.domain=[]
-    // this.Assisted.domain = this.myListDomain;
-    // this.Assisted.availability = {
-    //   code_availability:0,
-    //   code_day:this.day.code_day,
-    //   code_shift:this.shift.code_shift
-    // }
     return this.http.post<boolean>(this.url+"/addAssisted", this.Assisted)
   }
   getPersonalStatus():Observable<Array<PersonalStatus>>{

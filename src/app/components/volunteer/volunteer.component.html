@@ -7,8 +7,8 @@
                 <h6>מידע אישי</h6>
                 <input class="form-control" placeholder="שם פרטי" type="text" #ngFirstName="ngModel"
                     [(ngModel)]="Volunteer.Volunteer.firstName_volunteer" name="firstName_volunteer" required
-                    pattern="/^[א-ת\s]+$/ "/>
-                    <!-- || ^[a-zA-Z ]*$" -->
+                    pattern="/^[א-ת\s]+$/ " />
+                <!-- || ^[a-zA-Z ]*$" -->
                 <div class="error" *ngIf="ngFirstName.invalid&&(ngFirstName.touched||ngFirstName.dirty)">
                     <i *ngIf="ngFirstName.errors!.required"> שדה חובה</i>
                     <!-- <i *ngIf="ngFirstName.errors!.pattern">שדה זה חייב להכיל אותיות בלבד</i> -->
@@ -379,8 +379,7 @@
                             <div class="col" *ngIf="Volunteer.Volunteer.code_service == 3">
                                 <input class="form-control col-6" placeholder="דרגת שירות" type="text"
                                     #ngdescription="ngModel" [(ngModel)]="Volunteer.Volunteer.description_service"
-                                    pattern="/^[א-ת\s]+$/ "
-                                    name="description" required  />
+                                    pattern="/^[א-ת\s]+$/ " name="description" required />
                                 <div *ngIf=" ngdescription.invalid && (ngdescription.touched||ngdescription.dirty)"
                                     class="error">
                                     <i *ngIf="ngdescription.errors!.required">שדה חובה</i>
@@ -399,8 +398,7 @@
                             <div class="col" *ngIf="Volunteer.Volunteer.code_service == 2">
                                 <input class="form-control col-6" placeholder="תפקיד שירות" type="text"
                                     #ngdescription="ngModel" [(ngModel)]="Volunteer.Volunteer.description_service"
-                                    pattern="/^[א-ת\s]+$/ "
-                                    name="description" required  />
+                                    pattern="/^[א-ת\s]+$/ " name="description" required />
                                 <div *ngIf=" ngdescription.invalid && (ngdescription.touched||ngdescription.dirty)"
                                     class="error">
                                     <i *ngIf="ngdescription.errors!.required">שדה חובה</i>
@@ -459,7 +457,7 @@
                 [(ngModel)]="availability.code_shift" name="shifts">
                 <option *ngFor="let item of list8" value="{{item.code_shift}}">{{item.description}}</option>
             </select> -->
-            
+
             <table>
                 <tr>
                     <th></th>
@@ -467,9 +465,9 @@
                 </tr>
                 <tr *ngFor="let shift of list8">
                     <th>{{shift.description}}</th>
-                    <td *ngFor="let day of list4">              
+                    <td *ngFor="let day of list4">
                         <input type="checkbox" (change)="updateAvailability($event,day.code_day, shift.code_shift)"
-                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />                   
+                            [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />
                 </tr>
             </table>
 
@@ -477,7 +475,7 @@
                 <label>{{availability.day_description}}  {{availability.shift_description}}</label>
                 <input  type="checkbox"/>
             </div> -->
-            
+
             <div class="button-wapper">
                 <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום
                 </button>

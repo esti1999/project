@@ -66,6 +66,7 @@
                     <option value="" disabled selected hidden>עיר</option>
                     <option *ngFor="let item of list3" value="{{item.code_city}}">{{item.name_city}}</option>
                 </select>
+                <!-- <input class="form-control" placeholder="עיר" type="text" #ngCity="ngModel" [(ngModel)]="Assisted.Assisted.code_city" name="code_city"/> -->
                 <input class="form-control" placeholder="מספר בנין" type="number" #ngNumberBuild="ngModel"
                     [(ngModel)]="Assisted.Assisted.number_building" name="number_building" id="number_building" />
                 <input class="form-control" placeholder="מספר בית" type="number" #ngNumberHouse="ngModel"
@@ -85,7 +86,11 @@
             </div>
         </div>
         <div class="row prograph">
+            <!-- <div class="col-6"> -->
             <h6>סיסמא ואימות</h6>
+            <!-- <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
+                    התנדבות</button> -->
+            <!-- </div> -->
             <div class="col-6 second-col">
                 <input class="form-control" type="hide ? 'password' : 'text'" placeholder="סיסמא" #ngPassword="ngModel"
                     [(ngModel)]="Assisted.Assisted.password" name="password" id="password" required
@@ -178,6 +183,7 @@
             <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
                 עזרה</button>
         </div>
+
         <table>
             <tr>
                 <th></th>
@@ -190,13 +196,17 @@
                         [checked]="isAvailabilitySelected(day.code_day, shift.code_shift)" />
             </tr>
         </table>
+
         <div class="button-wapper">
 
             <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
                 רישום</button>
             <button (click)="add1()" *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg">
                 עדכון</button>
+            <!-- <button  type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> אישור</button> -->
+            <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
         </div>
+
     </div>
     <!-- <select class="form-select form-control" aria-label="Default select example"  #ngList4="ngModel" [(ngModel)]="Assisted.day.code_day" name="days">
         <option *ngFor="let item of list4" value="{{item.code_day}}">{{item.description}}</option>
@@ -221,4 +231,12 @@
             רישום</button>
         <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
         </button> -->
+    <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
 </form>

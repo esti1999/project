@@ -57,7 +57,7 @@ export class VolunteerComponent implements OnInit {
 
   l_language = [0, 0, 0, 0, 0, 0]
 
-  avalabilitys:Availability[]
+  avalabilitys: Availability[]
 
   list8: Shifts[]
   newShift: Shifts = new Shifts();
@@ -71,13 +71,10 @@ export class VolunteerComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.mode = this.route.snapshot.params['mode']
     this.car = this.Volunteer.Volunteer.code_car_license ? true : false;
     this.weapon = this.Volunteer.Volunteer.code_weapons_license ? true : false;
     this.password2 = this.Volunteer.Volunteer.password;
-
-
 
     this.Volunteer.getPersonalStatus().subscribe(data => {
       this.list = data;
@@ -94,12 +91,13 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getDays().subscribe(data => {
       this.list4 = data;
     })
-
-    this.Volunteer.getAvailabilitys().subscribe(data => {
+    this.Volunteer.getAvailability().subscribe(data => {
       if (this.Volunteer.Volunteer.availabilitys.length == 0) {
         this.Volunteer.Volunteer.availabilitys = data;
       }
     })
+    this.availabilitys = this.Volunteer.Volunteer.availabilitys.filter(a => a.IsSelected);
+
     this.Volunteer.getShift().subscribe(data => {
       this.list8 = data;
     })
@@ -109,27 +107,12 @@ export class VolunteerComponent implements OnInit {
         this.Volunteer.Volunteer.languages = data;
       }
     })
-    this.Volunteer.getAvailability().subscribe(data => {
-      
-      if (this.Volunteer.Volunteer.availabilitys.length == 0) {
-        this.Volunteer.Volunteer.availabilitys = data;
-      }
-    })
     this.Volunteer.getCity().subscribe(data => {
       this.list6 = data;
     })
     this.Volunteer.getServices().subscribe(data => {
       this.list7 = data;
     })
-    // this.Volunteer.getAvailabilityVolunteer().subscribe(data=>{
-    //   if(this.Volunteer.Volunteer.availabilitys.length==0){
-    //     this.Volunteer.Volunteer.availabilitys=data;
-    //   }
-    // })
-
-    // if(this.availabilitys!=undefined)
-    this.availabilitys = this.Volunteer.Volunteer.availabilitys.filter(a => a.IsSelected);
-
   }
   isAvailabilitySelected(code_day, code_shift): boolean {
     let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
@@ -151,13 +134,14 @@ export class VolunteerComponent implements OnInit {
       if (data == true) {
         //  this.Volunteer.addVolunteerDomaim();
         alert("הרשמתך בוצעה בהצלחה")
+
       }
       else
         alert("הרשמתך נכשלה")
     })
+
   }
   trackByIndex(index: number, value: any) {
     return index;
   }
 }
-

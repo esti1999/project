@@ -10,14 +10,58 @@
 <form action="/action_page.php" #myForm="ngForm" style="direction: rtl;">
     <div class="section first-section">
         <div class="yes row prograph" *ngIf="this.userType =='volunteer'">
-            <div class="col-12">
-                <input class="form-control" type="text" placeholder="שיבוץ">
+            <div class="col" *ngIf="this.userType=='volunteer'">
+                <h3 class="h">שיבוצים מוצעים</h3>
+                <table>
+                    <tr>
+                        <th class="t12 col-2" >תחום התנדבות </th>     
+                        <th class="t12 col-1">זמינות</th>
+                        <th class="t12 col-1">שם</th>
+                        <th class="t12 col-1">פלאפון</th>
+                        <th class="t12 col-1">מייל</th>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td class="t14 col-2"> פסיכולוג חברתי</td>
+                        <td class="t14 col-1">ראשון ערב</td>
+                        <td class="t14 col-1"> איתי שריף</td>
+                        <td class="t14 col-1">0548761330</td>
+                        <td class="t14 col-1">Etay123@gmail.com</td>
+                        
+                    </tr>
+                    <tr class=" a4 col-1">
+                        <a type="button" class="a4 col-1" ><h5>ביטול</h5></a>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td class="t13 col-1"> יועץ זוגי</td>
+                        <td class="t13 col-2">ראשון בוקר</td>
+                        <td class="t13 col-2"> מיכאל מלול</td>
+                        <td class="t13 col-1">35686981</td>
+                        <td class="t13 col-1">MM87@gmail.com</td>
+                        
+                        
+                    </tr>
+                    <tr class=" a3 col-1" >
+                        <a type="button" class="a3 col-1" ><h5>אישור</h5></a>
+                    </tr>
+                    <tr></tr>
+          
+                    <tr>
+                        <td class="t13 col-2">פסיכולוג חברתי </td>
+                        <td class="t13 col-1">שלישי ערב</td>
+                        <td class="t13 col-1"> מיכל סעדה</td>
+                        <td class="t13 col-1">0526789122</td>
+                        <td class="t13 col-1">Ms546@gmail.com</td>
+                        
+                    </tr>
+                    <tr class=" a3 col-1" >
+                        <a type="button" class="a3 col-1" ><h5>אישור</h5></a>
+                    </tr>
+                </table>
             </div>
-            <div class="col-2 second-col">
-                <button type="button" class="btn btn-dark btn-perple btn-lg"> אישור </button>
-            </div>
-            <div class="col-2 second-col">
-                <button type="button" class="btn btn-dark btn-perple btn-lg"> ביטול </button>
+            <div class="button-wapper">
+                <button type="submit" class="btn btn-dark btn-perple btn-lg"> אישור </button>
             </div>
         </div>
         <div class="yes row prograph" *ngIf="this.userType =='assisted'">

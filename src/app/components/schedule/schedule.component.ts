@@ -44,19 +44,9 @@ export class ScheduleComponent implements OnInit {
     this.Assisted.getShift().subscribe(data => {
       this.list5 = data;
     })
-    this.Assisted.getAvailability().subscribe(data => {
-      
-      if (this.Assisted.Assisted.availabilitys.length == 0) {
-        this.Assisted.Assisted.availabilitys = data;
-      }
-    })
-    this.Assisted.getAvailabilitys().subscribe(data => {
-      if (this.Assisted.Assisted.availabilitys.length == 0) {
-        this.Assisted.Assisted.availabilitys = data;
-      }
-    })
     if (this.Assisted.Assisted.availabilitys != undefined) {
       this.availabilitys = this.Assisted.Assisted.availabilitys.filter(a => a.IsSelected);
+
     }
 
   }

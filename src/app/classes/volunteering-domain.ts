@@ -1,10 +1,5 @@
 export class VolunteeringDomain {
-    constructor(
-        public code_domain?:number,
-        public code_volunteering?:number,
-        public description?:string,
-        public IsSelected?:boolean
-          ){}
+    constructor(public code_domain?:number, public code_volunteering?:number, public descriptoin?:string){}
 }
 
 export class Domain {

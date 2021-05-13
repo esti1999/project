@@ -76,3 +76,27 @@
     background-color: #a290a8!important;
     padding: 10px;
 }
+.t12{
+    color:black;
+}
+.t13{
+    border-radius: 50px 6px;
+    border-color: gray;
+    background-color:thistle;
+    text-align: center;
+}
+.a3{
+    color: #7B1FA2; 
+}
+.t14{
+    border-radius: 50px 6px;
+    border-color: gray;
+    background-color:rgb(255, 186, 117);
+    text-align: center;
+}
+.a4{
+    color: #e65d13;
+}
+.h{
+    text-align: center;
+}

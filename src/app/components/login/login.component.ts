@@ -41,12 +41,9 @@ export class LoginComponent implements OnInit {
         alert("ברוך הבא");
         this.rout.navigate(['/schedule/volunteer']);
         console.log("volunteer",data)
-
         //save valonteer in service
         this.volunteerService.Volunteer=data;
         this.volunteerService.Volunteer.date_of_birth=new Date(data.date_of_birth);
-       
-
       }
       else{
         this.ApiService.GetEailAddressAndPassword1(this.e_mail, this.password)

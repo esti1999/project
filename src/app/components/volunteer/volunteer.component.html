@@ -16,7 +16,7 @@
                 <!-- <select class="form-select form-control" aria-label="Default select example"></select> -->
                 <input class="form-control" placeholder="מספר זהות" type="text" #ngId="ngModel"
                     [(ngModel)]="Volunteer.Volunteer.id_volunteer" name="id_volunteer" required pattern="[0-9]*"
-                    maxlength="9" />
+                    maxlength="9" minlength="9"/>
                 <div class="error" *ngIf="ngId.invalid&&(ngId.touched||ngId.dirty)">
                     <i *ngIf="ngId.errors!.required">שדה חובה</i>
                     <i *ngIf="ngId.errors!.pattern">שדה זה חייב להכיל מספרים בלבד</i>

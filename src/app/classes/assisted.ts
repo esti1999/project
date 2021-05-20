@@ -3,7 +3,7 @@ import { Language } from "./language";
 import { VolunteeringDomain } from "./volunteering-domain";
 
 export class Assisted {
-    constructor(public id_assisted?: number, 
+    constructor(public id_assisted?: string, 
         public first_name?: string, 
         public last_name?: string,
         public date_birth?: Date,

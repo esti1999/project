@@ -15,6 +15,7 @@ import { CarLicenseVolunteer } from '../classes/car-license-volunteer';
 import { WeaponsLicenseVolunteer } from '../classes/weapons-license-volunteer';
 import { Availability } from '../classes/availability';
 import { Domain, VolunteeringDomain } from '../classes/volunteering-domain';
+import { Assisted } from '../classes/assisted';
 
 @Injectable({
   providedIn: 'root'
@@ -85,6 +86,9 @@ export class VolunteerService {
   getAvailability():Observable<Array<Availability>>{
     return this.http.get<Array<Availability>>(this.url + "/GetAvailability")
   } 
+  // getById(id_volunteer:string):Observable<Volunteer>{
+  //   return this.http.get<Volunteer>(this.url + "/getById")
+  // }
 }
 
 

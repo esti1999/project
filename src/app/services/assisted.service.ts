@@ -60,7 +60,10 @@ export class AssistedService {
   getAvailabilitys():Observable<Array<Availability>>{
     return this.http.get<Array<Availability>>(this.url + "/GetAvailabilitys")
   }
+  // getById(id_assisted:string):Observable<Assisted>{
+  //   return this.http.get<Assisted>(this.url + "/getById")
+  // }
  EmbededAssisteds(volunteer:Volunteer):Observable<Array<Assisted>> {
-  return this.http.post<Array<Assisted>>(this.url + "/EmbededAssisteds",volunteer);
+  return this.http.post<Array<Assisted>>(this.url + "/GetEmbededAssisteds",volunteer);
 }
 }

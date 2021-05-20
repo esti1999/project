@@ -66,6 +66,9 @@ export class AssistedComponent implements OnInit {
         this.Assisted.Assisted.languages = data;
       }
     })
+    // this.Assisted.getById(this.Assisted.Assisted.id_assisted).subscribe(data=>{
+    //   this.Assisted.Assisted=data;
+    // })
     this.Assisted.getCity().subscribe(data => {
       this.list3 = data;
     })
@@ -80,7 +83,9 @@ export class AssistedComponent implements OnInit {
         this.Assisted.Assisted.availabilitys = data;
       }
     })
+    if(this.Assisted.Assisted.availabilitys != undefined)
     this.availabilitys = this.Assisted.Assisted.availabilitys.filter(a => a.IsSelected);
+  
   }
 
   isAvailabilitySelected(code_day, code_shift): boolean {

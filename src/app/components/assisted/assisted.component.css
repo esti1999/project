@@ -70,4 +70,9 @@
 .name{
     text-align: center;
 }
+.first a{
+    /* background-color: white; */
+    color:rgb(163, 25, 145);
+    padding: 10px;
+}
 

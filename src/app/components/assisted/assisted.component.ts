@@ -10,7 +10,6 @@ import { City } from 'src/app/classes/city';
 import { Subscription, interval } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Availability } from 'src/app/classes/availability';
-import { VolunteerService } from 'src/app/services/volunteer.service';
 
 
 @Component({
@@ -20,7 +19,7 @@ import { VolunteerService } from 'src/app/services/volunteer.service';
 })
 export class AssistedComponent implements OnInit {
   // newAssisted: Assisted = new Assisted();
-  constructor(public Assisted: AssistedService, private route: ActivatedRoute, private rout: Router, private Volunteer:VolunteerService) { }
+  constructor(public Assisted: AssistedService, private route: ActivatedRoute, private rout: Router) { }
 
   mode: string;
 
@@ -49,6 +48,10 @@ export class AssistedComponent implements OnInit {
 
   availabilitys: Availability[];
 
+  popup:boolean=false;
+  popup1:boolean=false;
+
+
 
   ngOnInit() {
     this.mode = this.route.snapshot.params['mode']
@@ -66,9 +69,6 @@ export class AssistedComponent implements OnInit {
         this.Assisted.Assisted.languages = data;
       }
     })
-    // this.Assisted.getById(this.Assisted.Assisted.id_assisted).subscribe(data=>{
-    //   this.Assisted.Assisted=data;
-    // })
     this.Assisted.getCity().subscribe(data => {
       this.list3 = data;
     })
@@ -83,9 +83,7 @@ export class AssistedComponent implements OnInit {
         this.Assisted.Assisted.availabilitys = data;
       }
     })
-    if(this.Assisted.Assisted.availabilitys != undefined)
     this.availabilitys = this.Assisted.Assisted.availabilitys.filter(a => a.IsSelected);
-  
   }
 
   isAvailabilitySelected(code_day, code_shift): boolean {
@@ -105,33 +103,49 @@ export class AssistedComponent implements OnInit {
   }
   add() {
     this.Assisted.addAssisted().subscribe(data => {
+      // this.Assisted.listAssisted = data
       if (data == true) {
+          this.popup=true;
         alert("הרשמתך בוצעה בהצלחה")
+        // this.rout.navigate(['/schedule/assisted']);
+        // const source = interval(10000*6);
+        // const text = 'Your Text Here';
+        // this.subscription = source.subscribe(val => this.toEmbed());
       }
       else
+         this.popup1=true;
         alert("הרשמתך נכשלה")
     })
+
   }
   add1() {
     this.Assisted.addAssisted().subscribe(data => {
+      // this.Assisted.listAssisted = data
       if (this.mode == 'update') {
         if (data == true) {
+           this.popup=true;
           alert("העדכון בוצע בהצלחה")
+          // const source = interval(10000*6);
+          // const text = 'Your Text Here';
+          // this.subscription = source.subscribe(val => this.toEmbed());
         }
 
       }
       else
-        alert("הרשמתך נכשלה")
+        alert(" העדכון נכשל")
+        this.popup1=true;
+      // this.rout.navigate(['/schedule/assisted']);
     })
+
   }
-  toEmbed()
-  {
-    console.log("שיבוץ")
-    this.Assisted.toEmbedAssisted().subscribe(res=>{
-      if(res)
-      console.log("שבוץ")
-    });
-  }
+  // toEmbed()
+  // {
+  //   console.log("שיבוץ")
+  //   this.Assisted.toEmbedAssisted().subscribe(res=>{
+  //     if(res)
+  //     console.log("שבוץ")
+  //   });
+  // }
   navigateSchedule() {
     this.rout.navigate(['/schedule/assisted']);
   }

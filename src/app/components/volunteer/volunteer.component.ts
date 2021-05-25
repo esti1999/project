@@ -113,9 +113,6 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getServices().subscribe(data => {
       this.list7 = data;
     })
-    // this.Volunteer.getById(this.Volunteer.Volunteer.id_volunteer).subscribe(data=>{
-    //   this.Volunteer.Volunteer=data;
-    // })
   }
   isAvailabilitySelected(code_day, code_shift): boolean {
     let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);

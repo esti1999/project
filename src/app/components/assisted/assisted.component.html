@@ -1,4 +1,10 @@
-<div class="header-img"></div>
+<div class="header-img">
+    <div class="first">
+        <div>
+            <a *ngIf="this.mode=='update'" routerLink="/login">התנתק</a>
+        </div>
+    </div>
+</div>
 <form action="/action_page.php" #myForm="ngForm" style="direction: rtl;">
     <!-- (ngSubmit)="navigateSchedule()" -->
     <div class="section first-section">
@@ -15,7 +21,7 @@
                 </div>
                 <input class="form-control" placeholder="תעודת זהות" type="text" #ngId="ngModel"
                     [(ngModel)]="Assisted.Assisted.id_assisted" name="id_assisted" id="id_assisted" required
-                    pattern="[0-9]*" maxlength="9" minlength="9"/>
+                    pattern="[0-9]*" maxlength="9" />
                 <div class="error" *ngIf="ngId.invalid&&(ngId.touched||ngId.dirty)">
                     <i *ngIf="ngId.errors!.required">שדה חובה</i>
                     <i *ngIf="ngId.errors!.pattern">שדה זה חייב להכיל מספרים בלבד</i>
@@ -178,7 +184,7 @@
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>
     </div>
-    <div class="section1">
+    <div class="section1" >
         <div class="col-sm-12 second-col">
             <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
                 עזרה</button>
@@ -198,10 +204,10 @@
         </table>
 
         <div class="button-wapper">
-            <!-- <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" data-toggle="modal" data-target="#myModal">רישום</button> -->
-            <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
+
+            <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" data-toggle="modal" data-target="#myModal">
                 רישום</button>
-            <button (click)="add1()" *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg">
+            <button (click)="add1()" *ngIf="this.mode=='update' " type="submit" class="btn btn-dark btn-perple btn-lg" data-toggle="modal" data-target="#myModal">
                 עדכון</button>
             <!-- <button  type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> אישור</button> -->
             <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
@@ -240,3 +246,24 @@
     <!-- </div> -->
     <!-- </div> -->
 </form>
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+          

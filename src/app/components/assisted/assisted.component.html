@@ -184,7 +184,7 @@
             <!-- <div *ngif="!form.value">לפחות אחד צריך להיות מסומן</div> -->
         </div>
     </div>
-    <div class="section1" >
+    <div class="section1">
         <div class="col-sm-12 second-col">
             <button type="button" class="form-control" routerLink="/volunteering-domain/true/{{this.mode}}">תחומי
                 עזרה</button>
@@ -205,9 +205,9 @@
 
         <div class="button-wapper">
 
-            <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg" data-toggle="modal" data-target="#myModal">
+            <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
                 רישום</button>
-            <button (click)="add1()" *ngIf="this.mode=='update' " type="submit" class="btn btn-dark btn-perple btn-lg" data-toggle="modal" data-target="#myModal">
+            <button (click)="add1()" *ngIf="this.mode=='update' " type="submit" class="btn btn-dark btn-perple btn-lg">
                 עדכון</button>
             <!-- <button  type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> אישור</button> -->
             <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
@@ -246,24 +246,6 @@
     <!-- </div> -->
     <!-- </div> -->
 </form>
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-      
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the modal.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-        
-      </div>
-    </div>
 
-          
+
+

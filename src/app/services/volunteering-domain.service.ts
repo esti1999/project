@@ -12,7 +12,9 @@ export class VolunteeringDomainService {
  volunteeringDomain:VolunteeringDomain = new VolunteeringDomain();
  url:string = "http://localhost:59782/api/volunteerDomain"
  
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    // this.volunteeringDomain.code_volunteering=new Array<VolunteeringDomain>()
+   }
 
  getVolunteeringDomain(code_domain:number):Observable<Array<VolunteeringDomain>>{
     return this.http.get<Array<VolunteeringDomain>>(this.url+"/getVolunteeringDomain/" + code_domain)
@@ -21,6 +23,4 @@ export class VolunteeringDomainService {
  getDomain():Observable<Array<Domain>>{
  return this.http.get<Array<Domain>>(this.url + "/GetDomain")
  }
-
-
 }

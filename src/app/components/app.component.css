@@ -30,3 +30,7 @@
     height: 50px;
     background-repeat: no-repeat;
 }
+.first a{
+    color:rgb(163, 25, 145);
+    padding: 30px;
+}

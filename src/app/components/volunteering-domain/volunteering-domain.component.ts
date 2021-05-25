@@ -16,14 +16,19 @@ export class VolunteeringDomainComponent implements OnInit {
   newVolunteeringDomain: VolunteeringDomain = new VolunteeringDomain();
   kind: string;
   mode: string;
+  title:string;
   constructor(private volunteer: VolunteerService, private assisted: AssistedService, private volunteeringDomain: VolunteeringDomainService, private route: ActivatedRoute, private router: Router) { }
   listDomain: any[] = []
   ngOnInit(): void {
     this.kind = this.route.snapshot.params['kind']
     this.mode = this.route.snapshot.params['mode']
-    this.kind == "true" ? this.selectedVolunteerings = this.assisted.Assisted.volunteeringdomains.filter(x=>x.IsSelected==true) :
+    this.kind =="true"? this.title = "תחומי התנדבות" :"תחומי עזרה"
+    if(this.mode=="update")
+    {
+     this.kind == "true" ? this.selectedVolunteerings = this.assisted.Assisted.volunteeringdomains.filter(x=>x.IsSelected==true) :
       this.selectedVolunteerings = this.volunteer.Volunteer.volunteeringdomains.filter(x=>x.IsSelected==true);
-    this.volunteeringDomain.getDomain().subscribe(data => {
+    }
+      this.volunteeringDomain.getDomain().subscribe(data => {
       this.list = data;
       this.list.forEach(elemnt => {
         this.volunteeringDomain.getVolunteeringDomain(elemnt.code_domain).subscribe(res => {

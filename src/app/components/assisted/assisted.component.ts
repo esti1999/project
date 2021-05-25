@@ -48,10 +48,6 @@ export class AssistedComponent implements OnInit {
 
   availabilitys: Availability[];
 
-  popup:boolean=false;
-  popup1:boolean=false;
-
-
 
   ngOnInit() {
     this.mode = this.route.snapshot.params['mode']
@@ -105,7 +101,6 @@ export class AssistedComponent implements OnInit {
     this.Assisted.addAssisted().subscribe(data => {
       // this.Assisted.listAssisted = data
       if (data == true) {
-          this.popup=true;
         alert("הרשמתך בוצעה בהצלחה")
         // this.rout.navigate(['/schedule/assisted']);
         // const source = interval(10000*6);
@@ -113,7 +108,6 @@ export class AssistedComponent implements OnInit {
         // this.subscription = source.subscribe(val => this.toEmbed());
       }
       else
-         this.popup1=true;
         alert("הרשמתך נכשלה")
     })
 
@@ -123,7 +117,6 @@ export class AssistedComponent implements OnInit {
       // this.Assisted.listAssisted = data
       if (this.mode == 'update') {
         if (data == true) {
-           this.popup=true;
           alert("העדכון בוצע בהצלחה")
           // const source = interval(10000*6);
           // const text = 'Your Text Here';
@@ -133,7 +126,6 @@ export class AssistedComponent implements OnInit {
       }
       else
         alert(" העדכון נכשל")
-        this.popup1=true;
       // this.rout.navigate(['/schedule/assisted']);
     })
 

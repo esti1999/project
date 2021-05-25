@@ -8,6 +8,7 @@ import { Volunteer } from 'src/app/classes/volunteer';
 import { NgForOf } from '@angular/common';
 import { interval, Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -36,8 +37,7 @@ export class LoginComponent implements OnInit {
     this.ApiService.GetEailAddressAndPassword(this.e_mail, this.password)
       .subscribe(data => {
         if (data != null) {
-          // alert("ברוך הבא");
-          console.log("volunteer", data)
+           alert("ברוך הבא");
           //save valonteer in service
           this.volunteerService.Volunteer = data;
           this.volunteerService.Volunteer.date_of_birth = new Date(data.date_of_birth);
@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
             .subscribe(data1 => {
               if (data1 != null) {
                 // alert("ברוך הבא");
+
                 this.rout.navigate(['/schedule/assisted']);
                 console.log("assisted", data1)
                 //save assisted

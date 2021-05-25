@@ -75,7 +75,11 @@
 }
 .chek
 {
-    background-color: darkorchid;
-    
+    background-color: darkorchid; 
+}
+.first a{
+    /* background-color: white; */
+    color:rgb(163, 25, 145);
+    padding: 20px;  
 }
 

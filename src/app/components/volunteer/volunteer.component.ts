@@ -113,6 +113,7 @@ export class VolunteerComponent implements OnInit {
     this.Volunteer.getServices().subscribe(data => {
       this.list7 = data;
     })
+  
   }
   isAvailabilitySelected(code_day, code_shift): boolean {
     let availability = this.availabilitys.find(a => a.code_day == code_day && a.code_shift == code_shift);
@@ -143,5 +144,10 @@ export class VolunteerComponent implements OnInit {
   }
   trackByIndex(index: number, value: any) {
     return index;
+  }
+  
+   myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
   }
 }

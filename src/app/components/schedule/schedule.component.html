@@ -23,7 +23,8 @@
                 <h3 class="h">שיבוצים מוצעים</h3>
                 <table>
                     <tr>
-                        <th class="t12 col-2">תחום התנדבות </th>
+                        <th class="t12 col-2">תחום</th>
+                        <th class="t12 col-2">התנדבות</th>
                         <th class="t12 col-1">שם</th>
                         <th class="t12 col-1">פלאפון</th>
                         <th class="t12 col-1">מייל</th>
@@ -31,12 +32,13 @@
                     </tr>
                     <tr></tr>
                     <tr *ngFor="let assisted of volunteer.embedAssistedsList">
-                        <td class="t14">{{assisted.volunteering_domain}}</td>
+                        <td class="t14">{{assisted.domain}}</td>
+                        <td class="t14">{{assisted.volunteering_domain}}</td>                       
                         <td class="t14">{{assisted.full_name}}</td>
                         <td class="t14">{{assisted.phone}}</td>
                         <td class="t14">{{assisted.email}}</td>
                         <td>
-                            <button (click)="approveEmbedding(assisted)">{{assisted.isApproved?'בטל':'אשר'}}</button>
+                            <button (click)="approveEmbedding(assisted)" class="btn btn-dark btn-perple btn-lg">{{assisted.isApproved?'בטל':'אשר'}}</button>
                         </td>
                     </tr>
                     <!-- <tr>
@@ -84,13 +86,15 @@
                 <h3 class="h">השיבוצים שלך</h3>
                 <table>
                     <tr>
-                        <th class="t12 col-2">תחום התנדבות </th>
+                        <th class="t12 col-2">תחום</th>
+                        <th class="t12 col-2"> התנדבות </th>
                         <th class="t12 col-1">שם</th>
                         <th class="t12 col-1">פלאפון</th>
                         <th class="t12 col-1">מייל</th>
                     </tr>
                     <tr></tr>
                     <tr *ngFor="let assisted of volunteer.approvedEmbedAssistedsList">
+                        <td class="t14">{{assisted.domain}}</td>
                         <td class="t14">{{assisted.volunteering_domain}}</td>
                         <td class="t14">{{assisted.full_name}}</td>
                         <td class="t14">{{assisted.phone}}</td>

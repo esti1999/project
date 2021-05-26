@@ -33,12 +33,13 @@
                     <tr></tr>
                     <tr *ngFor="let assisted of volunteer.embedAssistedsList">
                         <td class="t14">{{assisted.domain}}</td>
-                        <td class="t14">{{assisted.volunteering_domain}}</td>                       
+                        <td class="t14">{{assisted.volunteering_domain}}</td>
                         <td class="t14">{{assisted.full_name}}</td>
                         <td class="t14">{{assisted.phone}}</td>
                         <td class="t14">{{assisted.email}}</td>
                         <td>
-                            <button (click)="approveEmbedding(assisted)" class="btn btn-dark btn-perple btn-lg">{{assisted.isApproved?'בטל':'אשר'}}</button>
+                            <button (click)="approveEmbedding(assisted)"
+                                class="btn btn-dark btn-perple btn-lg">{{assisted.isApproved?'בטל':'אשר'}}</button>
                         </td>
                     </tr>
                     <!-- <tr>
@@ -104,6 +105,11 @@
             </div>
             <div class="button-wapper">
                 <button type="submit" (click)="sendMessages()" class="btn btn-dark btn-perple btn-lg"> אישור </button>
+                <div *ngIf="this.isSuccess==true">
+                    <h5>
+                        {{popup}}
+                    </h5>
+                </div>
             </div>
         </div>
 
@@ -154,6 +160,11 @@
             </div>
             <div class="button-wapper">
                 <button type="submit" (click)="add()" class="btn btn-dark btn-perple btn-lg"> אישור </button>
+                <div *ngIf="this.isSuccess==true">
+                    <h5>
+                        {{popup}}
+                    </h5>
+                </div>
             </div>
         </div>
     </div>

@@ -47,6 +47,8 @@ export class AssistedComponent implements OnInit {
   password2: string = "";
 
   availabilitys: Availability[];
+  popup: string;
+  isSuccess:boolean= false;
 
 
   ngOnInit() {
@@ -98,46 +100,41 @@ export class AssistedComponent implements OnInit {
     }
   }
   add() {
-    this.Assisted.addAssisted().subscribe(data => {
+    this.Assisted.addAssisted().subscribe(async data => {
       // this.Assisted.listAssisted = data
       if (data == true) {
-        alert("הרשמתך בוצעה בהצלחה")
-        // this.rout.navigate(['/schedule/assisted']);
-        // const source = interval(10000*6);
-        // const text = 'Your Text Here';
-        // this.subscription = source.subscribe(val => this.toEmbed());
+        this.isSuccess=true;
+        this.popup =" הרשמתך בוצעה בהצלחה"
+        await new Promise((resolve=>setTimeout(resolve,3000)))
+          this.isSuccess=false;
       }
-      else
-        alert("הרשמתך נכשלה")
+      else{
+        this.isSuccess=true;
+        this.popup =" הרשמתך נכשלה "
+        await new Promise((resolve=>setTimeout(resolve,3000)))
+        this.isSuccess=false;
+      }        
     })
-
   }
   add1() {
-    this.Assisted.addAssisted().subscribe(data => {
+    this.Assisted.addAssisted().subscribe(async data => {
       // this.Assisted.listAssisted = data
       if (this.mode == 'update') {
         if (data == true) {
-          alert("העדכון בוצע בהצלחה")
-          // const source = interval(10000*6);
-          // const text = 'Your Text Here';
-          // this.subscription = source.subscribe(val => this.toEmbed());
+          this.isSuccess=true;
+          this.popup="העדכון בוצע בהצלחה"
+          await new Promise((resolve=>setTimeout(resolve,3000)))
+           this.isSuccess=false;
         }
-
       }
-      else
-        alert(" העדכון נכשל")
-      // this.rout.navigate(['/schedule/assisted']);
+      else{
+         this.isSuccess=true;
+          this.popup="העדכון נכשל "
+          await new Promise((resolve=>setTimeout(resolve,3000)))
+           this.isSuccess=false;
+      }
     })
-
   }
-  // toEmbed()
-  // {
-  //   console.log("שיבוץ")
-  //   this.Assisted.toEmbedAssisted().subscribe(res=>{
-  //     if(res)
-  //     console.log("שבוץ")
-  //   });
-  // }
   navigateSchedule() {
     this.rout.navigate(['/schedule/assisted']);
   }

@@ -49,6 +49,11 @@
 
         <div class="button-wapper col-sm-12">
           <button type="submit" class="btn btn-dark btn-perple btn-lg"> התחבר </button>
+          <div *ngIf = "this.isSuccess==true">
+           <h5>
+           {{popup}}
+           </h5>
+        </div>
         </div>
       </div>
     </div>

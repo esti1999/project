@@ -204,11 +204,13 @@
         </table>
 
         <div class="button-wapper">
-
             <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg">
                 רישום</button>
             <button (click)="add1()" *ngIf="this.mode=='update' " type="submit" class="btn btn-dark btn-perple btn-lg">
                 עדכון</button>
+                <div *ngIf = "this.isSuccess==true">
+                    {{popup}}
+                </div>
             <!-- <button  type="submit" class="btn btn-dark btn-perple btn-lg" routerLink="/schedule"> אישור</button> -->
             <!-- <button  (click)="" class="btn btn-dark btn-perple btn-lg"> שבץ אותי  </button> -->
         </div>

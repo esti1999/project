@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   e_mail: string
   user: any
 
+  isSuccess:boolean=false;
+  popup:string;
+
   // constructor(public ApiService:ApiService ,public rout:Router, public VolunteerApi:VolunteerService) { }
 
   constructor(
@@ -35,9 +38,13 @@ export class LoginComponent implements OnInit {
 
   Enters() {
     this.ApiService.GetEailAddressAndPassword(this.e_mail, this.password)
-      .subscribe(data => {
+      .subscribe(async data => {
         if (data != null) {
-           alert("ברוך הבא");
+          this.isSuccess=true;
+           this.popup="ברוך הבא"
+          await new Promise((resolve=>setTimeout(resolve,3000)))
+           this.isSuccess=false;
+          //  alert("ברוך הבא");
           //save valonteer in service
           this.volunteerService.Volunteer = data;
           this.volunteerService.Volunteer.date_of_birth = new Date(data.date_of_birth);
@@ -49,10 +56,12 @@ export class LoginComponent implements OnInit {
         }
         else {
           this.ApiService.GetEailAddressAndPassword1(this.e_mail, this.password)
-            .subscribe(data1 => {
+            .subscribe(async data1 => {
               if (data1 != null) {
-                // alert("ברוך הבא");
-
+                this.isSuccess=true;
+                this.popup="ברוך הבא"
+               await new Promise((resolve=>setTimeout(resolve,3000)))
+                this.isSuccess=false;
                 this.rout.navigate(['/schedule/assisted']);
                 console.log("assisted", data1)
                 //save assisted
@@ -60,11 +69,22 @@ export class LoginComponent implements OnInit {
                 this.assistedService.Assisted.date_birth = new Date(data1.date_birth);
               }
               else {
-                alert("משתמש לא קיים במערכת");
+                this.isSuccess=true;
+                this.popup="משתמש לא קיים במערכת"
+               await new Promise((resolve=>setTimeout(resolve,3000)))
+                this.isSuccess=false;
               }
-            }, err => { alert("שגיאה בגישה לשרת") })
+            }, async err => {       
+               this.isSuccess=true;
+              this.popup="שגיאה בגישה לשרת "
+             await new Promise((resolve=>setTimeout(resolve,3000)))
+              this.isSuccess=false; })
         }
-      }, err => { alert("שגיאה בגישה לשרת") })
+      }, async err => {     
+        this.isSuccess=true;
+        this.popup="שגיאה בגישה לשרת "
+       await new Promise((resolve=>setTimeout(resolve,3000)))
+        this.isSuccess=false; }) 
   }
 }
 

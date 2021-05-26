@@ -21,6 +21,8 @@ export class ScheduleComponent implements OnInit {
   newShift: Shifts = new Shifts();
   userType: string;
   mode: string;
+  isSuccess:boolean=false;
+  popup:string;
   availabilitys: Availability[];
   assistedsList: EmbeddingAssisted[] = [];
   subscription: Subscription;
@@ -57,34 +59,38 @@ export class ScheduleComponent implements OnInit {
     }
   }
   add() {
-    this.Assisted.addAssisted().subscribe(data => {
+    this.Assisted.addAssisted().subscribe(async data => {
       // this.Assisted.listAssisted = data
       if (data == true) {
-        alert("הרשמתך בוצעה בהצלחה")
-        // const source = interval(10000 * 6);
-        // const text = 'Your Text Here';
-        // this.subscription = source.subscribe(val => this.toEmbed());
+        this.isSuccess=true;
+        this.popup="פניתך התקבלה בהצלחה"
+        await new Promise((resolve=>setTimeout(resolve,3000)))
+         this.isSuccess=false;
       }
       else
-        alert("הרשמתך נכשלה")
+      this.isSuccess=true;
+      this.popup="פניתך נכשלה"
+      await new Promise((resolve=>setTimeout(resolve,3000)))
+       this.isSuccess=false;
     })
   }
   toEmbed() {
     console.log("שיבוץ")
-    // this.Assisted.toEmbedAssisted().subscribe(res => {
-    //   if (res)
-    //     console.log("שבוץ")
-    // });
   }
   approveEmbedding(embeddingAssisted: EmbeddingAssisted) {
     embeddingAssisted.isApproved = !embeddingAssisted.isApproved;
+    
   }
   sendMessages() {
     let approvedEmbeddings: EmbeddingAssisted[] = this.volunteer.embedAssistedsList.filter(a => a.isApproved == true);
-    this.Assisted.sendMessagesToAssisteds(approvedEmbeddings).subscribe(res => {
+    this.Assisted.sendMessagesToAssisteds(approvedEmbeddings).subscribe(async res => {
       // if (res) {
         approvedEmbeddings.forEach(e => this.volunteer.approvedEmbedAssistedsList.push(e));
         this.volunteer.embedAssistedsList = this.volunteer.embedAssistedsList.filter(a => a.isApproved == false);
+        this.isSuccess=true;
+        this.popup="השיבוץ בוצע בהצלחה"
+        await new Promise((resolve=>setTimeout(resolve,3000)))
+         this.isSuccess=false;
       // }
     });
   }

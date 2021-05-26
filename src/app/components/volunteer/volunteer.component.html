@@ -5,7 +5,7 @@
         </div>
     </div>
 </div>
-<form action="/action_page.php" #myForm="ngForm" (ngSubmit)="add()" style="direction: rtl;">
+<form action="/action_page.php" #myForm="ngForm"  style="direction: rtl;">
     <div class="section first-section">
         <h2 class="title">מידע אישי למתנדב</h2>
         <div class="row rograph">
@@ -483,10 +483,13 @@
             </div> -->
 
             <div class="button-wapper">
-                <button *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום
+                <button (click)="add()" *ngIf="this.mode=='register'" type="submit" class="btn btn-dark btn-perple btn-lg"> רישום
                 </button>
-                <button *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
+                <button (click)="add1()" *ngIf="this.mode=='update'" type="submit" class="btn btn-dark btn-perple btn-lg"> עדכון
                 </button>
+                <div *ngIf = "this.isSuccess==true">
+                    {{popup}}
+                </div>
             </div>
         </div>
     </div>

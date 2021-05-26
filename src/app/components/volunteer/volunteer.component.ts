@@ -69,6 +69,9 @@ export class VolunteerComponent implements OnInit {
 
   availabilitys: Availability[];
 
+  isSuccess:boolean=false;
+  popup:string;
+
 
   ngOnInit() {
     this.mode = this.route.snapshot.params['mode']
@@ -130,17 +133,40 @@ export class VolunteerComponent implements OnInit {
     }
   }
   add() {
-    this.Volunteer.addVolunteer().subscribe(data => {
+    this.Volunteer.addVolunteer().subscribe(async data => {
       // this.Volunteer.listVolunteer = data
       if (data == true) {
-        //  this.Volunteer.addVolunteerDomaim();
-        alert("הרשמתך בוצעה בהצלחה")
+        this.isSuccess=true;
+        this.popup =" הרשמתך בוצעה בהצלחה"
+        await new Promise((resolve=>setTimeout(resolve,3000)))
+          this.isSuccess=false;
 
       }
       else
-        alert("הרשמתך נכשלה")
+        this.isSuccess=true;
+        this.popup =" הרשמתך נכשלה "
+        await new Promise((resolve=>setTimeout(resolve,3000)))
+          this.isSuccess=false;
     })
-
+  }
+  add1() {
+    this.Volunteer.addVolunteer().subscribe(async data => {
+      // this.Assisted.listAssisted = data
+      if (this.mode == 'update') {
+        if (data == true) {
+          this.isSuccess=true;
+          this.popup="העדכון בוצע בהצלחה"
+          await new Promise((resolve=>setTimeout(resolve,3000)))
+           this.isSuccess=false;
+        }
+      }
+      else{
+         this.isSuccess=true;
+          this.popup="העדכון נכשל "
+          await new Promise((resolve=>setTimeout(resolve,3000)))
+           this.isSuccess=false;
+      }
+    })
   }
   trackByIndex(index: number, value: any) {
     return index;
